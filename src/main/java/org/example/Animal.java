@@ -8,12 +8,12 @@ public abstract class Animal {
     private int age;
     private LocalDate entryDate;
     private double weight;
-    private double height;
+    private int height;
 
     public Animal() {
     }
 
-    public Animal(String name, String favoriteFood, int age, LocalDate entryDate, double weight, double height) {
+    public Animal(String name, String favoriteFood, int age, LocalDate entryDate, double weight, int height) {
         this.name = name;
         this.favoriteFood = favoriteFood;
         this.age = age;
@@ -62,12 +62,23 @@ public abstract class Animal {
         this.weight = weight;
     }
 
-    public double getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(int height) {
         this.height = height;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "name='" + name + '\'' +
+                ", favoriteFood='" + favoriteFood + '\'' +
+                ", age=" + age +
+                ", entryDate=" + entryDate +
+                ", weight=" + weight +
+                ", height=" + height +
+                '}';
+    }
 }
