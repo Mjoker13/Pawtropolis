@@ -2,7 +2,7 @@ package org.example;
 
 import java.time.LocalDate;
 
-public abstract class Animal implements  ZooController {
+public abstract class Animal {
     private String name;
     private String favoriteFood;
     private int age;

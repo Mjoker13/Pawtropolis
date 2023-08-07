@@ -61,23 +61,19 @@ public class Main {
         System.out.println(ZooController.getTheShortestTiger(tigers));
         System.out.println(ZooController.getTheHeaviestTiger(tigers));
         System.out.println(ZooController.getTheLightestTiger(tigers));
-        System.out.println("----------------------------------------");
+        System.out.println("-----------------------------------------------------");
         System.out.println(ZooController.getTheHighestEagle(eagles));
         System.out.println(ZooController.getTheShortestEagle(eagles));
         System.out.println(ZooController.getTheHeaviestEagle(eagles));
         System.out.println(ZooController.getTheLightestEagle(eagles));
-        System.out.println("----------------------------------------");
+        System.out.println("-----------------------------------------------------");
         System.out.println(ZooController.getTheHighestLion(lions));
         System.out.println(ZooController.getTheShortestLion(lions));
         System.out.println(ZooController.getTheHeaviestLion(lions));
         System.out.println(ZooController.getTheLightestLion(lions));
-        System.out.println("----------------------------------------");
-        if(ZooController.getLongestTailTiger(tigers).getTailLength() > ZooController.getLongestTailLion(lions).getTailLength()){
-            System.out.println("The animal with longest tail is: " + ZooController.getLongestTailTiger(tigers).getName() + " and its tail is :" + ZooController.getLongestTailTiger(tigers).getTailLength());
-        }else {
-            System.out.println("The animal with longest tail is: " + ZooController.getLongestTailLion(lions).getName() + " and its tail is :" + ZooController.getLongestTailLion(lions).getTailLength());
-        }
-        System.out.println("----------------------------------------");
-        System.out.println("The animal with greater wingspan is: " + ZooController.getGreaterWingspanEagle(eagles).getName()+ " and its wingspan is :" + ZooController.getGreaterWingspanEagle(eagles).getWingspan());
+        System.out.println("-----------------------------------------------------");
+        System.out.println(ZooController.getLongestTail(intoTheZoo));
+        System.out.println("-----------------------------------------------------");
+        System.out.println(ZooController.getGreaterWingspan(intoTheZoo));
     }
 }
