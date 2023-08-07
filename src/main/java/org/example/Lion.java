@@ -5,13 +5,10 @@ import java.util.List;
 
 public class Lion extends Animal{
     private int tailLength;
-    public Lion() {
-    }
     public Lion(String name, String favoriteFood, int age, LocalDate entryDate, double weight, int height, int tailLength) {
         super(name, favoriteFood, age, entryDate, weight, height);
         this.tailLength = tailLength;
     }
-    //TODO sfruttare meglio la riusabilità del codice
     public String  getTheHighest(List<Lion> lions) {
         int highest=0;
         String name="";
@@ -77,7 +74,7 @@ public class Lion extends Animal{
         return "The LIGHTEST lion is: " + name + " and its weight is: " + lightest;
     }
     public Lion getLongestTail(List<Lion> lions){
-        Lion tail = new Lion();
+        Lion tail = lions.listIterator().next();
         int taillong= 0;
         for (int i = 0; i < lions.size()-1; i++) {
             if(taillong < lions.get(i).getTailLength() || taillong< lions.get(i+1).getTailLength()) {
@@ -100,7 +97,13 @@ public class Lion extends Animal{
     @Override
     public String toString() {
         return "Lion{" +
-                "tailLength=" + tailLength +
+                "name='" + super.getName() + '\'' +
+                ", favoriteFood='" + super.getFavoriteFood() + '\'' +
+                ", age=" + super.getAge() +
+                ", entryDate=" + super.getEntryDate() +
+                ", weight=" + super.getWeight() +
+                ", height=" + super.getHeight() +
+                ", tailLength=" + tailLength +
                 '}';
     }
 }

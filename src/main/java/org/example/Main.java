@@ -6,7 +6,10 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        // list of animals into the zoo
+        // creare un zooController che gestisce le liste ed i metodi degli animali
+        // limitare al massimo l'impatto se dovesse entrare qualche altro animale
+        // information hiding, incapsulamento, information expert, controller(grasp)
+
         List<Animal> intoTheZoo = new ArrayList<>();
 
         // create animals
@@ -18,7 +21,7 @@ public class Main {
         intoTheZoo.add(sherkan);
         intoTheZoo.add(tigro);
         intoTheZoo.add(iris);
-
+        System.out.println(sherkan);
         LocalDate dateSimba= LocalDate.of(1994,8,03);
         LocalDate dateAlex= LocalDate.of(1982,10,05);
         Lion simba = new Lion("Simba","insect",12,dateSimba,85,120,35);
@@ -56,7 +59,8 @@ public class Main {
         Eagle e = eagles.listIterator().next();
 
         // operation
-        System.out.println(t.getTheHighest(tigers));
+        //TODO metodo statico che chiamo con la classe stessa
+        System.out.println(Tiger.getTheHighest(tigers));
         System.out.println(t.getTheShortest(tigers));
         System.out.println(t.getTheHeaviest(tigers));
         System.out.println(t.getTheLightest(tigers));

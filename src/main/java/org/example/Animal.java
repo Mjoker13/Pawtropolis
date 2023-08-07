@@ -9,10 +9,6 @@ public abstract class Animal {
     private LocalDate entryDate;
     private double weight;
     private int height;
-
-    public Animal() {
-    }
-
     public Animal(String name, String favoriteFood, int age, LocalDate entryDate, double weight, int height) {
         this.name = name;
         this.favoriteFood = favoriteFood;
@@ -70,7 +66,7 @@ public abstract class Animal {
         this.height = height;
     }
 
-    @Override
+    @Override // è solo un controllo fatto dal compilatore a tempo statico, si può anche omettere
     public String toString() {
         return "Animal{" +
                 "name='" + name + '\'' +

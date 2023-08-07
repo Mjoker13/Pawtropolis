@@ -1,23 +1,15 @@
 package org.example;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class Tiger extends Animal {
     private int tailLength;
-
-    public Tiger() {
-    }
-
     public Tiger(String name, String favoriteFood, int age, LocalDate entryDate, double weight, int height, int tailLength) {
         super(name, favoriteFood, age, entryDate, weight, height);
         this.tailLength = tailLength;
     }
-
-    //TODO sfruttare meglio la riusabilità del codice
-    public String getTheHighest(List<Tiger> tigers) {
+    public static String getTheHighest(List<Tiger> tigers) {
         int highest=0;
         String name="";
         for (int i = 0; i < tigers.size()-1; i++) {
@@ -82,7 +74,7 @@ public class Tiger extends Animal {
         return "The LIGHTEST tiger is: " + name + " and its weight is: " + lightest;
     }
     public Tiger getLongestTail(List<Tiger> tigers){
-        Tiger tail = new Tiger();
+        Tiger tail = tigers.listIterator().next();
         int taillong= 0;
         for (int i = 0; i < tigers.size()-1; i++) {
             if(taillong < tigers.get(i).getTailLength() || taillong< tigers.get(i+1).getTailLength()) {
@@ -105,7 +97,13 @@ public class Tiger extends Animal {
     @Override
     public String toString() {
         return "Tiger{" +
-                "tailLength=" + tailLength +
+                "name='" + super.getName() + '\'' +
+                ", favoriteFood='" + super.getFavoriteFood() + '\'' +
+                ", age=" + super.getAge() +
+                ", entryDate=" + super.getEntryDate() +
+                ", weight=" + super.getWeight() +
+                ", height=" + super.getHeight() +
+                ", tailLength=" + tailLength +
                 '}';
     }
 }

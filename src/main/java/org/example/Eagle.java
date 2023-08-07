@@ -5,13 +5,10 @@ import java.util.List;
 
 public class Eagle extends Animal{
     private int wingspan;
-    public Eagle() {
-    }
     public Eagle(String name, String favoriteFood, int age, LocalDate entryDate, double weight, int height, int wingspan) {
         super(name, favoriteFood, age, entryDate, weight, height);
         this.wingspan = wingspan;
     }
-    //TODO sfruttare meglio la riusabilità del codice
     public String  getTheHighest(List<Eagle> eagles) {
         int highest=0;
         String name="";
@@ -77,7 +74,7 @@ public class Eagle extends Animal{
         return "The LIGHTEST eagle is: " + name + " and its weight is: " + lightest;
     }
     public Eagle getGreaterWingspan(List<Eagle> eagles){
-        Eagle wings = new Eagle();
+        Eagle wings = eagles.listIterator().next();
         int taillong= 0;
         for (int i = 0; i < eagles.size()-1; i++) {
             if(taillong < eagles.get(i).getWingspan() || taillong< eagles.get(i+1).getWingspan()) {
@@ -100,7 +97,13 @@ public class Eagle extends Animal{
     @Override
     public String toString() {
         return "Eagle{" +
-                "wingspan=" + wingspan +
+                "name='" + super.getName() + '\'' +
+                ", favoriteFood='" + super.getFavoriteFood() + '\'' +
+                ", age=" + super.getAge() +
+                ", entryDate=" + super.getEntryDate() +
+                ", weight=" + super.getWeight() +
+                ", height=" + super.getHeight() +
+                ", wingspan=" + wingspan +
                 '}';
     }
 }
