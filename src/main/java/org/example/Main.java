@@ -11,7 +11,6 @@ public class Main {
         // information hiding, incapsulamento, information expert, controller(grasp)
 
         List<Animal> intoTheZoo = new ArrayList<>();
-
         // create animals
         LocalDate dateSherkan = LocalDate.of(2012,8,20);
         LocalDate dateTigro = LocalDate.of(2018,12,02);
@@ -21,7 +20,7 @@ public class Main {
         intoTheZoo.add(sherkan);
         intoTheZoo.add(tigro);
         intoTheZoo.add(iris);
-        System.out.println(sherkan);
+
         LocalDate dateSimba= LocalDate.of(1994,8,03);
         LocalDate dateAlex= LocalDate.of(1982,10,05);
         Lion simba = new Lion("Simba","insect",12,dateSimba,85,120,35);
@@ -36,9 +35,11 @@ public class Main {
         Eagle olimpia = new Eagle("Olimpia","fish",22,dateOlimpia,20,70,90);
         Eagle bianca = new Eagle("Bianca","rubbit",18,dateBianca,26,68,86);
         Eagle gigi = new Eagle("Gigi","rubbit",15,dateBianca,25,62,98);
+        Eagle teresa = new Eagle("Teresa","rubbit",15,dateOlimpia,30,82,108);
         intoTheZoo.add(olimpia);
         intoTheZoo.add(bianca);
         intoTheZoo.add(gigi);
+        intoTheZoo.add(teresa);
 
         // split the instance of animals into multiple list
         List<Tiger> tigers= new ArrayList<>();
@@ -54,33 +55,29 @@ public class Main {
             }
         }
 
-        Tiger t = tigers.listIterator().next();
-        Lion l = lions.listIterator().next();
-        Eagle e = eagles.listIterator().next();
-
         // operation
-        //TODO metodo statico che chiamo con la classe stessa
-        System.out.println(Tiger.getTheHighest(tigers));
-        System.out.println(t.getTheShortest(tigers));
-        System.out.println(t.getTheHeaviest(tigers));
-        System.out.println(t.getTheLightest(tigers));
+        //i metodi statici li posso chiamare con la classe stessa (Tiger.metodostatico();)
+        System.out.println(ZooController.getTheHighestTiger(tigers));
+        System.out.println(ZooController.getTheShortestTiger(tigers));
+        System.out.println(ZooController.getTheHeaviestTiger(tigers));
+        System.out.println(ZooController.getTheLightestTiger(tigers));
         System.out.println("----------------------------------------");
-        System.out.println(e.getTheHighest(eagles));
-        System.out.println(e.getTheShortest(eagles));
-        System.out.println(e.getTheHeaviest(eagles));
-        System.out.println(e.getTheLightest(eagles));
+        System.out.println(ZooController.getTheHighestEagle(eagles));
+        System.out.println(ZooController.getTheShortestEagle(eagles));
+        System.out.println(ZooController.getTheHeaviestEagle(eagles));
+        System.out.println(ZooController.getTheLightestEagle(eagles));
         System.out.println("----------------------------------------");
-        System.out.println(l.getTheHighest(lions));
-        System.out.println(l.getTheShortest(lions));
-        System.out.println(l.getTheHeaviest(lions));
-        System.out.println(l.getTheLightest(lions));
+        System.out.println(ZooController.getTheHighestLion(lions));
+        System.out.println(ZooController.getTheShortestLion(lions));
+        System.out.println(ZooController.getTheHeaviestLion(lions));
+        System.out.println(ZooController.getTheLightestLion(lions));
         System.out.println("----------------------------------------");
-        if(t.getLongestTail(tigers).getTailLength() > l.getLongestTail(lions).getTailLength()){
-            System.out.println("The animal with longest tail is: " + t.getLongestTail(tigers).getName() + " and its tail is :" + t.getLongestTail(tigers).getTailLength());
+        if(ZooController.getLongestTailTiger(tigers).getTailLength() > ZooController.getLongestTailLion(lions).getTailLength()){
+            System.out.println("The animal with longest tail is: " + ZooController.getLongestTailTiger(tigers).getName() + " and its tail is :" + ZooController.getLongestTailTiger(tigers).getTailLength());
         }else {
-            System.out.println("The animal with longest tail is: " + l.getLongestTail(lions).getName() + " and its tail is :" + l.getLongestTail(lions).getTailLength());
+            System.out.println("The animal with longest tail is: " + ZooController.getLongestTailLion(lions).getName() + " and its tail is :" + ZooController.getLongestTailLion(lions).getTailLength());
         }
         System.out.println("----------------------------------------");
-        System.out.println("The animal with greater wingspan is: " + e.getGreaterWingspan(eagles).getName()+ " and its wingspan is :" + e.getGreaterWingspan(eagles).getWingspan());
+        System.out.println("The animal with greater wingspan is: " + ZooController.getGreaterWingspanEagle(eagles).getName()+ " and its wingspan is :" + ZooController.getGreaterWingspanEagle(eagles).getWingspan());
     }
 }

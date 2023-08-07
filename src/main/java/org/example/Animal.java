@@ -2,7 +2,7 @@ package org.example;
 
 import java.time.LocalDate;
 
-public abstract class Animal {
+public abstract class Animal implements  ZooController {
     private String name;
     private String favoriteFood;
     private int age;
@@ -65,6 +65,7 @@ public abstract class Animal {
     public void setHeight(int height) {
         this.height = height;
     }
+
 
     @Override // è solo un controllo fatto dal compilatore a tempo statico, si può anche omettere
     public String toString() {
