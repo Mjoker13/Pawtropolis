@@ -2,10 +2,72 @@ package org.example;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class ZooController {
-    private List<Animal> animals;
+    private List<Animal> animals = new ArrayList<>();
+    public ZooController() {
+    }
+    public ZooController(List<Animal> animals) {
+        this.animals = new ArrayList<>();
+    }
+    public void addAnimal(Animal animal){
+        this.animals.add(animal);
+    }
+    public  void addAnimalList(List<Animal> animals){
+        this.animals.addAll(animals);
+    }
+    public void removeAnimal(Animal animal){
+        this.animals.remove(animal);
+    }
+    /*public void createAnimal(){
+        String name;
+        String favoriteFood;
+        int age;
+        LocalDate entryDate;
+        double weight;
+        int height;
+        int tailLength;
+        int wingspan;
+        String scan = "";
+        Scanner scanner= new Scanner(System.in);
+        System.out.println("You want to create a new animal? yes/no ");
+        scan = scanner.nextLine();
+        if(scan.contains("yes")){
+            System.out.println("Insert a name ");
+            name= scanner.nextLine();
+            System.out.println("Insert a favorite food ");
+            favoriteFood= scanner.nextLine();
+            System.out.println("Insert a age ");
+            age= Integer.parseInt(scanner.nextLine());
+            System.out.println("Insert a entry Date ");
+            entryDate= LocalDate.parse(scanner.nextLine());
+            System.out.println("Insert a weight ");
+            weight= Double.parseDouble(scanner.nextLine());
+            System.out.println("Insert a height ");
+            height= Integer.parseInt(scanner.nextLine());
+            System.out.println("This animal have a tail? yes/no");
+            scan = scanner.nextLine();
+            if(scan.contains("yes")){
+                System.out.println("Insert a tailLength ");
+                tailLength= Integer.parseInt(scanner.nextLine());
+                AnimalsWithTail animalsWithTail= new AnimalsWithTail(name,favoriteFood,age,entryDate,weight,height,tailLength) {};
+                animals.add(animalsWithTail);
+            } else if (scan.contains("no")) {
+                System.out.println("This animal have a wingspan? yes/no");
+                scan= scanner.nextLine();
+                if(scan.contains("yes")){
+                    System.out.println("Insert a wingspan ");
+                    wingspan= Integer.parseInt(scanner.nextLine());
+                    AnimalsWithWings animalsWithWings = new AnimalsWithWings(name,favoriteFood,age,entryDate,weight,height,wingspan) {};
+                    animals.add(animalsWithWings);
+                }
+            }
+        }
+    }*/ // create animal wrong
+
     public void createAnimals(){
+
         LocalDate dateSherkan = LocalDate.of(2012,8,20);
         LocalDate dateTigro = LocalDate.of(2018,12,02);
         Tiger sherkan = new Tiger("Sherkan","man",13,dateSherkan,78.5,96,22);
@@ -25,36 +87,25 @@ public class ZooController {
         Eagle gigi = new Eagle("Gigi","rubbit",15,dateBianca,25,62,98);
         Eagle teresa = new Eagle("Teresa","rubbit",15,dateOlimpia,30,82,108);
 
-        this.animals.add(sherkan);
-        this.animals.add(tigro);
-        this.animals.add(simba);
-        this.animals.add(alex);
-        this.animals.add(nala);
-        this.animals.add(olimpia);
-        this.animals.add(bianca);
-        this.animals.add(gigi);
-        this.animals.add(teresa);
+        animals.add(sherkan);
+        animals.add(tigro);
+        animals.add(simba);
+        animals.add(alex);
+        animals.add(nala);
+        animals.add(olimpia);
+        animals.add(bianca);
+        animals.add(gigi);
+        animals.add(teresa);
     }
-    public ZooController() {
-    }
-    public ZooController(List<Animal> animals) {
-        this.animals = new ArrayList<>();
-    }
-    public void addAnimal(Animal animal){
-        this.animals.add(animal);
-    }
-    public  void addAnimalList(List<Animal> animals){
-        this.animals.addAll(animals);
-    }
-    public void removeAnimal(Animal animal){
-        this.animals.remove(animal);
-    }
+
+    // getter & setter
     public List<Animal> getAnimals() {
         return animals;
     }
     public void setAnimals(List<Animal> animals) {
         this.animals = animals;
     }
+
     // Tiger management block
     public String getTheHighestTiger() {
         List<Tiger> tigers = new ArrayList<>();
@@ -395,7 +446,7 @@ public class ZooController {
     public String getLongestTail() {
         List<AnimalsWithTail> animalsWithTails = new ArrayList<>();
         for (var a : this.animals) {
-            if (a instanceof AnimalsWithTail) {
+            if (a instanceof AnimalsWithTail ) {
                 animalsWithTails.add((AnimalsWithTail) a);
             }
         }

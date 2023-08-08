@@ -5,6 +5,9 @@ public class Main {
 
         ZooController zooController= new ZooController();
         zooController.createAnimals();
+        System.out.println(zooController.getAnimals());
+
+
         // operation
         System.out.println(zooController.getTheHighestTiger());
         System.out.println(zooController.getTheShortestTiger());
