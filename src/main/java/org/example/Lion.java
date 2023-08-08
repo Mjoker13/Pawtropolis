@@ -1,20 +1,10 @@
 package org.example;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
-public class Lion extends Animal {
-    private int tailLength;
+public class Lion extends AnimalsWithTail {
     public Lion(String name, String favoriteFood, int age, LocalDate entryDate, double weight, int height, int tailLength) {
-        super(name, favoriteFood, age, entryDate, weight, height);
-        this.tailLength = tailLength;
-    }
-    public int getTailLength() {
-        return tailLength;
-    }
-    public void setTailLenght(int tailLength) {
-        this.tailLength = tailLength;
+        super(name, favoriteFood, age, entryDate, weight, height, tailLength);
     }
     @Override
     public String toString() {
@@ -25,7 +15,7 @@ public class Lion extends Animal {
                 ", entryDate=" + super.getEntryDate() +
                 ", weight=" + super.getWeight() +
                 ", height=" + super.getHeight() +
-                ", tailLength=" + tailLength +
+                ", tailLength=" + super.getTailLength() +
                 '}';
     }
 
