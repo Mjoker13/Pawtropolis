@@ -1,7 +1,6 @@
 package org.example;
 
 import java.time.LocalDate;
-import java.util.List;
 
 public class Eagle extends AnimalsWithWings {
     public Eagle(String name, String favoriteFood, int age, LocalDate entryDate, double weight, int height, int wingspan) {
@@ -17,6 +16,6 @@ public class Eagle extends AnimalsWithWings {
                 ", weight=" + super.getWeight() +
                 ", height=" + super.getHeight() +
                 ", wingspan=" + super.getWingspan() +
-                '}';
+                '}' + '\n';
     }
 }

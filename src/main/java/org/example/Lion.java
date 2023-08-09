@@ -16,7 +16,7 @@ public class Lion extends AnimalsWithTail {
                 ", weight=" + super.getWeight() +
                 ", height=" + super.getHeight() +
                 ", tailLength=" + super.getTailLength() +
-                '}';
+                '}'+ '\n';
     }
 
 }

@@ -16,7 +16,7 @@ public class Tiger extends AnimalsWithTail {
                 ", weight=" + super.getWeight() +
                 ", height=" + super.getHeight() +
                 ", tailLength=" + super.getTailLength() +
-                '}';
+                '}'+ '\n';
     }
 
 }
