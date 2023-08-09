@@ -7,9 +7,9 @@ public abstract class Animal {
     private String favoriteFood;
     private int age;
     private LocalDate entryDate;
-    private double weight;
-    private int height;
-    public Animal(String name, String favoriteFood, int age, LocalDate entryDate, double weight, int height) {
+    private float weight;
+    private float height;
+    protected Animal(String name, String favoriteFood, int age, LocalDate entryDate, float weight, float height) {
         this.name = name;
         this.favoriteFood = favoriteFood;
         this.age = age;
@@ -50,19 +50,19 @@ public abstract class Animal {
         this.entryDate = entryDate;
     }
 
-    public double getWeight() {
+    public float getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(float weight) {
         this.weight = weight;
     }
 
-    public int getHeight() {
+    public float getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(float height) {
         this.height = height;
     }
 

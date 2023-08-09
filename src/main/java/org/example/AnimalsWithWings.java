@@ -3,15 +3,15 @@ package org.example;
 import java.time.LocalDate;
 
 public abstract class AnimalsWithWings extends Animal{
-    private int wingspan;
-    public AnimalsWithWings(String name, String favoriteFood, int age, LocalDate entryDate, double weight, int height, int wingspan) {
+    private float wingspan;
+    protected AnimalsWithWings(String name, String favoriteFood, int age, LocalDate entryDate, float weight, float height, float wingspan) {
         super(name, favoriteFood, age, entryDate, weight, height);
         this.wingspan = wingspan;
     }
-    public int getWingspan() {
+    public float getWingspan() {
         return wingspan;
     }
-    public void setWingspan(int wingspan) {
+    public void setWingspan(float wingspan) {
         this.wingspan = wingspan;
     }
 

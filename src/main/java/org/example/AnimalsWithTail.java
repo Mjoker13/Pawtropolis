@@ -3,15 +3,15 @@ package org.example;
 import java.time.LocalDate;
 
 public abstract class  AnimalsWithTail extends Animal  {
-    private int tailLength;
-    public AnimalsWithTail(String name, String favoriteFood, int age, LocalDate entryDate, double weight, int height, int tailLength) {
+    private float tailLength;
+    protected AnimalsWithTail(String name, String favoriteFood, int age, LocalDate entryDate, float weight, float height, float tailLength) {
         super(name, favoriteFood, age, entryDate, weight, height);
         this.tailLength = tailLength;
     }
-    public int getTailLength() {
+    public float getTailLength() {
         return tailLength;
     }
-    public void setTailLength(int tailLength) {
+    public void setTailLength(float tailLength) {
         this.tailLength = tailLength;
     }
 

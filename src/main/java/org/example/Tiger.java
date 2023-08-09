@@ -3,7 +3,7 @@ package org.example;
 import java.time.LocalDate;
 
 public class Tiger extends AnimalsWithTail {
-    public Tiger(String name, String favoriteFood, int age, LocalDate entryDate, double weight, int height, int tailLength) {
+    public Tiger(String name, String favoriteFood, int age, LocalDate entryDate, float weight, float height, float tailLength) {
         super(name, favoriteFood, age, entryDate, weight, height, tailLength);
     }
     @Override
