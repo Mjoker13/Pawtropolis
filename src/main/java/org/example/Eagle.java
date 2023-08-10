@@ -2,10 +2,12 @@ package org.example;
 
 import java.time.LocalDate;
 
+
 public class Eagle extends AnimalsWithWings {
     public Eagle(String name, String favoriteFood, int age, LocalDate entryDate, float weight, float height, float wingspan) {
         super(name, favoriteFood, age, entryDate, weight, height, wingspan);
     }
+
     @Override
     public String toString() {
         return "Eagle{" +

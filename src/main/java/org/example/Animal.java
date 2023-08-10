@@ -65,7 +65,6 @@ public abstract class Animal {
     public void setHeight(float height) {
         this.height = height;
     }
-
     @Override // è solo un controllo fatto dal compilatore a tempo statico, si può anche omettere
     public String toString() {
         return "Animal{" +

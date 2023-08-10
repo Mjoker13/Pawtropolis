@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
 
+
         ZooController zooController= new ZooController();
         System.out.println(zooController.getAnimals());
 
@@ -26,6 +27,6 @@ public class Main {
         System.out.println("-----------------------------------------------------");
         System.out.println("The animal with longest tail is: " + zooController.getLongestTail().getName() + " and its tail is :" + zooController.getLongestTail().getTailLength()+ " cm");
         System.out.println("-----------------------------------------------------");
-        System.out.println("The animal with greater wingspan is: " + zooController.getGreaterWingspan().getName() + " and its tail is :" + zooController.getGreaterWingspan().getWingspan()+ " cm");
+        System.out.println("The animal with greater wingspan is: " + zooController.getWidestWingspan().getName() + " and its tail is :" + zooController.getWidestWingspan().getWingspan()+ " cm");
     }
 }
