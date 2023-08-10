@@ -26,221 +26,65 @@ public class ZooController{
 
     // Tiger management block
     public Tiger getTheHighestTiger() {
-        List<Tiger> tigers = new ArrayList<>();
-        for (Animal a : this.animals) {
-            if (a instanceof Tiger) {
-                tigers.add((Tiger) a);
-            }
-        }
-        if (!tigers.isEmpty()) {
-            Tiger tigerTallest = tigers.get(0);
-            for (Tiger currentAnimal : tigers) {
-                if (tigerTallest.getHeight() < currentAnimal.getHeight()) {
-                    tigerTallest = currentAnimal;
-                }
-            }
-            return tigerTallest;
-        } else return null;
+        Tiger tiger= new Tiger();
+        return (Tiger) tiger.getHighestAnimal(this.animals);
     }
 
     public Tiger getTheShortestTiger() {
-        List<Tiger> tigers = new ArrayList<>();
-        for (Animal a : this.animals) {
-            if (a instanceof Tiger) {
-                tigers.add((Tiger) a);
-            }
-        }
-        if (!tigers.isEmpty()) {
-            Tiger tigerShortest = tigers.get(0);
-            for (Tiger currentAnimal : tigers) {
-                if (tigerShortest.getHeight() > currentAnimal.getHeight()) {
-                    tigerShortest = currentAnimal;
-                }
-            }
-            return tigerShortest;
-        } else return null;
+        Tiger tiger= new Tiger();
+        return (Tiger) tiger.getTheShortestAnimal(this.animals);
     }
 
     public Tiger getTheHeaviestTiger() {
-        List<Tiger> tigers = new ArrayList<>();
-        for (Animal a : this.animals) {
-            if (a instanceof Tiger) {
-                tigers.add((Tiger) a);
-            }
-        }
-        if (!tigers.isEmpty()) {
-            Tiger tigerHeaviest = tigers.get(0);
-            for (Tiger currentAnimal : tigers) {
-                if (tigerHeaviest.getWeight() < currentAnimal.getWeight()) {
-                    tigerHeaviest = currentAnimal;
-                }
-            }
-            return tigerHeaviest;
-        } else return null;
+        Tiger tiger= new Tiger();
+        return (Tiger) tiger.getTheHeaviestAnimal(this.animals);
     }
 
     public Tiger getTheLightestTiger() {
-        List<Tiger> tigers = new ArrayList<>();
-        for (Animal a : this.animals) {
-            if (a instanceof Tiger) {
-                tigers.add((Tiger) a);
-            }
-        }
-        if (!tigers.isEmpty()) {
-            Tiger tigerLightest = tigers.get(0);
-            for (Tiger currentAnimal : tigers) {
-                if (tigerLightest.getWeight() > currentAnimal.getWeight()) {
-                    tigerLightest = currentAnimal;
-                }
-            }
-            return tigerLightest;
-        } else return null;
+        Tiger tiger= new Tiger();
+        return (Tiger) tiger.getTheLightestAnimal(this.animals);
     }
 
     // Lion management block
     public Lion getTheHighestLion() {
-        List<Lion> lions = new ArrayList<>();
-        for (Animal a : this.animals) {
-            if (a instanceof Lion) {
-                lions.add((Lion) a);
-            }
-        }
-        if (!lions.isEmpty()) {
-            Lion lionLightest = lions.get(0);
-            for (Lion currentAnimal : lions) {
-                if (lionLightest.getHeight() < currentAnimal.getHeight()) {
-                    lionLightest = currentAnimal;
-                }
-            }
-            return lionLightest;
-        } else return null;
+        Lion lion= new Lion();
+        return (Lion) lion.getHighestAnimal(this.animals);
     }
 
     public Lion getTheShortestLion() {
-        List<Lion> lions = new ArrayList<>();
-        for (Animal a : this.animals) {
-            if (a instanceof Lion) {
-                lions.add((Lion) a);
-            }
-        }
-        if (!lions.isEmpty()) {
-            Lion lionShortest = lions.get(0);
-            for (Lion currentAnimal : lions) {
-                if (lionShortest.getHeight() > currentAnimal.getHeight()) {
-                    lionShortest = currentAnimal;
-                }
-            }
-            return lionShortest;
-        } else return null;
+        Lion lion= new Lion();
+        return (Lion) lion.getTheShortestAnimal(this.animals);
     }
 
     public Lion getTheHeaviestLion() {
-        List<Lion> lions = new ArrayList<>();
-        for (Animal a : this.animals) {
-            if (a instanceof Lion) {
-                lions.add((Lion) a);
-            }
-        }
-        if (!lions.isEmpty()) {
-            Lion lionHeaviest = lions.get(0);
-            for (Lion currentAnimal : lions) {
-                if (lionHeaviest.getWeight() < currentAnimal.getWeight()) {
-                    lionHeaviest = currentAnimal;
-                }
-            }
-            return lionHeaviest;
-        } else return null;
+        Lion lion= new Lion();
+        return (Lion) lion.getTheHeaviestAnimal(this.animals);
     }
 
     public Lion getTheLightestLion() {
-        List<Lion> lions = new ArrayList<>();
-        for (Animal a : this.animals) {
-            if (a instanceof Lion) {
-                lions.add((Lion) a);
-            }
-        }
-        if (!lions.isEmpty()) {
-            Lion lionLightest = lions.get(0);
-            for (Lion currentAnimal : lions) {
-                if (lionLightest.getWeight() > currentAnimal.getWeight()) {
-                    lionLightest = currentAnimal;
-                }
-            }
-            return lionLightest;
-        } else return null;
+        Lion lion= new Lion();
+        return (Lion) lion.getTheLightestAnimal(this.animals);
     }
 
     // Eagle management block
     public Eagle getTheHighestEagle() {
-        List<Eagle> eagles = new ArrayList<>();
-        for (Animal a : this.animals) {
-            if (a instanceof Eagle) {
-                eagles.add((Eagle) a);
-            }
-        }
-        if (!eagles.isEmpty()) {
-            Eagle eagleHighest = eagles.get(0);
-            for (Eagle currentAnimal : eagles) {
-                if (eagleHighest.getHeight() < currentAnimal.getHeight()) {
-                    eagleHighest = currentAnimal;
-                }
-            }
-            return eagleHighest;
-        } else return null;
+        Eagle eagle= new Eagle();
+        return (Eagle) eagle.getHighestAnimal(this.animals);
     }
 
     public Eagle getTheShortestEagle() {
-        List<Eagle> eagles = new ArrayList<>();
-        for (Animal a : this.animals) {
-            if (a instanceof Eagle) {
-                eagles.add((Eagle) a);
-            }
-        }
-        if (!eagles.isEmpty()) {
-            Eagle eagleShortest = eagles.get(0);
-            for (Eagle currentAnimal : eagles) {
-                if (eagleShortest.getHeight() > currentAnimal.getHeight()) {
-                    eagleShortest = currentAnimal;
-                }
-            }
-            return eagleShortest;
-        } else return null;
+        Eagle eagle= new Eagle();
+        return (Eagle) eagle.getTheShortestAnimal(this.animals);
     }
 
     public Eagle getTheHeaviestEagle() {
-        List<Eagle> eagles = new ArrayList<>();
-        for (Animal a : this.animals) {
-            if (a instanceof Eagle) {
-                eagles.add((Eagle) a);
-            }
-        }
-        if (!eagles.isEmpty()) {
-            Eagle eagleHeaviest = eagles.get(0);
-            for (Eagle currentAnimal : eagles) {
-                if (eagleHeaviest.getWeight() < currentAnimal.getWeight()) {
-                    eagleHeaviest = currentAnimal;
-                }
-            }
-            return eagleHeaviest;
-        } else return null;
+        Eagle eagle= new Eagle();
+        return (Eagle) eagle.getTheHeaviestAnimal(this.animals);
     }
 
     public Eagle getTheLightestEagle() {
-        List<Eagle> eagles = new ArrayList<>();
-        for (Animal a : this.animals) {
-            if (a instanceof Eagle) {
-                eagles.add((Eagle) a);
-            }
-        }
-        if (!eagles.isEmpty()) {
-            Eagle eagleLightest = eagles.get(0);
-            for (Eagle currentAnimal : eagles) {
-                if (eagleLightest.getWeight() > currentAnimal.getWeight()) {
-                    eagleLightest = currentAnimal;
-                }
-            }
-            return eagleLightest;
-        } else return null;
+        Eagle eagle= new Eagle();
+        return (Eagle) eagle.getTheLightestAnimal(this.animals);
     }
 
     // management other methods
