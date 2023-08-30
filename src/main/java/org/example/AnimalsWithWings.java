@@ -6,9 +6,6 @@ public abstract class AnimalsWithWings extends Animal{
 
     private float wingspan;
 
-    protected AnimalsWithWings() {
-    }
-
     protected AnimalsWithWings(String name, String favoriteFood, int age, LocalDate entryDate, float weight, float height, float wingspan) {
         super(name, favoriteFood, age, entryDate, weight, height);
         this.wingspan = wingspan;
@@ -19,7 +16,6 @@ public abstract class AnimalsWithWings extends Animal{
     public void setWingspan(float wingspan) {
         this.wingspan = wingspan;
     }
-
     @Override
     public String toString() {
         return "AnimalsWithWings{" +

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ZooCreator {
-
     private List<Animal> animals= new ArrayList<>();
 
     public ZooCreator() {
