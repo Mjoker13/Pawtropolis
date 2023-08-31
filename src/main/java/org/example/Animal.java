@@ -1,6 +1,7 @@
 package org.example;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public abstract class Animal {
     private String name;
@@ -78,6 +79,22 @@ public abstract class Animal {
                 ", weight=" + weight +
                 ", height=" + height +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Animal animal)) return false;
+        return getAge() == animal.getAge()
+                && Float.compare(getWeight(), animal.getWeight()) == 0
+                && Float.compare(getHeight(), animal.getHeight()) == 0
+                && Objects.equals(getName(), animal.getName())
+                && Objects.equals(getFavoriteFood(), animal.getFavoriteFood())
+                && Objects.equals(getEntryDate(), animal.getEntryDate());
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getFavoriteFood(), getAge(), getEntryDate(), getWeight(), getHeight());
     }
 
 }

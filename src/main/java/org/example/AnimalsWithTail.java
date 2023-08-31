@@ -1,6 +1,7 @@
 package org.example;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 
 public abstract class  AnimalsWithTail extends Animal  {
@@ -27,5 +28,16 @@ public abstract class  AnimalsWithTail extends Animal  {
                 ", height=" + super.getHeight() +
                 "tailLength=" + tailLength +
                 '}';
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AnimalsWithTail that)) return false;
+        if (!super.equals(o)) return false;
+        return Float.compare(getTailLength(), that.getTailLength()) == 0;
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getTailLength());
     }
 }

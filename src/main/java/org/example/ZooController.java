@@ -8,10 +8,6 @@ public class ZooController{
     public ZooController() {
         this.animals = zooCreator.getAnimals();
     }
-    public ZooController(List<Animal> animals) {
-        this.animals = animals;
-    }
-
     // getter & setter
     public List<Animal> getAnimals() {
         return animals;
