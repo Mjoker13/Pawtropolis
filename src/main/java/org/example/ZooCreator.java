@@ -2,22 +2,26 @@ package org.example;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ZooCreator {
-    private List<Animal> animals= new ArrayList<>();
+    private Map<Class<? extends Animal>, List<Animal>> animals = new HashMap<>();
 
     public ZooCreator() {
         this.animals = createAnimals();
     }
-    public List<Animal> getAnimals() {
+
+    public Map<Class<? extends Animal>, List<Animal>> getAnimals() {
         return animals;
     }
-    public void setAnimals(List<Animal> animals) {
+
+    public void setAnimals(Map<Class<? extends Animal>, List<Animal>> animals) {
         this.animals = animals;
     }
 
-    public List<Animal> createAnimals() {
+    public Map<Class<? extends Animal>, List<Animal>> createAnimals() {
 
         LocalDate dateSherkan = LocalDate.of(2012, 8, 20);
         LocalDate dateTigro = LocalDate.of(2018, 12, 02);
@@ -40,17 +44,22 @@ public class ZooCreator {
         Eagle gigi = new Eagle("Gigi", "rubbit", 15, dateBianca, 25, 62, 98.05F);
         Eagle teresa = new Eagle("Teresa", "rubbit", 15, dateOlimpia, 30, 82, 108.9F);
 
-        animals.add(oscar);
-        animals.add(sherkan);
-        animals.add(tigro);
-        animals.add(iris);
-        animals.add(simba);
-        animals.add(alex);
-        animals.add(nala);
-        animals.add(olimpia);
-        animals.add(bianca);
-        animals.add(gigi);
-        animals.add(teresa);
+        List<Animal> animalList = new ArrayList<>();
+
+        animalList.add(oscar);
+        animalList.add(sherkan);
+        animalList.add(tigro);
+        animalList.add(iris);
+        animalList.add(simba);
+        animalList.add(alex);
+        animalList.add(nala);
+        animalList.add(olimpia);
+        animalList.add(bianca);
+        animalList.add(gigi);
+        animalList.add(teresa);
+
+        animals.put(animalList.listIterator().next().getClass(),animalList);
+
         return animals;
     }
 }
