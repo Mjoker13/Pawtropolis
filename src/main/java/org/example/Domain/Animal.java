@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Domain;
 
 import java.time.LocalDate;
 import java.util.Objects;

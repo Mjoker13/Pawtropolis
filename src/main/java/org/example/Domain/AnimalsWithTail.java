@@ -1,10 +1,9 @@
-package org.example;
+package org.example.Domain;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
-
-public abstract class  AnimalsWithTail extends Animal  {
+public abstract class  AnimalsWithTail extends Animal {
     private float tailLength;
     protected AnimalsWithTail(String name, String favoriteFood, int age, LocalDate entryDate, float weight, float height, float tailLength) {
         super(name, favoriteFood, age, entryDate, weight, height);

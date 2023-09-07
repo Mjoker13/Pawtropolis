@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Domain;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -7,22 +7,10 @@ import java.util.List;
 import java.util.Map;
 
 public class ZooCreator {
-    private Map<Class<? extends Animal>, List<Animal>> animals = new HashMap<>();
-
-    public ZooCreator() {
-        this.animals = createAnimals();
-    }
-
-    public Map<Class<? extends Animal>, List<Animal>> getAnimals() {
-        return animals;
-    }
-
-    public void setAnimals(Map<Class<? extends Animal>, List<Animal>> animals) {
-        this.animals = animals;
-    }
 
     public Map<Class<? extends Animal>, List<Animal>> createAnimals() {
 
+        Map<Class<? extends Animal>, List<Animal>> animals = new HashMap<>();
         LocalDate dateSherkan = LocalDate.of(2012, 8, 20);
         LocalDate dateTigro = LocalDate.of(2018, 12, 02);
         LocalDate dateOscar = LocalDate.of(2005, 5, 12);
@@ -44,21 +32,25 @@ public class ZooCreator {
         Eagle gigi = new Eagle("Gigi", "rubbit", 15, dateBianca, 25, 62, 98.05F);
         Eagle teresa = new Eagle("Teresa", "rubbit", 15, dateOlimpia, 30, 82, 108.9F);
 
-        List<Animal> animalList = new ArrayList<>();
+        List<Animal> tigers= new ArrayList<>();
+        tigers.add(oscar);
+        tigers.add(tigro);
+        tigers.add(sherkan);
+        tigers.add(iris);
+        animals.put(Tiger.class,tigers);
 
-        animalList.add(oscar);
-        animalList.add(sherkan);
-        animalList.add(tigro);
-        animalList.add(iris);
-        animalList.add(simba);
-        animalList.add(alex);
-        animalList.add(nala);
-        animalList.add(olimpia);
-        animalList.add(bianca);
-        animalList.add(gigi);
-        animalList.add(teresa);
+        List<Animal> lions = new ArrayList<>();
+        lions.add(simba);
+        lions.add(nala);
+        lions.add(alex);
+        animals.put(Lion.class,lions);
 
-        animals.put(animalList.listIterator().next().getClass(),animalList);
+        List<Animal> eagles = new ArrayList<>();
+        eagles.add(olimpia);
+        eagles.add(bianca);
+        eagles.add(gigi);
+        eagles.add(teresa);
+        animals.put(Eagle.class,eagles);
 
         return animals;
     }

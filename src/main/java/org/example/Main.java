@@ -1,5 +1,12 @@
 package org.example;
 
+import org.example.Domain.Eagle;
+import org.example.Domain.Lion;
+import org.example.Domain.Tiger;
+import org.example.Domain.ZooController;
+
+import java.util.stream.Collectors;
+
 public class Main {
     public static void main(String[] args) {
         ZooController zooController= new ZooController();

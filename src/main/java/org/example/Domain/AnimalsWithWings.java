@@ -1,9 +1,9 @@
-package org.example;
+package org.example.Domain;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
-public abstract class AnimalsWithWings extends Animal{
+public abstract class AnimalsWithWings extends Animal {
 
     private float wingspan;
 
