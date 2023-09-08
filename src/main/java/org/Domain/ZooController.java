@@ -1,32 +1,28 @@
-package org.example.Domain;
+package org.Domain;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-
+@Getter
+@Setter
 public class ZooController {
-    ZooCreator zooCreator = new ZooCreator();
+
     private Map<Class<? extends Animal>, List<Animal>> animals;
 
     public ZooController() {
-        this.animals = zooCreator.createAnimals();
-    }
-
-    // getter & setter
-    public Map<Class<? extends Animal>, List<Animal>> getAnimals() {
-        return animals;
-    }
-    public void setAnimals(Map<Class<? extends Animal>, List<Animal>> animals) {
-        this.animals = animals;
+        this.animals = ZooCreator.createAnimals();
     }
 
     // management methods generic
     private <T extends Animal> List<T> getAllAnimalsForSpecies(Class<T> animalClass){
         if (animals.isEmpty()) {
-            return null;
+            return Collections.emptyList();
         }
         return animals.entrySet().stream()
-                .filter(entry -> entry.getKey().isAssignableFrom(entry.getKey()))
+                .filter(entry -> animalClass.isAssignableFrom(entry.getKey()))
                 .map(Map.Entry::getValue)
                 .flatMap(Collection::stream)
                 .map(animalClass::cast)

@@ -1,4 +1,6 @@
-package org.example.Domain;
+package org.Domain;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -6,9 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ZooCreator {
-
-    public Map<Class<? extends Animal>, List<Animal>> createAnimals() {
+public abstract class ZooCreator {
+    public static @NotNull Map<Class<? extends Animal>, List<Animal>> createAnimals() {
 
         Map<Class<? extends Animal>, List<Animal>> animals = new HashMap<>();
         LocalDate dateSherkan = LocalDate.of(2012, 8, 20);
