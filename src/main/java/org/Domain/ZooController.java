@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 @Getter
 @Setter
-public class ZooController {
+public class ZooController { 
 
     private Map<Class<? extends Animal>, List<Animal>> animals;
 
