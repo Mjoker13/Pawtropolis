@@ -1,5 +1,9 @@
-package org.Domain;
+package Controller;
 
+import org.Domain.Animal;
+import org.Domain.Eagle;
+import org.Domain.Lion;
+import org.Domain.Tiger;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDate;

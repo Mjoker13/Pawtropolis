@@ -1,14 +1,17 @@
-package org.Domain;
+package Controller;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.Domain.Animal;
+import org.Domain.AnimalsWithTail;
+import org.Domain.AnimalsWithWings;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Getter
 @Setter
-public class ZooController { 
+public class ZooController {
 
     private Map<Class<? extends Animal>, List<Animal>> animals;
 
