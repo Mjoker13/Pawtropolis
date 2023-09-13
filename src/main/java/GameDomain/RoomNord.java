@@ -2,13 +2,16 @@ package GameDomain;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.Domain.Animal;
 
 import java.util.List;
-@Getter
 @Setter
+@Getter
+@ToString
 public class RoomNord extends Room{
-    public RoomNord(String name, List<Item> itemPresent, List<Class<? extends Animal>> animals) {
-        super(name, itemPresent, animals);
+    private String roomName= "Nord";
+    public RoomNord(List<Item> itemPresent, List<Class<? extends Animal>> animals) {
+        super(itemPresent, animals);
     }
 }

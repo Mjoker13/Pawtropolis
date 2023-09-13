@@ -17,7 +17,6 @@ import java.util.Map;
 @ToString
 public abstract class Room {
 
-    private String name;
     private List<Item> itemPresent;
     private List<Class<? extends Animal>> animals;
    // private RoomsCoordinates roomDirection;

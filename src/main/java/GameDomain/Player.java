@@ -12,5 +12,5 @@ import lombok.ToString;
 public class Player {
     private String name;
     private int lifePoints;
-    private Room startedPositionInToMap;
+    private Class<? extends  Room> startedPositionInToMap;
 }
