@@ -16,6 +16,7 @@ public abstract class ZooCreator {
     public static @NotNull Map<Class<? extends Animal>, List<Animal>> createAnimals() {
 
         Map<Class<? extends Animal>, List<Animal>> animals = new HashMap<>();
+
         LocalDate dateSherkan = LocalDate.of(2012, 8, 20);
         LocalDate dateTigro = LocalDate.of(2018, 12, 02);
         LocalDate dateOscar = LocalDate.of(2005, 5, 12);
