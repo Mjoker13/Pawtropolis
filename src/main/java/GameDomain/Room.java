@@ -15,11 +15,11 @@ import java.util.Map;
 @Setter
 @AllArgsConstructor
 @ToString
-public class Room {
+public abstract class Room {
 
     private String name;
-    private Map<Item, List<Item>> itemPresent;
-    private Map<Class<? extends Animal>, List<Animal>> animals;
-    private List<RoomsCoordinates> roomDirection;
+    private List<Item> itemPresent;
+    private List<Class<? extends Animal>> animals;
+   // private RoomsCoordinates roomDirection;
 
 }

@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum RoomsCoordinates {
+public enum Direction {
 
     NORD("nord"),
     SUD("sud"),
@@ -13,6 +13,4 @@ public enum RoomsCoordinates {
     OVEST("ovest");
 
     private final String value;
-
-
 }

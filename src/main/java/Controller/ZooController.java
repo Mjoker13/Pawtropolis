@@ -20,7 +20,7 @@ public class ZooController {
     }
 
     // management methods generic
-    private <T extends Animal> List<T> getAllAnimalsForSpecies(Class<T> animalClass){
+    public  <T extends Animal> List<T> getAllAnimalsForSpecies(Class<T> animalClass){
         if (animals.isEmpty()) {
             return Collections.emptyList();
         }
