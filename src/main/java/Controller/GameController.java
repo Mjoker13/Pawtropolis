@@ -1,6 +1,6 @@
-package Domain.Controller;
+package Controller;
 
-import GameDomain.*;
+import Domain.GameDomain.*;
 import lombok.extern.java.Log;
 
 @Log
@@ -10,15 +10,15 @@ public class GameController {
         room= player.getStartedPositionInToMap().getName().replace("GameDomain.Room","");
 
         switch (direction.toLowerCase()) {
-            case "nord" -> {
+            case "go nord" -> {
                 if (room.equalsIgnoreCase("nord")) {
-                    log.info("Sei gia' nella stanza Nord");
+                    log.info("You are already in the Nord Room");
                 } else {
                     player.setStartedPositionInToMap(RoomNord.class);
-                    log.info("Spostamento completato, ora ti trovi nella stanza Nord");
+                    log.info("Now you are in the Nord Room");
                 }
             }
-            case "sud" -> {
+            case "go sud" -> {
                 if (room.equalsIgnoreCase("sud")) {
                     log.info("Sei gia' nella stanza Sud");
                 } else {
@@ -26,7 +26,7 @@ public class GameController {
                     log.info("Spostamento completato, ora ti trovi nella stanza Sud");
                 }
             }
-            case "est" -> {
+            case "go est" -> {
                 if (room.equalsIgnoreCase("est")) {
                     log.info("Sei gia' nella stanza Est");
                 } else {
@@ -34,7 +34,7 @@ public class GameController {
                     log.info("Spostamento completato, ora ti trovi nella stanza Est");
                 }
             }
-            case "ovest" -> {
+            case "go ovest" -> {
                 if (room.equalsIgnoreCase("ovest")) {
                     log.info("Sei gia' nella stanza Ovest");
                 } else {

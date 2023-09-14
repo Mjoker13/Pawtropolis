@@ -1,7 +1,7 @@
 import Domain.AnimalDomain.Animal;
-import Domain.Controller.ZooController;
-import Domain.Controller.GameController;
-import GameDomain.*;
+import Controller.ZooController;
+import Controller.GameController;
+import Domain.GameDomain.*;
 import lombok.extern.java.Log;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("In che stanza vuoi andare ?");
+        System.out.println("What do you want to do?");
         String input = scanner.nextLine();
 
         ZooController zooController= new ZooController();

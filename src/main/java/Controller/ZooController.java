@@ -1,4 +1,4 @@
-package Domain.Controller;
+package Controller;
 
 import Domain.AnimalDomain.Animal;
 import Domain.AnimalDomain.AnimalsWithTail;

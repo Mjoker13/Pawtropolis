@@ -1,4 +1,4 @@
-package GameDomain;
+package Domain.GameDomain;
 
 import Domain.AnimalDomain.Animal;
 import lombok.AllArgsConstructor;
