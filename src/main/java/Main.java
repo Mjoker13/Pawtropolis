@@ -1,8 +1,8 @@
-import Controller.ZooController;
-import GameController.Controller;
+import Domain.AnimalDomain.Animal;
+import Domain.Controller.ZooController;
+import Domain.Controller.GameController;
 import GameDomain.*;
 import lombok.extern.java.Log;
-import org.Domain.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +34,9 @@ public class Main {
 
         Player player1= new Player("ciccio",100,sud.getClass());
 
-        Controller controller = new Controller();
-        controller.changeRoom(player1,input);
+        GameController gameController = new GameController();
+        gameController.changeRoom(player1,input);
         System.out.println(player1.getStartedPositionInToMap());
+
     }
 }

@@ -1,4 +1,4 @@
-package org.Domain;
+package Domain.AnimalDomain;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

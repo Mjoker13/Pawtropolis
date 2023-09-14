@@ -1,21 +1,22 @@
-package org.Domain;
+package Domain.AnimalDomain;
 
 import java.time.LocalDate;
 
-public class Eagle extends AnimalsWithWings {
-    public Eagle(String name, String favoriteFood, int age, LocalDate entryDate, float weight, float height, float wingspan) {
-        super(name, favoriteFood, age, entryDate, weight, height, wingspan);
+public class Lion extends AnimalsWithTail {
+
+    public Lion(String name, String favoriteFood, int age, LocalDate entryDate, float weight, float height, float tailLength) {
+        super(name, favoriteFood, age, entryDate, weight, height, tailLength);
     }
     @Override
     public String toString() {
-        return "Eagle{" +
+        return "Lion{" +
                 "name='" + super.getName() + '\'' +
                 ", favoriteFood='" + super.getFavoriteFood() + '\'' +
                 ", age=" + super.getAge() +
                 ", entryDate=" + super.getEntryDate() +
                 ", weight=" + super.getWeight() +
                 ", height=" + super.getHeight() +
-                ", wingspan=" + super.getWingspan() +
-                '}' + '\n';
+                ", tailLength=" + super.getTailLength() +
+                '}'+ '\n';
     }
 }

@@ -1,10 +1,10 @@
-package Controller;
+package Domain.Controller;
 
+import Domain.AnimalDomain.Animal;
+import Domain.AnimalDomain.AnimalsWithTail;
+import Domain.AnimalDomain.AnimalsWithWings;
 import lombok.Getter;
 import lombok.Setter;
-import org.Domain.Animal;
-import org.Domain.AnimalsWithTail;
-import org.Domain.AnimalsWithWings;
 
 import java.util.*;
 import java.util.stream.Collectors;

@@ -1,9 +1,9 @@
-package Controller;
+package Domain.Controller;
 
-import org.Domain.Animal;
-import org.Domain.Eagle;
-import org.Domain.Lion;
-import org.Domain.Tiger;
+import Domain.AnimalDomain.Animal;
+import Domain.AnimalDomain.Eagle;
+import Domain.AnimalDomain.Lion;
+import Domain.AnimalDomain.Tiger;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDate;

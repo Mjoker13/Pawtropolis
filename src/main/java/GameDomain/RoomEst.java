@@ -1,9 +1,9 @@
 package GameDomain;
 
+import Domain.AnimalDomain.Animal;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.Domain.Animal;
 
 import java.util.List;
 @Getter
