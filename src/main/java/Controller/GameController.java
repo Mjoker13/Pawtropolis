@@ -7,6 +7,7 @@ import lombok.ToString;
 import lombok.extern.java.Log;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -28,45 +29,66 @@ public class GameController {
 
     GameCreator gameCreator = new GameCreator();
 
-    /*public void changeRoom(Player player, String direction) {
-        String room;
-        room= player.getActuallyRoom().getName().replace("Domain.GameDomain.Room","");
-        switch (direction.toLowerCase()) {
-            case "go nord" -> {
-                if (room.equalsIgnoreCase("nord")) {
-                    log.info("You are already in the Nord Room");
-                } else {
-                    player.getActuallyRoom();
-                    log.info("Now you are in the Nord Room");
+
+
+
+    public Room changeRoom(Player player, String direction) {
+        GameCreator gameCreator= new GameCreator();
+        List<ArrayList<Room>> roomList=gameCreator.createRooms();
+        String room ;
+        Room roomNord= null;
+        Room roomSud= null;
+        Room roomWest= null;
+        Room roomEast= null;
+        int riga=0;
+
+
+
+
+            for (List<Room> row : roomList) {
+                int colonna = 0;
+                for (Room room1 : row) {
+                    room = room1.getName();
+                    if (room.equalsIgnoreCase(player.getActuallyRoom().getName())) {
+                        try {
+                            switch (direction.toLowerCase()) {
+                                case "go north" -> {
+                                    roomNord = roomList.get(riga-1).get(colonna);
+                                    player.setActuallyRoom(roomNord);
+                                    log.info("Now you are in the North Room " + roomNord.getName());
+                                    break;
+                                }
+                                case "go south" -> {
+                                    roomSud = roomList.get(riga+1).get(colonna);
+                                    player.setActuallyRoom(roomSud);
+                                    log.info("Now you are in the South Room " + roomSud.getName());
+                                    break;
+                                }
+                                case "go east" -> {
+                                    roomEast = roomList.get(riga).get(colonna-1);
+                                    player.setActuallyRoom(roomEast);
+                                    log.info("Now you are in the East Room "+ roomEast.getName());
+                                    break;
+                                }
+                                case "go west" -> {
+                                    roomWest = roomList.get(riga).get(colonna+1);
+                                    player.setActuallyRoom(roomWest);
+                                    log.info("Now you are in the West Room "+roomWest.getName());
+                                    break;
+                                }
+                                default -> log.info("Direction not found.");
+                            }
+                        } catch (IndexOutOfBoundsException e) {
+                            direction = direction.replace("go ", "").toUpperCase();
+                            System.err.println("A room at: '" + direction+"' is not found. \nNow you are into: "+ room);
+                        }
+                        break;
+                    }
+                    colonna++;
                 }
             }
-            case "go sud" -> {
-                if (room.equalsIgnoreCase("sud")) {
-                    log.info("Sei gia' nella stanza Sud");
-                } else {
-                    player.getActuallyRoom();
-                    log.info("Spostamento completato, ora ti trovi nella stanza Sud");
-                }
-            }
-            case "go est" -> {
-                if (room.equalsIgnoreCase("est")) {
-                    log.info("Sei gia' nella stanza Est");
-                } else {
-                    player.getActuallyRoom();
-                    log.info("Spostamento completato, ora ti trovi nella stanza Est");
-                }
-            }
-            case "go ovest" -> {
-                if (room.equalsIgnoreCase("ovest")) {
-                    log.info("Sei gia' nella stanza Ovest");
-                } else {
-                    player.getActuallyRoom();
-                    log.info("Spostamento completato, ora ti trovi nella stanza Ovest");
-                }
-            }
-            default -> log.info("Direzione non valida.");
+        return player.getActuallyRoom();
         }
-    }*/
     public void getInformationInRoom(@NotNull Room room){
         System.out.println("The name of room is: " + room.getName());
         System.out.println("Item present in room : " + room.getItemsPresentInRoom());
@@ -84,6 +106,8 @@ public class GameController {
     private void removeItemBag(@NotNull Bag bag, Item item){
         bag.getItemsInBag().remove(item);
     }
+
+    // da sistemare
     public void dropAndAddItem(Item itemPresentInRoom){
         for (Item currentItem:player.getBag().getItemsInBag()) {
             if(currentItem == itemPresentInRoom){
@@ -96,3 +120,4 @@ public class GameController {
         }
     }
 }
+
