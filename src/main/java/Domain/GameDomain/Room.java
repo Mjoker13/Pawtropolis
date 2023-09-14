@@ -12,10 +12,9 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @ToString
-public abstract class Room {
+public class Room {
 
+    private String name;
     private List<Item> itemPresent;
-    private List<Class<? extends Animal>> animals;
-   // private RoomsCoordinates roomDirection;
-
+    private List<Animal> animals;
 }

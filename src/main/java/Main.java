@@ -1,3 +1,4 @@
+import Controller.GameCreator;
 import Domain.AnimalDomain.Animal;
 import Controller.ZooController;
 import Controller.GameController;
@@ -23,20 +24,12 @@ public class Main {
 
         List<Item> items= new ArrayList<>();
         Item item1= new Item("Martello", "ahahahshsiejd",1);
-        Item item2= new Item("Martello", "ahahahshsiejd",1);
+        Item item2= new Item("Chiodo", "ahahahshsiejd",1);
         items.add(item2);
         items.add(item1);
 
-        RoomNord nord = new RoomNord(items,tigers);
-        RoomOvest ovest = new RoomOvest(items,tigers);
-        RoomEst est = new RoomEst(items,tigers);
-        RoomSud sud = new RoomSud(items,tigers);
-
-        Player player1= new Player("ciccio",100,sud.getClass());
-
-        GameController gameController = new GameController();
-        gameController.changeRoom(player1,input);
-        System.out.println(player1.getStartedPositionInToMap());
+        GameCreator gameCreator = new GameCreator();
+        gameCreator.createRooms(items);
 
     }
 }
