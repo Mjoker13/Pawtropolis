@@ -47,6 +47,14 @@ public class GameCreator {
         thirdRow.add(room8);
         thirdRow.add(room9);
         matrixRooms.add(2, thirdRow);
+        int riga=0;
+        for (List<Room> row:matrixRooms) {
+
+            for (int j = 0; j < row.size(); j++) {
+                System.out.print(row.get(j).getName() + " ");
+            }
+            System.out.println();
+        }
 
         return matrixRooms;
     }
