@@ -16,7 +16,7 @@ public class ZooController {
     private Map<Class<? extends Animal>, List<Animal>> animals;
 
     public ZooController() {
-        this.animals = ZooCreator.createAnimals();
+        this.animals = GameCreator.createAnimals();
     }
 
     // management methods generic
