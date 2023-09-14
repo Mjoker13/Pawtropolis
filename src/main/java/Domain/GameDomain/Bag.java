@@ -12,6 +12,6 @@ import java.util.List;
 @Setter
 @ToString
 public class Bag {
-    private List<Item> itemList;
+    private List<Item> itemsInBag;
     private int slotAvailable;
 }

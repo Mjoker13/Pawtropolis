@@ -4,49 +4,45 @@ import Domain.AnimalDomain.Animal;
 import Domain.AnimalDomain.Eagle;
 import Domain.AnimalDomain.Lion;
 import Domain.AnimalDomain.Tiger;
+import Domain.GameDomain.Bag;
 import Domain.GameDomain.Item;
+import Domain.GameDomain.Player;
 import Domain.GameDomain.Room;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Random;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class GameCreator {
     ZooController zooController= new ZooController();
-
     public List<ArrayList<Room>> createRooms() {
-
-        List<Animal> tiger = new ArrayList<>(zooController.getAllAnimalsForSpecies(Tiger.class));
         ArrayList<ArrayList<Room>> matrixRooms = new ArrayList<>();
 
         ArrayList<Room> firstRow = new ArrayList<>();
-        Room room1 = new Room("1", createItem(), tiger);
-        Room room2 = new Room("2", createItem(), tiger);
-        Room room3 = new Room("3", createItem(), tiger);
+        Room room1 = new Room("1", getRandomItem(), getRandomAnimals());
+        Room room2 = new Room("2", getRandomItem(), getRandomAnimals());
+        Room room3 = new Room("3", getRandomItem(), getRandomAnimals());
         firstRow.add(room1);
         firstRow.add(room2);
         firstRow.add(room3);
         matrixRooms.add(0, firstRow);
 
-        List<Animal> lions = new ArrayList<>(zooController.getAllAnimalsForSpecies(Lion.class));
         ArrayList<Room> secondRow = new ArrayList<>();
-        Room room4 = new Room("4", createItem(), lions);
-        Room roomHome = new Room("Home", createItem(), lions);
-        Room room6 = new Room("6", createItem(), lions);
+        Room room4 = new Room("4", getRandomItem(), getRandomAnimals());
+        Room roomHome = new Room("Home", getRandomItem(), getRandomAnimals());
+        Room room6 = new Room("6", getRandomItem(), getRandomAnimals());
         secondRow.add(room4);
         secondRow.add(roomHome);
         secondRow.add(room6);
         matrixRooms.add(1, secondRow);
 
-        List<Animal> eagles = new ArrayList<>(zooController.getAllAnimalsForSpecies(Eagle.class));
         ArrayList<Room> thirdRow = new ArrayList<>();
-        Room room7 = new Room("7", createItem(), eagles);
-        Room room8 = new Room("8", createItem(), eagles);
-        Room room9 = new Room("9", createItem(), eagles);
+        Room room7 = new Room("7", getRandomItem(), getRandomAnimals());
+        Room room8 = new Room("8", getRandomItem(), getRandomAnimals());
+        Room room9 = new Room("9", getRandomItem(), getRandomAnimals());
         thirdRow.add(room7);
         thirdRow.add(room8);
         thirdRow.add(room9);
@@ -54,10 +50,10 @@ public class GameCreator {
 
         return matrixRooms;
     }
-    public void getAllRooms(){
+    public List<Room> getAllRooms(){
         Stream<ArrayList<Room>> streamArrayRoom = createRooms().stream();
         Stream<Room> streamRoom = streamArrayRoom.flatMap(List::stream);
-        streamRoom.map(Room::getName).forEach(System.out::println);
+        return streamRoom.map(Room.class::cast).collect(Collectors.toList());
     }
     public List<Item> createItem(){
         List<Item> itemList= new ArrayList<>();
@@ -77,20 +73,32 @@ public class GameCreator {
 
         return itemList;
     }
+    public Bag createBag(){
+        if(createItem().isEmpty()){
+            return null;
+        }
+        return new Bag(getRandomItem(),20);
+    }
+    public Player createPlayer(){
+        if(getAllRooms().isEmpty() || createBag()== null){
+            return null;
+        }
+        return new Player("Lego",100,getAllRooms().get(4),createBag());
+    }
     public static @NotNull Map<Class<? extends Animal>, List<Animal>> createAnimals() {
 
         Map<Class<? extends Animal>, List<Animal>> animals = new HashMap<>();
 
         LocalDate dateSherkan = LocalDate.of(2012, 8, 20);
-        LocalDate dateTigro = LocalDate.of(2018, 12, 02);
+        LocalDate dateTigro = LocalDate.of(2018, 12, 2);
         LocalDate dateOscar = LocalDate.of(2005, 5, 12);
         Tiger oscar = new Tiger("Oscar", "rubbit", 23, dateOscar, 82.5F, 95, 25);
         Tiger sherkan = new Tiger("Sherkan", "man", 13, dateSherkan, 78.5F, 96, 22);
         Tiger tigro = new Tiger("Tigro", "honey", 8, dateTigro, 86.5F, 95, 30);
         Tiger iris = new Tiger("Iris", "gazelles", 8, dateTigro, 82.5F, 89, 45);
 
-        LocalDate dateSimba = LocalDate.of(1994, 8, 03);
-        LocalDate dateAlex = LocalDate.of(1982, 10, 05);
+        LocalDate dateSimba = LocalDate.of(1994, 8, 3);
+        LocalDate dateAlex = LocalDate.of(1982, 10, 5);
         Lion simba = new Lion("Simba", "insect", 12, dateSimba, 85, 120, 35);
         Lion alex = new Lion("Alex", "gazelles", 18, dateAlex, 87, 115.0F, 28);
         Lion nala = new Lion("Nala", "gazelles", 15, dateAlex, 82, 108, 49);
@@ -123,6 +131,26 @@ public class GameCreator {
         animals.put(Eagle.class,eagles);
 
         return animals;
+    }
+    private @NotNull List<Item> getRandomItem(){
+        Random random = new Random();
+        int randomIndex = random.nextInt(createItem().size());
+        int randomIndex2 = random.nextInt(createItem().size());
+        List<Item> randomItem = new ArrayList<>();
+        randomItem.add(createItem().get(randomIndex));
+        randomItem.add(createItem().get(randomIndex2));
+        return randomItem;
+    }
+    private @NotNull List<Animal> getRandomAnimals(){
+        Random random = new Random();
+        int randomIndex = random.nextInt(createAnimals().size());
+        int randomIndex2 = random.nextInt(createAnimals().size());
+        int randomIndex3 = random.nextInt(createAnimals().size());
+        List<Animal> randomItem = new ArrayList<>();
+        randomItem.add(zooController.getAllAnimalsForSpecies(Tiger.class).get(randomIndex));
+        randomItem.add(zooController.getAllAnimalsForSpecies(Eagle.class).get(randomIndex2));
+        randomItem.add(zooController.getAllAnimalsForSpecies(Lion.class).get(randomIndex3));
+        return randomItem;
     }
 
 }

@@ -15,6 +15,6 @@ import java.util.List;
 public class Room {
 
     private String name;
-    private List<Item> itemPresent;
+    private List<Item> itemsPresentInRoom;
     private List<Animal> animals;
 }
