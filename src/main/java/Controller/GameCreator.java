@@ -25,29 +25,82 @@ public class GameCreator {
         Room room1 = new Room("1", getRandomItem(), getRandomAnimals());
         Room room2 = new Room("2", getRandomItem(), getRandomAnimals());
         Room room3 = new Room("3", getRandomItem(), getRandomAnimals());
+        Room roomc4 = new Room("c4", getRandomItem(), getRandomAnimals());
+        Room roomc5 = new Room("c5", getRandomItem(), getRandomAnimals());
+
         firstRow.add(room1);
         firstRow.add(room2);
         firstRow.add(room3);
+        firstRow.add(roomc4);
+        firstRow.add(roomc5);
+
+
         matrixRooms.add(0, firstRow);
 
         ArrayList<Room> secondRow = new ArrayList<>();
         Room room4 = new Room("4", getRandomItem(), getRandomAnimals());
         Room roomHome = new Room("Home", getRandomItem(), getRandomAnimals());
         Room room6 = new Room("6", getRandomItem(), getRandomAnimals());
+        Room roomc7 = new Room("c7", getRandomItem(), getRandomAnimals());
+        Room roomc8 = new Room("c8", getRandomItem(), getRandomAnimals());
+
         secondRow.add(room4);
         secondRow.add(roomHome);
         secondRow.add(room6);
+        secondRow.add(roomc7);
+        secondRow.add(roomc8);
+
+
         matrixRooms.add(1, secondRow);
 
         ArrayList<Room> thirdRow = new ArrayList<>();
         Room room7 = new Room("7", getRandomItem(), getRandomAnimals());
         Room room8 = new Room("8", getRandomItem(), getRandomAnimals());
         Room room9 = new Room("9", getRandomItem(), getRandomAnimals());
+        Room roomc10 = new Room("c10", getRandomItem(), getRandomAnimals());
+        Room roomc11 = new Room("c11", getRandomItem(), getRandomAnimals());
+
+
+
+
         thirdRow.add(room7);
         thirdRow.add(room8);
         thirdRow.add(room9);
+        thirdRow.add(roomc10);
+        thirdRow.add(roomc11);
         matrixRooms.add(2, thirdRow);
-        int riga=0;
+
+        ArrayList<Room> fourthRow = new ArrayList<>();
+        Room roomf1 = new Room("1", getRandomItem(), getRandomAnimals());
+        Room roomf2 = new Room("2", getRandomItem(), getRandomAnimals());
+        Room roomf3 = new Room("3", getRandomItem(), getRandomAnimals());
+        Room roomfc4 = new Room("c4", getRandomItem(), getRandomAnimals());
+        Room roomfc5 = new Room("c5", getRandomItem(), getRandomAnimals());
+
+        fourthRow.add(roomf1);
+        fourthRow.add(roomf2);
+        fourthRow.add(roomf3);
+        fourthRow.add(roomfc4);
+        fourthRow.add(roomfc5);
+        matrixRooms.add(3,fourthRow);
+
+        ArrayList<Room> fifthRow = new ArrayList<>();
+        Room roomq4 = new Room("4", getRandomItem(), getRandomAnimals());
+        Room roomqHome = new Room("Home", getRandomItem(), getRandomAnimals());
+        Room roomq6 = new Room("6", getRandomItem(), getRandomAnimals());
+        Room roomqc7 = new Room("c7", getRandomItem(), getRandomAnimals());
+        Room roomqc8 = new Room("c8", getRandomItem(), getRandomAnimals());
+
+        fifthRow.add(roomq4);
+        fifthRow.add(roomqHome);
+        fifthRow.add(roomq6);
+        fifthRow.add(roomqc7);
+        fifthRow.add(roomqc8);
+
+
+        matrixRooms.add(4, fifthRow);
+
+
         for (List<Room> row:matrixRooms) {
 
             for (int j = 0; j < row.size(); j++) {
@@ -85,7 +138,7 @@ public class GameCreator {
         if(createItem().isEmpty()){
             return null;
         }
-        return new Bag(getRandomItem(),20);
+        return new Bag(null,20); //aggiunto dopo
     }
     public Player createPlayer(){
         if(getAllRooms().isEmpty() || createBag()== null){
