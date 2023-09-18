@@ -13,7 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 public class Room {
-
     private String name;
     private List<Item> itemsPresentInRoom;
     private List<Animal> animals;

@@ -33,8 +33,6 @@ public class GameCreator {
         firstRow.add(room3);
         firstRow.add(roomc4);
         firstRow.add(roomc5);
-
-
         matrixRooms.add(0, firstRow);
 
         ArrayList<Room> secondRow = new ArrayList<>();
@@ -43,14 +41,11 @@ public class GameCreator {
         Room room6 = new Room("6", getRandomItem(), getRandomAnimals());
         Room roomc7 = new Room("c7", getRandomItem(), getRandomAnimals());
         Room roomc8 = new Room("c8", getRandomItem(), getRandomAnimals());
-
         secondRow.add(room4);
         secondRow.add(roomHome);
         secondRow.add(room6);
         secondRow.add(roomc7);
         secondRow.add(roomc8);
-
-
         matrixRooms.add(1, secondRow);
 
         ArrayList<Room> thirdRow = new ArrayList<>();
@@ -59,10 +54,6 @@ public class GameCreator {
         Room room9 = new Room("9", getRandomItem(), getRandomAnimals());
         Room roomc10 = new Room("c10", getRandomItem(), getRandomAnimals());
         Room roomc11 = new Room("c11", getRandomItem(), getRandomAnimals());
-
-
-
-
         thirdRow.add(room7);
         thirdRow.add(room8);
         thirdRow.add(room9);
@@ -76,7 +67,6 @@ public class GameCreator {
         Room roomf3 = new Room("3", getRandomItem(), getRandomAnimals());
         Room roomfc4 = new Room("c4", getRandomItem(), getRandomAnimals());
         Room roomfc5 = new Room("c5", getRandomItem(), getRandomAnimals());
-
         fourthRow.add(roomf1);
         fourthRow.add(roomf2);
         fourthRow.add(roomf3);
@@ -90,24 +80,19 @@ public class GameCreator {
         Room roomq6 = new Room("6", getRandomItem(), getRandomAnimals());
         Room roomqc7 = new Room("c7", getRandomItem(), getRandomAnimals());
         Room roomqc8 = new Room("c8", getRandomItem(), getRandomAnimals());
-
         fifthRow.add(roomq4);
         fifthRow.add(roomqHome);
         fifthRow.add(roomq6);
         fifthRow.add(roomqc7);
         fifthRow.add(roomqc8);
-
-
         matrixRooms.add(4, fifthRow);
 
-
-        for (List<Room> row:matrixRooms) {
-
+      /*  for (List<Room> row:matrixRooms) {
             for (int j = 0; j < row.size(); j++) {
                 System.out.print(row.get(j).getName() + " ");
             }
             System.out.println();
-        }
+        }*/
 
         return matrixRooms;
     }
@@ -135,10 +120,15 @@ public class GameCreator {
         return itemList;
     }
     public Bag createBag(){
+        List<Item> itemList = getRandomItem();
+        int slotAvailable=20;
         if(createItem().isEmpty()){
             return null;
         }
-        return new Bag(null,20); //aggiunto dopo
+        for (Item item: itemList) {
+            slotAvailable -= item.getSlotRequired();
+        }
+        return new Bag(itemList,slotAvailable);
     }
     public Player createPlayer(){
         if(getAllRooms().isEmpty() || createBag()== null){
@@ -197,9 +187,11 @@ public class GameCreator {
         Random random = new Random();
         int randomIndex = random.nextInt(createItem().size());
         int randomIndex2 = random.nextInt(createItem().size());
+        int randomIndex3 = random.nextInt(createItem().size());
         List<Item> randomItem = new ArrayList<>();
         randomItem.add(createItem().get(randomIndex));
         randomItem.add(createItem().get(randomIndex2));
+        randomItem.add(createItem().get(randomIndex3));
         return randomItem;
     }
     private @NotNull List<Animal> getRandomAnimals(){
@@ -213,5 +205,4 @@ public class GameCreator {
         randomItem.add(zooController.getAllAnimalsForSpecies(Lion.class).get(randomIndex3));
         return randomItem;
     }
-
 }

@@ -9,7 +9,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 @Getter
 @Setter
@@ -20,7 +19,6 @@ public class GameController {
     private Bag bag;
     private List<Room> rooms;
     private List<Item> itemList;
-
     public GameController() {
         this.player = gameCreator.createPlayer();
         this.bag = gameCreator.createBag();
@@ -29,12 +27,7 @@ public class GameController {
     }
 
     GameCreator gameCreator = new GameCreator();
-
-
-
-
     public Room changeRoom(Player player, String direction) {
-        GameCreator gameCreator= new GameCreator();
         List<ArrayList<Room>> roomList=gameCreator.createRooms();
         String room ;
         Room roomNord= null;
@@ -42,11 +35,7 @@ public class GameController {
         Room roomWest= null;
         Room roomEast= null;
         int riga=0;
-
-
-
-
-            for (List<Room> row : roomList) {
+        for (List<Room> row : roomList) {
                 int colonna = 0;
                 for (Room room1 : row) {
                     room = room1.getName();
@@ -98,68 +87,40 @@ public class GameController {
         System.out.println("Item present in room : " + room.getItemsPresentInRoom());
         System.out.println("Animal present in room " + room.getAnimals());
     }
-    public void getInformationBag(@NotNull Player player){
+    public void getInformationBag(){
         List<Item> items=  player.getBag().getItemsInBag();
         for (Item item:items){
             System.out.println("In bag: " + item.getName() + ", " + item.getDescription());
         }
     }
-    public void addItemRoom(@NotNull Room room, Item item){
-        room.getItemsPresentInRoom().add(item);
+    public void addItemBag(Player player,String s){
+            for (Item i : itemList) {
+                if (i.getName().equalsIgnoreCase(s) && (player.getBag().getSlotAvailable() > i.getSlotRequired())) {
+                        player.getBag().getItemsInBag().add(i);
+                        removeItemRoom(player,s);
+                        player.getBag().setSlotAvailable(player.getBag().getSlotAvailable() - i.getSlotRequired());
+                        break;
+                }
+            }
     }
-    private void removeItemRoom(@NotNull Room room, Item item){
-        room.getItemsPresentInRoom().remove(item);
-    }/*
-    private void addItemBag(@NotNull Bag bag, Item item){
-        bag.getItemsInBag().add(item);
-    }*/
-    public void addItemBag(@NotNull Player player){
-
-        Scanner scanner = new Scanner(System.in);
-        Room actuallyRoom= player.getActuallyRoom();
-        System.out.println("Item present in the room: " +actuallyRoom.getItemsPresentInRoom() +"\nWhat item do you want to add in your bag? ");
-        String item = scanner.nextLine();
-
-        List<Item> itemsRoom= new ArrayList<>(actuallyRoom.getItemsPresentInRoom());
-        int slotBackpackPlayer=player.getBag().getSlotAvailable();
-
-        for(Item item1:itemsRoom){
-            if(slotBackpackPlayer>item1.getSlotRequired()){
-            slotBackpackPlayer=-item1.getSlotRequired();
-            if(item.equalsIgnoreCase(item1.getName())) {
-                bag.getItemsInBag().add(item1);
-                bag.setSlotAvailable(slotBackpackPlayer);
-            }else
-                log.info("Item isn't present in the room");
-        }else{
-                log.info("Insufficient slots");
+    public void addItemRoom(Player player,String s){
+        for (Item i: itemList) {
+            if (i.getName().equalsIgnoreCase(s)) {
+                player.getActuallyRoom().getItemsPresentInRoom().add(i);
             }
         }
-
-
-
     }
-
-    private void removeItemBag(@NotNull Bag bag, Item item){
-        bag.getItemsInBag().remove(item);
-    }
-
-
-
-    // da sistemare
-    public void dropAndAddItem(Item itemPresentInRoom){
-
-
-
-        for (Item currentItem:player.getBag().getItemsInBag()) {
-            if(currentItem == itemPresentInRoom){
-                addItemRoom(player.getActuallyRoom(),itemPresentInRoom);
-                removeItemBag(bag,itemPresentInRoom);
-            }else{
-               // addItemBag(bag,itemPresentInRoom);
-                removeItemRoom(player.getActuallyRoom(),itemPresentInRoom);
+    public void removeItemBag(@NotNull Player player, String s){
+        for (Item i : player.getBag().getItemsInBag()) {
+            if (i.getName().equalsIgnoreCase(s)) {
+                player.getBag().getItemsInBag().remove(i);
+                addItemRoom(player,s);
+                player.getBag().setSlotAvailable(player.getBag().getSlotAvailable() + i.getSlotRequired());
+                break;
             }
         }
+    }
+    public void removeItemRoom(@NotNull Player player, String s){
+        player.getActuallyRoom().getItemsPresentInRoom().removeIf(i -> i.getName().equalsIgnoreCase(s));
     }
 }
-
