@@ -85,6 +85,8 @@ public class GameCreator {
         fifthRow.add(roomq6);
         fifthRow.add(roomqc7);
         fifthRow.add(roomqc8);
+
+
         matrixRooms.add(4, fifthRow);
 
       /*  for (List<Room> row:matrixRooms) {

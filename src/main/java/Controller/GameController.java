@@ -9,6 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 @Getter
 @Setter
@@ -19,6 +20,7 @@ public class GameController {
     private Bag bag;
     private List<Room> rooms;
     private List<Item> itemList;
+
     public GameController() {
         this.player = gameCreator.createPlayer();
         this.bag = gameCreator.createBag();
@@ -27,46 +29,55 @@ public class GameController {
     }
 
     GameCreator gameCreator = new GameCreator();
+
+
+
+
     public Room changeRoom(Player player, String direction) {
+        GameCreator gameCreator= new GameCreator();
         List<ArrayList<Room>> roomList=gameCreator.createRooms();
         String room ;
-        Room roomNord= null;
+        Room roomNorth = null;
         Room roomSud= null;
         Room roomWest= null;
         Room roomEast= null;
-        int riga=0;
-        for (List<Room> row : roomList) {
-                int colonna = 0;
-                for (Room room1 : row) {
+        int row =0;
+
+
+
+
+            for (List<Room> rowRoomList : roomList) {
+                int column = 0;
+                for (Room room1 : rowRoomList) {
                     room = room1.getName();
                     if (room.equalsIgnoreCase(player.getActuallyRoom().getName())) {
                         try {
                             switch (direction.toLowerCase()) {
                                 case "go north" -> {
-                                    roomNord = roomList.get(riga-1).get(colonna);
-                                    player.setActuallyRoom(roomNord);
-                                    log.info("Now you are in the North Room " + roomNord.getName());
+                                    roomNorth = roomList.get(row -1).get(column);
+                                    player.setActuallyRoom(roomNorth);
+                                    log.info("Now you are in the North Room " + roomNorth.getName());
                                     break;
                                 }
                                 case "go south" -> {
-                                    roomSud = roomList.get(riga+1).get(colonna);
+                                    roomSud = roomList.get(row +1).get(column);
                                     player.setActuallyRoom(roomSud);
                                     log.info("Now you are in the South Room " + roomSud.getName());
                                     break;
                                 }
                                 case "go east" -> {
-                                    roomEast = roomList.get(riga).get(colonna+1);
+                                    roomEast = roomList.get(row).get(column +1);
                                     player.setActuallyRoom(roomEast);
                                     log.info("Now you are in the East Room "+ roomEast.getName());
                                     break;
                                 }
                                 case "go west" -> {
-                                    roomWest = roomList.get(riga).get(colonna-1);
+                                    roomWest = roomList.get(row).get(column -1);
                                     player.setActuallyRoom(roomWest);
                                     log.info("Now you are in the West Room "+roomWest.getName());
                                     break;
                                 }
-                                default -> log.info("Direction not found.");
+                                default -> log.info("Direction not found. ChangeRoom");
                             }
                         } catch (IndexOutOfBoundsException e) {
                             direction = direction.replace("go ", "").toUpperCase();
@@ -74,11 +85,11 @@ public class GameController {
                         }
                         break;
                     }
-                    colonna++;
+                    column++;
                 }
-                if(roomEast!=null || roomSud!=null || roomWest!=null || roomNord!=null )
+                if(roomEast!=null || roomSud!=null || roomWest!=null || roomNorth !=null )
                     break;
-                riga++;
+                row++;
             }
         return player.getActuallyRoom();
         }
