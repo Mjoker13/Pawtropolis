@@ -1,5 +1,6 @@
 package Controller;
 
+import Domain.AnimalDomain.Animal;
 import Domain.GameDomain.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,6 +10,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -81,11 +84,11 @@ public class GameController {
         }
     public void getInformationInRoom(@NotNull Room room){
         System.out.println("The name of room is: " + room.getName());
-        System.out.println("Item present in room : " + room.getItemsPresentInRoom());
-        System.out.println("Animal present in room " + room.getAnimals());
+        System.out.println("Item present in room : " + room.getItemsPresentInRoom().stream().filter(Objects::nonNull).map(Item::getName).toList());
+        System.out.println("Animal in room are :" + room.getAnimals().stream().filter(Objects::nonNull).map(Animal::getName).toList());
     }
     public void getInformationBag(@NotNull Bag bag){
-        System.out.println("Item present in bag : " + bag.getItemsInBag());
+        System.out.println("Item present in bag : " + bag.getItemsInBag().stream().filter(Objects::nonNull).map(Item::getName).toList());
         System.out.println("Slot available :" + bag.getSlotAvailable());
     }
     public void addItemBag(Player player,String s){

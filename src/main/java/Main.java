@@ -39,7 +39,7 @@ public class Main {
                         System.out.println("\n"+"These are a rooms, you are in :" + actuallyPlayer.getActuallyRoom().getName());
                         gameController.printAllRooms();
                         System.out.println();
-                        System.out.println("Which direction do you want to go? \n1 -> go south \u2193 \n2 -> go north \u2191 \n3 -> go east \u2192 \n4 -> go west \u2190");
+                        System.out.println("Which direction do you want to go? \n1 -> go south ↓ \n2 -> go north ↑ \n3 -> go east → \n4 -> go west ←");
                         String room = scanner.nextLine();
                         if(room.equalsIgnoreCase("1"))
                             room="go south";
