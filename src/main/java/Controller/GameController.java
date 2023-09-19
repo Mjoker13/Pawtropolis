@@ -29,7 +29,6 @@ public class GameController {
     GameCreator gameCreator = new GameCreator();
 
     public Room changeRoom(Player player, String direction) {
-        GameCreator gameCreator= new GameCreator();
         List<ArrayList<Room>> roomList=gameCreator.createRooms();
         String room ;
         Room roomNorth = null;
@@ -48,25 +47,21 @@ public class GameController {
                                     roomNorth = roomList.get(row -1).get(column);
                                     player.setActuallyRoom(roomNorth);
                                     log.info("Now you are in the North Room " + roomNorth.getName());
-                                    break;
                                 }
                                 case "go south" -> {
                                     roomSud = roomList.get(row +1).get(column);
                                     player.setActuallyRoom(roomSud);
                                     log.info("Now you are in the South Room " + roomSud.getName());
-                                    break;
                                 }
                                 case "go east" -> {
                                     roomEast = roomList.get(row).get(column +1);
                                     player.setActuallyRoom(roomEast);
                                     log.info("Now you are in the East Room "+ roomEast.getName());
-                                    break;
                                 }
                                 case "go west" -> {
                                     roomWest = roomList.get(row).get(column -1);
                                     player.setActuallyRoom(roomWest);
                                     log.info("Now you are in the West Room "+roomWest.getName());
-                                    break;
                                 }
                                 default -> log.info("Direction not found. ChangeRoom");
                             }
@@ -89,7 +84,7 @@ public class GameController {
         System.out.println("Item present in room : " + room.getItemsPresentInRoom());
         System.out.println("Animal present in room " + room.getAnimals());
     }
-    public void getInformationBag(Bag bag){
+    public void getInformationBag(@NotNull Bag bag){
         System.out.println("Item present in bag : " + bag.getItemsInBag());
         System.out.println("Slot available :" + bag.getSlotAvailable());
     }

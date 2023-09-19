@@ -85,8 +85,6 @@ public class GameCreator {
         fifthRow.add(roomE3);
         fifthRow.add(roomqE4);
         fifthRow.add(roomE5);
-
-
         matrixRooms.add(4, fifthRow);
 
         return matrixRooms;
@@ -135,7 +133,7 @@ public class GameCreator {
         if(getAllRooms().isEmpty() || createBag()== null){
             return null;
         }
-        return new Player("Lego",100,getAllRooms().get(4),createBag());
+        return new Player("Lego",100,getAllRooms().get(randomRooms()),createBag());
     }
     public static @NotNull Map<Class<? extends Animal>, List<Animal>> createAnimals() {
 
@@ -199,6 +197,10 @@ public class GameCreator {
             randomItem.add(createItem().get(randomIndex3));
         }
         return randomItem;
+    }
+    private int randomRooms(){
+        Random random = new Random();
+        return random.nextInt(24);
     }
     private @NotNull List<Animal> getRandomAnimals(){
         Random random = new Random();
