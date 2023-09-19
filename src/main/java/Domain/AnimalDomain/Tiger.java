@@ -9,7 +9,7 @@ public class Tiger extends AnimalsWithTail {
     }
     @Override
     public String toString() {
-        return "Tiger{" +
+        return "\n-Tiger{" +
                 "name='" + super.getName() + '\'' +
                 ", favoriteFood='" + super.getFavoriteFood() + '\'' +
                 ", age=" + super.getAge() +

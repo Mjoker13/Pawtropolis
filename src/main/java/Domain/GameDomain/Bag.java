@@ -14,4 +14,8 @@ import java.util.List;
 public class Bag {
     private List<Item> itemsInBag;
     private int slotAvailable;
+
+
+
+
 }

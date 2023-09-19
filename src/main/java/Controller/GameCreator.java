@@ -86,7 +86,6 @@ public class GameCreator {
         fifthRow.add(roomqE4);
         fifthRow.add(roomE5);
         matrixRooms.add(4, fifthRow);
-
         return matrixRooms;
     }
     public List<Room> getAllRooms(){

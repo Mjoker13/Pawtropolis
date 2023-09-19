@@ -11,7 +11,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -84,7 +83,7 @@ public class GameController {
         }
     public void getInformationInRoom(@NotNull Room room){
         System.out.println("The name of room is: " + room.getName());
-        System.out.println("Item present in room : " + room.getItemsPresentInRoom().stream().filter(Objects::nonNull).map(Item::getName).toList());
+        System.out.println("\nItem present in room : " + room.getItemsPresentInRoom().stream().filter(Objects::nonNull).map(Item::getName).toList());
         System.out.println("Animal in room are :" + room.getAnimals().stream().filter(Objects::nonNull).map(Animal::getName).toList());
     }
     public void getInformationBag(@NotNull Bag bag){
@@ -122,10 +121,11 @@ public class GameController {
     public void removeItemRoom(@NotNull Player player, String s){
         player.getActuallyRoom().getItemsPresentInRoom().removeIf(i -> i.getName().equalsIgnoreCase(s));
     }
-    public void printAllRooms(){
+    public void printAllRooms(String roomPlayer){
         gameCreator.createRooms().forEach(row -> { row.stream()
                 .map(Room::getName)
-                .forEach(name -> System.out.print(name + " "));
+                .forEach(name -> {if(name.equalsIgnoreCase(roomPlayer)) System.out.print('"'+name+'"'); else System.out.print(" "+name + " ");
+                });
             System.out.println();
         });
     }

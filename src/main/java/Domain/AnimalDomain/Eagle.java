@@ -8,7 +8,7 @@ public class Eagle extends AnimalsWithWings {
     }
     @Override
     public String toString() {
-        return "Eagle{" +
+        return "\n-Eagle{" +
                 "name='" + super.getName() + '\'' +
                 ", favoriteFood='" + super.getFavoriteFood() + '\'' +
                 ", age=" + super.getAge() +

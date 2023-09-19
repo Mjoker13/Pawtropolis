@@ -9,7 +9,7 @@ public class Lion extends AnimalsWithTail {
     }
     @Override
     public String toString() {
-        return "Lion{" +
+        return "\n-Lion{" +
                 "name='" + super.getName() + '\'' +
                 ", favoriteFood='" + super.getFavoriteFood() + '\'' +
                 ", age=" + super.getAge() +

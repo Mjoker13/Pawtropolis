@@ -36,8 +36,8 @@ public class Main {
                 action=scanner.nextLine();
                 switch (action.toLowerCase()){
                     case "1"->{
-                        System.out.println("\n"+"These are a rooms, you are in :" + actuallyPlayer.getActuallyRoom().getName());
-                        gameController.printAllRooms();
+                        System.out.println("\n"+"These are a rooms, you are in : " + '"' +actuallyPlayer.getActuallyRoom().getName()+'"');
+                        gameController.printAllRooms(actuallyPlayer.getActuallyRoom().getName());
                         System.out.println();
                         System.out.println("Which direction do you want to go? \n1 -> go south ↓ \n2 -> go north ↑ \n3 -> go east → \n4 -> go west ←");
                         String room = scanner.nextLine();
@@ -56,8 +56,8 @@ public class Main {
                     case "3"->
                         gameController.getInformationBag(actuallyPlayer.getBag());
                     case "4"->{
-                        System.out.println("In this room is present: ");
-                        gameController.getInformationInRoom(actuallyPlayer.getActuallyRoom());
+                        System.out.println("In this room is present: "+actuallyPlayer.getActuallyRoom().getItemsPresentInRoom());
+                       // gameController.getInformationInRoom(actuallyPlayer.getActuallyRoom());
                         System.out.println("Which item?");
                         String chosenItem = scanner.nextLine();
                         gameController.addItemBag(actuallyPlayer, chosenItem);
