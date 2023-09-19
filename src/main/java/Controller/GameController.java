@@ -9,7 +9,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 @Getter
 @Setter
@@ -27,11 +26,7 @@ public class GameController {
         this.rooms = gameCreator.getAllRooms();
         this.itemList = gameCreator.createItem();
     }
-
     GameCreator gameCreator = new GameCreator();
-
-
-
 
     public Room changeRoom(Player player, String direction) {
         GameCreator gameCreator= new GameCreator();
@@ -42,10 +37,6 @@ public class GameController {
         Room roomWest= null;
         Room roomEast= null;
         int row =0;
-
-
-
-
             for (List<Room> rowRoomList : roomList) {
                 int column = 0;
                 for (Room room1 : rowRoomList) {
@@ -98,11 +89,9 @@ public class GameController {
         System.out.println("Item present in room : " + room.getItemsPresentInRoom());
         System.out.println("Animal present in room " + room.getAnimals());
     }
-    public void getInformationBag(){
-        List<Item> items=  player.getBag().getItemsInBag();
-        for (Item item:items){
-            System.out.println("In bag: " + item.getName() + ", " + item.getDescription());
-        }
+    public void getInformationBag(Bag bag){
+        System.out.println("Item present in bag : " + bag.getItemsInBag());
+        System.out.println("Slot available :" + bag.getSlotAvailable());
     }
     public void addItemBag(Player player,String s){
             for (Item i : itemList) {
@@ -122,6 +111,7 @@ public class GameController {
         }
     }
     public void removeItemBag(@NotNull Player player, String s){
+        // player.getBag().getItemsInBag().removeIf(i -> i.getName().equalsIgnoreCase(s));
         for (Item i : player.getBag().getItemsInBag()) {
             if (i.getName().equalsIgnoreCase(s)) {
                 player.getBag().getItemsInBag().remove(i);

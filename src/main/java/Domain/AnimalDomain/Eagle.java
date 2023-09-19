@@ -16,6 +16,6 @@ public class Eagle extends AnimalsWithWings {
                 ", weight=" + super.getWeight() +
                 ", height=" + super.getHeight() +
                 ", wingspan=" + super.getWingspan() +
-                '}' + '\n';
+                '}';
     }
 }

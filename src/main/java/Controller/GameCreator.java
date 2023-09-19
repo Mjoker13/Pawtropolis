@@ -106,19 +106,25 @@ public class GameCreator {
     public List<Item> createItem(){
         List<Item> itemList= new ArrayList<>();
         Item hammer = new Item("Hammer","Use it to break things",3);
-        Item water = new Item("Water","Use it to quench your thirst",1);
+        Item water = new Item("Water","Use it to quench your thirst",2);
         Item knife = new Item("Knife","use it to spread the Nutella",2);
         Item banana = new Item("Banana","Give it to the animals",1);
         Item apple = new Item("Apple","Give it to the animals",1);
-        Item cane = new Item("Cane","Relax with animals",2);
-
+        Item cane = new Item("Cane","Relax with animals",1);
+        Item gas = new Item("Gas","Drink to suicide",1);
+        Item nutella = new Item("Nutella","Paradise's moment",2);
+        Item screwdriver = new Item("Screwdriver","To be",2);
+        Item chainsaw = new Item("Chainsaw","Cut all",4);
         itemList.add(hammer);
         itemList.add(water);
         itemList.add(knife);
         itemList.add(banana);
         itemList.add(apple);
         itemList.add(cane);
-
+        itemList.add(gas);
+        itemList.add(nutella);
+        itemList.add(screwdriver);
+        itemList.add(chainsaw);
         return itemList;
     }
     public Bag createBag(){
@@ -203,8 +209,8 @@ public class GameCreator {
         int randomIndex3 = random.nextInt(createAnimals().size());
         List<Animal> randomItem = new ArrayList<>();
         randomItem.add(zooController.getAllAnimalsForSpecies(Tiger.class).get(randomIndex));
-        randomItem.add(zooController.getAllAnimalsForSpecies(Eagle.class).get(randomIndex2));
-        randomItem.add(zooController.getAllAnimalsForSpecies(Lion.class).get(randomIndex3));
+       // randomItem.add(zooController.getAllAnimalsForSpecies(Eagle.class).get(randomIndex2));
+       // randomItem.add(zooController.getAllAnimalsForSpecies(Lion.class).get(randomIndex3));
         return randomItem;
     }
 }

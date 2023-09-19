@@ -1,43 +1,52 @@
 import Controller.GameController;
-import Controller.KeyListnerClass;
 import Domain.GameDomain.Bag;
 import Domain.GameDomain.Player;
 import Domain.GameDomain.Room;
 import lombok.extern.java.Log;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.KeyEvent;
+import java.util.Scanner;
+
 
 @Log
 public class Main {
     public static void main(String[] args) {
-/*
-        freccia giù= '\u2193'
-        freccia sù= '\u2191'
-         */
-        KeyListnerClass keyListnerClass= new KeyListnerClass();
-
-        JFrame frame = new JFrame("Pawtropolis");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300, 200);
-        JPanel panel= new JPanel();
-        frame.add(panel);
-
-        JLabel textField= new JLabel();
-        panel.add(textField);
-        textField.addKeyListener(keyListnerClass);
-        frame.addKeyListener(keyListnerClass);
-        Font customFont = new Font("Arial", Font.ITALIC, 24);
-        frame.setFont(customFont);
-        Color colorFont= Color.BLACK;
-        frame.setForeground(colorFont);
-        frame.setVisible(true);
+        Scanner scanner = new Scanner(System.in);
         GameController gameController = new GameController();
         Player player1 = gameController.getPlayer();
         Bag bag1 = gameController.getPlayer().getBag();
         Room room1 = gameController.getPlayer().getActuallyRoom();
+        boolean conferme = false;
 
-
+        System.out.println("Welcome to the Pawtropolis city; What's your name? ");
+        String name = scanner.nextLine();
+        player1.setName(name);
+        System.out.println("Hello " + name + " do you want play? (yes/no) ");
+        String doYouWantPlay = scanner.nextLine();
+        if (doYouWantPlay.equalsIgnoreCase("yes")) {
+            conferme = true;
+        } else {
+            System.out.println("Goodbye ");
+        }
+        while (conferme) {
+            System.out.println(name + " your actually room is :");
+            System.out.println("\n" + "Your player has life points :" + player1.getLifePoints() + " and a bag with some free starter gadgets " + bag1.getItemsInBag());
+            System.out.println("\n" + "Each gadget occupies a space inside the bag, which has a maximum space of 20 " + "\n" +
+                    "by removing the space occupied by your gadgets, your remaining space is " + bag1.getSlotAvailable());
+            gameController.getInformationInRoom(player1.getActuallyRoom());
+            System.out.println("\n" + "These are item present in the actually room :");
+            System.out.println(room1.getItemsPresentInRoom());
+            System.out.println("\n" + "Do you want to add an item from bag? (yes/no)");
+            String input = scanner.nextLine();
+            if (input.equalsIgnoreCase("yes")) {
+                System.out.println("Which item?");
+                String chosenItem = scanner.nextLine();
+                gameController.addItemBag(player1, chosenItem);
+            }
+            System.out.println("Room Item now: ");
+            System.out.println(room1.getItemsPresentInRoom());
+            gameController.getInformationBag(bag1);
+            conferme = false;
+        }
     }
 }
+
