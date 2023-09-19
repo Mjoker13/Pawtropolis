@@ -124,4 +124,12 @@ public class GameController {
     public void removeItemRoom(@NotNull Player player, String s){
         player.getActuallyRoom().getItemsPresentInRoom().removeIf(i -> i.getName().equalsIgnoreCase(s));
     }
+    public void printAllRooms(){
+        gameCreator.createRooms().forEach(row -> { row.stream()
+                .map(Room::getName)
+                .forEach(name -> System.out.print(name + " "));
+            System.out.println();
+        });
+    }
+
 }
