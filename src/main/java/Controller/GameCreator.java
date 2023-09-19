@@ -197,20 +197,27 @@ public class GameCreator {
         int randomIndex2 = random.nextInt(createItem().size());
         int randomIndex3 = random.nextInt(createItem().size());
         List<Item> randomItem = new ArrayList<>();
-        randomItem.add(createItem().get(randomIndex));
-        randomItem.add(createItem().get(randomIndex2));
-        randomItem.add(createItem().get(randomIndex3));
+        if(randomIndex != randomIndex2 && randomIndex3 != randomIndex) {
+            randomItem.add(createItem().get(randomIndex));
+            randomItem.add(createItem().get(randomIndex2));
+            randomItem.add(createItem().get(randomIndex3));
+        } else if (randomIndex == randomIndex2 && randomIndex3 != randomIndex) {
+            randomItem.add(createItem().get(randomIndex));
+            randomItem.add(createItem().get(randomIndex3));
+        }
         return randomItem;
     }
     private @NotNull List<Animal> getRandomAnimals(){
         Random random = new Random();
-        int randomIndex = random.nextInt(createAnimals().size());
-        int randomIndex2 = random.nextInt(createAnimals().size());
-        int randomIndex3 = random.nextInt(createAnimals().size());
+        int randomIndex = random.nextInt(10);
+        int randomIndex2 = random.nextInt(10);
         List<Animal> randomItem = new ArrayList<>();
-        randomItem.add(zooController.getAllAnimalsForSpecies(Tiger.class).get(randomIndex));
-       // randomItem.add(zooController.getAllAnimalsForSpecies(Eagle.class).get(randomIndex2));
-       // randomItem.add(zooController.getAllAnimalsForSpecies(Lion.class).get(randomIndex3));
+        if(randomIndex != randomIndex2) {
+            randomItem.add(zooController.getAllAnimalsForSpecies(Animal.class).get(randomIndex));
+            randomItem.add(zooController.getAllAnimalsForSpecies(Animal.class).get(randomIndex2));
+        }else{
+            randomItem.add(zooController.getAllAnimalsForSpecies(Animal.class).get(randomIndex));
+        }
         return randomItem;
-    }
+    } // da sistemare
 }
