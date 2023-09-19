@@ -44,7 +44,7 @@ public class GameController {
                     if (room.equalsIgnoreCase(player.getActuallyRoom().getName())) {
                         try {
                             switch (direction.toLowerCase()) {
-                                case "go north" -> {
+                                case "go north"-> {
                                     roomNorth = roomList.get(row -1).get(column);
                                     player.setActuallyRoom(roomNorth);
                                     log.info("Now you are in the North Room " + roomNorth.getName());

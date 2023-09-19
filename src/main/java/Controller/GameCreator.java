@@ -49,42 +49,44 @@ public class GameCreator {
         matrixRooms.add(1, secondRow);
 
         ArrayList<Room> thirdRow = new ArrayList<>();
-        Room room7 = new Room("11", getRandomItem(), getRandomAnimals());
-        Room room8 = new Room("12", getRandomItem(), getRandomAnimals());
-        Room room9 = new Room("13", getRandomItem(), getRandomAnimals());
-        Room roomc10 = new Room("14", getRandomItem(), getRandomAnimals());
-        Room roomc11 = new Room("15", getRandomItem(), getRandomAnimals());
-        thirdRow.add(room7);
-        thirdRow.add(room8);
-        thirdRow.add(room9);
-        thirdRow.add(roomc10);
-        thirdRow.add(roomc11);
+        Room roomC1 = new Room("C1", getRandomItem(), getRandomAnimals());
+        Room roomC2 = new Room("C2", getRandomItem(), getRandomAnimals());
+        Room roomC3 = new Room("C3", getRandomItem(), getRandomAnimals());
+        Room roomC4 = new Room("C4", getRandomItem(), getRandomAnimals());
+        Room roomC5 = new Room("C5", getRandomItem(), getRandomAnimals());
+        thirdRow.add(roomC1);
+        thirdRow.add(roomC2);
+        thirdRow.add(roomC3);
+        thirdRow.add(roomC4);
+        thirdRow.add(roomC5);
         matrixRooms.add(2, thirdRow);
 
         ArrayList<Room> fourthRow = new ArrayList<>();
-        Room roomf1 = new Room("16", getRandomItem(), getRandomAnimals());
-        Room roomf2 = new Room("17", getRandomItem(), getRandomAnimals());
-        Room roomf3 = new Room("18", getRandomItem(), getRandomAnimals());
-        Room roomfc4 = new Room("19", getRandomItem(), getRandomAnimals());
-        Room roomfc5 = new Room("20", getRandomItem(), getRandomAnimals());
-        fourthRow.add(roomf1);
-        fourthRow.add(roomf2);
-        fourthRow.add(roomf3);
-        fourthRow.add(roomfc4);
-        fourthRow.add(roomfc5);
+        Room roomD1 = new Room("D1", getRandomItem(), getRandomAnimals());
+        Room roomD2 = new Room("D2", getRandomItem(), getRandomAnimals());
+        Room roomD3 = new Room("D3", getRandomItem(), getRandomAnimals());
+        Room roomfD4 = new Room("D4", getRandomItem(), getRandomAnimals());
+        Room roomfD5 = new Room("D5", getRandomItem(), getRandomAnimals());
+        fourthRow.add(roomD1);
+        fourthRow.add(roomD2);
+        fourthRow.add(roomD3);
+        fourthRow.add(roomfD4);
+        fourthRow.add(roomfD5);
         matrixRooms.add(3,fourthRow);
 
         ArrayList<Room> fifthRow = new ArrayList<>();
-        Room roomq4 = new Room("21", getRandomItem(), getRandomAnimals());
-        Room roomqHome = new Room("22", getRandomItem(), getRandomAnimals());
-        Room roomq6 = new Room("23", getRandomItem(), getRandomAnimals());
-        Room roomqc7 = new Room("24", getRandomItem(), getRandomAnimals());
-        Room roomqc8 = new Room("25", getRandomItem(), getRandomAnimals());
-        fifthRow.add(roomq4);
-        fifthRow.add(roomqHome);
-        fifthRow.add(roomq6);
-        fifthRow.add(roomqc7);
-        fifthRow.add(roomqc8);
+        Room roomE1 = new Room("E1", getRandomItem(), getRandomAnimals());
+        Room roomE2 = new Room("E2", getRandomItem(), getRandomAnimals());
+        Room roomE3 = new Room("E3", getRandomItem(), getRandomAnimals());
+        Room roomqE4 = new Room("E4", getRandomItem(), getRandomAnimals());
+        Room roomE5 = new Room("E5", getRandomItem(), getRandomAnimals());
+        fifthRow.add(roomE1);
+        fifthRow.add(roomE2);
+        fifthRow.add(roomE3);
+        fifthRow.add(roomqE4);
+        fifthRow.add(roomE5);
+
+
         matrixRooms.add(4, fifthRow);
 
         return matrixRooms;
