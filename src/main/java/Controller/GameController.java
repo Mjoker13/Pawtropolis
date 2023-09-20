@@ -28,7 +28,7 @@ public class GameController {
         this.itemList = gameCreator.createItem();
     }
     GameCreator gameCreator = new GameCreator();
-    private Room switchBetweenRooms(String direction, int rowIndex, int columnIndex, List<ArrayList<Room>> roomsList){
+    private Room switchBetweenRooms(@NotNull String direction, int rowIndex, int columnIndex, List<ArrayList<Room>> roomsList){
         Room switchableRoom = null;
         try {
             switch (direction.toLowerCase()) {
@@ -85,44 +85,11 @@ public class GameController {
     public void getInformationInRoom(@NotNull Room room){
         System.out.println("The name of room is: " + room.getName());
         System.out.println("\nItem present in room : " + room.getItemsPresentInRoom().stream().filter(Objects::nonNull).map(Item::getName ).toList());
-        System.out.println("Animal in room are :" + room.getAnimals().stream().filter(Objects::nonNull).map(animal -> animal.getName() + " ( " + animal.getClass().getSimpleName() + " )").toList());
+        System.out.println("Animal in room are :" + room.getAnimals().stream().filter(Objects::nonNull).map(animal -> animal.getName() + " (" + animal.getClass().getSimpleName() + ")").toList() + "\n");
     }
     public void getInformationBag(@NotNull Bag bag){
         System.out.println("Item present in bag : " + bag.getItemsInBag().stream().filter(Objects::nonNull).map(Item::getName).toList());
         System.out.println("Slot available :" + bag.getSlotAvailable());
-    }
-    public boolean addItemBag(@NotNull Player player, String s){
-            for (Item i : player.getActuallyRoom().getItemsPresentInRoom()) {
-                if (i.getName().equalsIgnoreCase(s) && (player.getBag().getSlotAvailable() > i.getSlotRequired())) {
-                        player.getBag().getItemsInBag().add(i);
-                        removeItemRoom(player,s);
-                        player.getBag().setSlotAvailable(player.getBag().getSlotAvailable() - i.getSlotRequired());
-                        return true;
-                }
-            }
-        return false;
-    }
-    public void addItemRoom(Player player,String s){
-        for (Item i: itemList) {
-            if (i.getName().equalsIgnoreCase(s)) {
-                player.getActuallyRoom().getItemsPresentInRoom().add(i);
-            }
-        }
-    }
-    public boolean removeItemBag(@NotNull Player player, String s){
-        // player.getBag().getItemsInBag().removeIf(i -> i.getName().equalsIgnoreCase(s));
-        for (Item i : player.getBag().getItemsInBag()) {
-            if (i.getName().equalsIgnoreCase(s)) {
-                player.getBag().getItemsInBag().remove(i);
-                addItemRoom(player,s);
-                player.getBag().setSlotAvailable(player.getBag().getSlotAvailable() + i.getSlotRequired());
-            return true;
-            }
-        }
-        return false;
-    }
-    public void removeItemRoom(@NotNull Player player, String s){
-        player.getActuallyRoom().getItemsPresentInRoom().removeIf(i -> i.getName().equalsIgnoreCase(s));
     }
     public void printAllRooms(String roomPlayer){
         gameCreator.createRooms().forEach(row -> { row.stream()
@@ -132,5 +99,5 @@ public class GameController {
             System.out.println();
         });
     }
-
 }
+

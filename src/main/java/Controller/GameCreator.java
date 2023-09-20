@@ -118,15 +118,7 @@ public class GameCreator {
         return itemList;
     }
     public Bag createBag(){
-        List<Item> itemList = getRandomItem();
-        int slotAvailable=20;
-        if(createItem().isEmpty()){
-            return null;
-        }
-        for (Item item: itemList) {
-            slotAvailable -= item.getSlotRequired();
-        }
-        return new Bag(itemList,slotAvailable);
+         return new Bag();
     }
     public Player createPlayer(){
         if(getAllRooms().isEmpty() || createBag()== null){
@@ -196,7 +188,7 @@ public class GameCreator {
             randomItem.add(createItem().get(randomIndex3));
         }
         return randomItem;
-    }
+    } //TODO da sistemare
     private int randomRooms(){
         Random random = new Random();
         return random.nextInt(24);
@@ -205,13 +197,13 @@ public class GameCreator {
         Random random = new Random();
         int randomIndex = random.nextInt(10);
         int randomIndex2 = random.nextInt(10);
-        List<Animal> randomItem = new ArrayList<>();
+        List<Animal> randomAnimal = new ArrayList<>();
         if(randomIndex != randomIndex2) {
-            randomItem.add(zooController.getAllAnimalsForSpecies(Animal.class).get(randomIndex));
-            randomItem.add(zooController.getAllAnimalsForSpecies(Animal.class).get(randomIndex2));
+            randomAnimal.add(zooController.getAllAnimalsForSpecies(Animal.class).get(randomIndex));
+            randomAnimal.add(zooController.getAllAnimalsForSpecies(Animal.class).get(randomIndex2));
         }else{
-            randomItem.add(zooController.getAllAnimalsForSpecies(Animal.class).get(randomIndex));
+            randomAnimal.add(zooController.getAllAnimalsForSpecies(Animal.class).get(randomIndex));
         }
-        return randomItem;
-    } // da sistemare
+        return randomAnimal;
+    } //TODO da sistemare
 }
