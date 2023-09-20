@@ -1,6 +1,5 @@
 package Controller;
 
-import Domain.AnimalDomain.Animal;
 import Domain.GameDomain.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,58 +28,60 @@ public class GameController {
         this.itemList = gameCreator.createItem();
     }
     GameCreator gameCreator = new GameCreator();
+    private Room switchBetweenRooms(String direction, int rowIndex, int columnIndex, List<ArrayList<Room>> roomsList){
+        Room switchableRoom = null;
+        try {
+            switch (direction.toLowerCase()) {
+                case "go north"-> {
+                    switchableRoom = roomsList.get(rowIndex -1).get(columnIndex);
+                    player.setActuallyRoom(switchableRoom);
+                    log.info("Now you are in the North Room " + switchableRoom.getName());
+                }
+                case "go south" -> {
+                    switchableRoom = roomsList.get(rowIndex +1).get(columnIndex);
+                    player.setActuallyRoom(switchableRoom);
+                    log.info("Now you are in the South Room " + switchableRoom.getName());
+                }
+                case "go east" -> {
+                    switchableRoom = roomsList.get(rowIndex).get(columnIndex +1);
+                    player.setActuallyRoom(switchableRoom);
+                    log.info("Now you are in the East Room "+ switchableRoom.getName());
+                }
+                case "go west" -> {
+                    switchableRoom = roomsList.get(rowIndex).get(columnIndex -1);
+                    player.setActuallyRoom(switchableRoom);
+                    log.info("Now you are in the West Room "+ switchableRoom.getName());
+                }
+                default -> log.info("Direction not found. ChangeRoom");
+            }
+        } catch (IndexOutOfBoundsException e) {
+            direction = direction.replace("go ", "").toUpperCase();
+            switchableRoom = roomsList.get(rowIndex).get(columnIndex);
+             System.err.println("A room at: '" + direction+"' is not found. \nNow you are into: "+ switchableRoom.getName() + "\n");
+            printAllRooms(player.getActuallyRoom().getName());
 
-    public Room changeRoom(Player player, String direction) {
-        List<ArrayList<Room>> roomList=gameCreator.createRooms();
-        String room ;
-        Room roomNorth = null;
-        Room roomSud= null;
-        Room roomWest= null;
-        Room roomEast= null;
-        int row =0;
-            for (List<Room> rowRoomList : roomList) {
-                int column = 0;
+        }
+        return switchableRoom;
+    }
+    public void changeRoom(Player player, String direction) {
+        List<ArrayList<Room>> roomsList =gameCreator.createRooms();
+        Room switchableRoom =null;
+        int rowIndex =0;
+            for (List<Room> rowRoomList : roomsList) {
+                int columnIndex = 0;
                 for (Room room1 : rowRoomList) {
-                    room = room1.getName();
+                    String room = room1.getName();
                     if (room.equalsIgnoreCase(player.getActuallyRoom().getName())) {
-                        try {
-                            switch (direction.toLowerCase()) {
-                                case "go north"-> {
-                                    roomNorth = roomList.get(row -1).get(column);
-                                    player.setActuallyRoom(roomNorth);
-                                    log.info("Now you are in the North Room " + roomNorth.getName());
-                                }
-                                case "go south" -> {
-                                    roomSud = roomList.get(row +1).get(column);
-                                    player.setActuallyRoom(roomSud);
-                                    log.info("Now you are in the South Room " + roomSud.getName());
-                                }
-                                case "go east" -> {
-                                    roomEast = roomList.get(row).get(column +1);
-                                    player.setActuallyRoom(roomEast);
-                                    log.info("Now you are in the East Room "+ roomEast.getName());
-                                }
-                                case "go west" -> {
-                                    roomWest = roomList.get(row).get(column -1);
-                                    player.setActuallyRoom(roomWest);
-                                    log.info("Now you are in the West Room "+roomWest.getName());
-                                }
-                                default -> log.info("Direction not found. ChangeRoom");
-                            }
-                        } catch (IndexOutOfBoundsException e) {
-                            direction = direction.replace("go ", "").toUpperCase();
-                            System.err.println("A room at: '" + direction+"' is not found. \nNow you are into: "+ room);
-                        }
+                         switchableRoom = switchBetweenRooms(direction, rowIndex, columnIndex, roomsList);
                         break;
                     }
-                    column++;
+                    columnIndex++;
                 }
-                if(roomEast!=null || roomSud!=null || roomWest!=null || roomNorth !=null )
+                if(switchableRoom !=null )
                     break;
-                row++;
+                rowIndex++;
             }
-        return player.getActuallyRoom();
-        }
+    }
     public void getInformationInRoom(@NotNull Room room){
         System.out.println("The name of room is: " + room.getName());
         System.out.println("\nItem present in room : " + room.getItemsPresentInRoom().stream().filter(Objects::nonNull).map(Item::getName ).toList());
