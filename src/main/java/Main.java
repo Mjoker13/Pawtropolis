@@ -29,7 +29,6 @@ public class Main {
                     "by removing the space occupied by your gadgets, your remaining space is " + playerBag.getSlotAvailable());
             System.out.println(name + " your actually room is : "+ actuallyPlayer.getActuallyRoom().getName());
             while (!confirm) {
-
                 System.out.println("\n" + "Now "+name+", What would you like to do? ");
                 System.out.println("1 -> change room? \n2 -> look around? \n3 -> look bag? \n4 -> get items from the room? \n5 -> drop items from the bag? \n6 -> Exit from the game?");
                 String action;
@@ -57,21 +56,29 @@ public class Main {
                         gameController.getInformationBag(actuallyPlayer.getBag());
                     case "4"->{
                         System.out.println("In this room is present: "+actuallyPlayer.getActuallyRoom().getItemsPresentInRoom());
-                       // gameController.getInformationInRoom(actuallyPlayer.getActuallyRoom());
                         System.out.println("Which item?");
                         String chosenItem = scanner.nextLine();
-                        gameController.addItemBag(actuallyPlayer, chosenItem);
-                        System.out.println("Item "+ chosenItem.toUpperCase() +" taken, Now your bag has :");
-                        gameController.getInformationBag(playerBag);
+                        if(gameController.addItemBag(actuallyPlayer, chosenItem)){
+                            System.out.println("Item "+ chosenItem.toUpperCase() +" taken, Now your bag has :");
+                            gameController.getInformationBag(playerBag);
+                        }else{
+                            log.info("Item " + chosenItem.toUpperCase() +" not present in the room");
+                            System.out.println(actuallyPlayer.getActuallyRoom().getItemsPresentInRoom());
+                        }
                     }
                     case "5"->{
                         System.out.println("In this bag is present: ");
                         gameController.getInformationBag(playerBag);
                         System.out.println("Which item do you remove?");
                         String chosenItem = scanner.nextLine();
-                        gameController.removeItemBag(actuallyPlayer, chosenItem);
-                        System.out.println("Item "+ chosenItem.toUpperCase() +" removed, Now your bag has :");
-                        gameController.getInformationBag(playerBag);
+                        if(gameController.removeItemBag(actuallyPlayer, chosenItem)){
+                            System.out.println("Item "+ chosenItem.toUpperCase() +" removed, Now your bag has :");
+                            gameController.getInformationInRoom(actuallyPlayer.getActuallyRoom());
+                        }else{
+                            log.info("Item " + chosenItem.toUpperCase() +" not present in the bag");
+                            System.out.println(playerBag.getItemsInBag());
+                        }
+
                     }
                     case "6"->{
                         confirm=true;

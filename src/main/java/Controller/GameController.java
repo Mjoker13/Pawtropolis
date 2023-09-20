@@ -83,22 +83,23 @@ public class GameController {
         }
     public void getInformationInRoom(@NotNull Room room){
         System.out.println("The name of room is: " + room.getName());
-        System.out.println("\nItem present in room : " + room.getItemsPresentInRoom().stream().filter(Objects::nonNull).map(Item::getName).toList());
-        System.out.println("Animal in room are :" + room.getAnimals().stream().filter(Objects::nonNull).map(Animal::getName).toList());
+        System.out.println("\nItem present in room : " + room.getItemsPresentInRoom().stream().filter(Objects::nonNull).map(Item::getName ).toList());
+        System.out.println("Animal in room are :" + room.getAnimals().stream().filter(Objects::nonNull).map(animal -> animal.getName() + " ( " + animal.getClass().getSimpleName() + " )").toList());
     }
     public void getInformationBag(@NotNull Bag bag){
         System.out.println("Item present in bag : " + bag.getItemsInBag().stream().filter(Objects::nonNull).map(Item::getName).toList());
         System.out.println("Slot available :" + bag.getSlotAvailable());
     }
-    public void addItemBag(Player player,String s){
-            for (Item i : itemList) {
+    public boolean addItemBag(@NotNull Player player, String s){
+            for (Item i : player.getActuallyRoom().getItemsPresentInRoom()) {
                 if (i.getName().equalsIgnoreCase(s) && (player.getBag().getSlotAvailable() > i.getSlotRequired())) {
                         player.getBag().getItemsInBag().add(i);
                         removeItemRoom(player,s);
                         player.getBag().setSlotAvailable(player.getBag().getSlotAvailable() - i.getSlotRequired());
-                        break;
+                        return true;
                 }
             }
+        return false;
     }
     public void addItemRoom(Player player,String s){
         for (Item i: itemList) {
@@ -107,16 +108,17 @@ public class GameController {
             }
         }
     }
-    public void removeItemBag(@NotNull Player player, String s){
+    public boolean removeItemBag(@NotNull Player player, String s){
         // player.getBag().getItemsInBag().removeIf(i -> i.getName().equalsIgnoreCase(s));
         for (Item i : player.getBag().getItemsInBag()) {
             if (i.getName().equalsIgnoreCase(s)) {
                 player.getBag().getItemsInBag().remove(i);
                 addItemRoom(player,s);
                 player.getBag().setSlotAvailable(player.getBag().getSlotAvailable() + i.getSlotRequired());
-                break;
+            return true;
             }
         }
+        return false;
     }
     public void removeItemRoom(@NotNull Player player, String s){
         player.getActuallyRoom().getItemsPresentInRoom().removeIf(i -> i.getName().equalsIgnoreCase(s));
