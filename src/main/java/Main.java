@@ -13,9 +13,7 @@ public class Main {
 
         GameController gameController = new GameController();
         Scanner scanner = new Scanner(System.in);
-        Player actuallyPlayer = gameController.getPlayer();
-        Bag playerBag = gameController.getPlayer().getBag();
-        Room actuallyRoomPlayer = gameController.getPlayer().getActuallyRoom();
+        Player player = gameController.getPlayer();
         boolean confirm = false;
         String chosenItem="";
 
@@ -28,10 +26,10 @@ public class Main {
 
             if (doYouWantPlay.equalsIgnoreCase("yes")) {
             System.out.println("Hi "+name+", Welcome to Pawtropolis");
-            System.out.println("\n" + "You have " + actuallyPlayer.getLifePoints() + " life points");
-            System.out.println("\n" + "You have a bag that it can contain many item, with maximum slot of "+playerBag.getMaxCapacity() + "\n" +
-                    "The item in your bag take up space, actually have a " + playerBag.getSlotAvailable() + " slot available");
-            System.out.println(name + " your actually room is : "+ actuallyPlayer.getActuallyRoom().getName());
+            System.out.println("\n" + "You have " + player.getLifePoints() + " life points");
+            System.out.println("\n" + "You have a bag that it can contain many item, with maximum slot of "+player.getBag().getMaxCapacity() + "\n" +
+                    "The item in your bag take up space, actually have a " + player.getBag().getSlotAvailable() + " slot available");
+            System.out.println(name + " your actually room is : "+ player.getActuallyRoom().getName());
             while (!confirm) {
                 System.out.println("\n" + "Now "+name+", What would you like to do? ");
                 System.out.println("1 -> change room? \n2 -> look around? \n3 -> look bag? \n4 -> get items from the room? \n5 -> drop items from the bag? \n6 -> Exit from the game?");
@@ -39,8 +37,8 @@ public class Main {
                 action=scanner.nextLine();
                 switch (action.toLowerCase()) {
                     case "1" -> {
-                        System.out.println("\n" + "These are a rooms, you are in : " + '"' + actuallyPlayer.getActuallyRoom().getName() + '"');
-                        gameController.printAllRooms(actuallyPlayer.getActuallyRoom().getName());
+                        System.out.println("\n" + "These are a rooms, you are in : " + '"' + player.getActuallyRoom().getName() + '"');
+                        gameController.printAllRooms(player.getActuallyRoom().getName());
                         System.out.println();
                         System.out.println("Which direction do you want to go? \n1 -> go south ↓ \n2 -> go north ↑ \n3 -> go east → \n4 -> go west ←");
                         String room = scanner.nextLine();
@@ -52,27 +50,27 @@ public class Main {
                             room = "go east";
                         else
                             room = "go west";
-                        gameController.changeRoom(actuallyPlayer, room);
+                        gameController.changeRoom(player, room);
                     } //TODO da sistemare
-                    case "2" -> gameController.getInformationInRoom(actuallyPlayer.getActuallyRoom());
-                    case "3" -> gameController.getInformationBag(actuallyPlayer.getBag());
+                    case "2" -> gameController.getInformationInRoom(player.getActuallyRoom());
+                    case "3" -> gameController.getInformationBag(player.getBag());
                     case "4" -> {
-                        System.out.println("In this room is present: " + actuallyRoomPlayer.getItemsPresentInRoom());
+                        System.out.println("In this room is present: " + player.getActuallyRoom().getItemsPresentInRoom());
                         System.out.println("Which item?");
                         chosenItem = scanner.nextLine();
-                        actuallyPlayer.addItemToBagAndDropItemToRoom(actuallyPlayer.getItemInRoom(chosenItem));
-                        gameController.getInformationInRoom(actuallyRoomPlayer);
-                        gameController.getInformationBag(playerBag);
+                        player.addItemToBagAndDropItemToRoom(player.getItemInRoom(chosenItem));
+                        gameController.getInformationInRoom(player.getActuallyRoom());
+                        gameController.getInformationBag(player.getBag());
                     }
                     case "5" -> {
                         System.out.println("In this bag is present: ");
-                        gameController.getInformationBag(playerBag);
+                        gameController.getInformationBag(player.getBag());
                         System.out.println("Which item do you remove?");
                         chosenItem = scanner.nextLine();
-                        actuallyPlayer.addItemToRoomAndDropItemToBag(actuallyPlayer.getItemInBag(chosenItem));
-                        System.out.println(playerBag.getItemsInBag()+" ---- \n" + actuallyRoomPlayer.getItemsPresentInRoom());
-                        gameController.getInformationInRoom(actuallyRoomPlayer);
-                        gameController.getInformationBag(playerBag);
+                        player.addItemToRoomAndDropItemToBag(player.getItemInBag(chosenItem));
+                        System.out.println(player.getBag().getItemsInBag()+" ---- \n" + player.getActuallyRoom().getItemsPresentInRoom());
+                        gameController.getInformationInRoom(player.getActuallyRoom());
+                        gameController.getInformationBag(player.getBag());
                     }
                     case "6"->{
                         confirm=true;

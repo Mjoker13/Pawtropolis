@@ -27,9 +27,6 @@ public class Bag {
         if(itemsInBag.isEmpty()){
             return getMaxCapacity();
         }
-        for (Item item:itemsInBag) {
-            slotAvailable-=item.getSlotRequired();
-        }
         return slotAvailable;
     }
     public int getMaxCapacity() {
@@ -38,6 +35,7 @@ public class Bag {
     public void addItemsToBag(@NotNull Item item) {
         if(slotAvailable>item.getSlotRequired()){
             getItemsInBag().add(item);
+            slotAvailable-=item.getSlotRequired();
         }else{
             log.info("Maximum capacity exceeded");
         }

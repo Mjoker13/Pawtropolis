@@ -105,6 +105,9 @@ public class GameCreator {
         Item nutella = new Item("Nutella","Paradise's moment",2);
         Item screwdriver = new Item("Screwdriver","To be",2);
         Item chainsaw = new Item("Chainsaw","Cut all",4);
+        Item electricChair = new Item("Electric chair","use for cook the chicken",4);
+        Item chicken = new Item("Chicken","Cook it with the electric chair",4);
+        Item oldBread = new Item("Old bread","It cuts with chainsaw",4);
         itemList.add(hammer);
         itemList.add(water);
         itemList.add(knife);
@@ -115,6 +118,9 @@ public class GameCreator {
         itemList.add(nutella);
         itemList.add(screwdriver);
         itemList.add(chainsaw);
+        itemList.add(electricChair);
+        itemList.add(chicken);
+        itemList.add(oldBread);
         return itemList;
     }
     public Bag createBag(){
@@ -186,9 +192,12 @@ public class GameCreator {
         } else if (randomIndex == randomIndex2 && randomIndex3 != randomIndex) {
             randomItem.add(createItem().get(randomIndex));
             randomItem.add(createItem().get(randomIndex3));
+        }else if (randomIndex2 != randomIndex3){
+            randomItem.add(createItem().get(randomIndex2));
+            randomItem.add(createItem().get(randomIndex3));
         }
         return randomItem;
-    } //TODO da sistemare
+    }
     private int randomRooms(){
         Random random = new Random();
         return random.nextInt(24);

@@ -35,18 +35,16 @@ public class Player {
         }else{
             log.info("Item not present in the bag");
         }
-    } //TODO da sistemare
+    }
     public Item getItemInRoom(String s){
-        for (Item item: getActuallyRoom().getItemsPresentInRoom()) {
-            if(item.getName().equalsIgnoreCase(s)){
-                return item;
-            }
-        }return null;
+        return  getActuallyRoom().getItemsPresentInRoom()
+                .stream()
+                .filter(item -> item.getName().equalsIgnoreCase(s))
+                .findFirst().orElse(null);
     }
     public Item getItemInBag(String s){
-        for (Item item: getBag().getItemsInBag()) {
-            if (item.getName().equalsIgnoreCase(s))
-                return item;
-        }return null;
+        return getBag().getItemsInBag().stream()
+                .filter(i-> i.getName().equalsIgnoreCase(s))
+                .findFirst().orElse(null);
     }
 }
