@@ -32,22 +32,22 @@ public class GameController {
         Room switchableRoom = null;
         try {
             switch (direction.toLowerCase()) {
-                case "go north"-> {
-                    switchableRoom = roomsList.get(rowIndex -1).get(columnIndex);
-                    player.setActuallyRoom(switchableRoom);
-                    log.info("Now you are in the North Room " + switchableRoom.getName());
-                }
-                case "go south" -> {
+                case "1" -> {
                     switchableRoom = roomsList.get(rowIndex +1).get(columnIndex);
                     player.setActuallyRoom(switchableRoom);
                     log.info("Now you are in the South Room " + switchableRoom.getName());
                 }
-                case "go east" -> {
+                case "2"-> {
+                    switchableRoom = roomsList.get(rowIndex -1).get(columnIndex);
+                    player.setActuallyRoom(switchableRoom);
+                    log.info("Now you are in the North Room " + switchableRoom.getName());
+                }
+                case "3" -> {
                     switchableRoom = roomsList.get(rowIndex).get(columnIndex +1);
                     player.setActuallyRoom(switchableRoom);
                     log.info("Now you are in the East Room "+ switchableRoom.getName());
                 }
-                case "go west" -> {
+                case "4" -> {
                     switchableRoom = roomsList.get(rowIndex).get(columnIndex -1);
                     player.setActuallyRoom(switchableRoom);
                     log.info("Now you are in the West Room "+ switchableRoom.getName());
@@ -55,9 +55,8 @@ public class GameController {
                 default -> log.info("Direction not found. ChangeRoom");
             }
         } catch (IndexOutOfBoundsException e) {
-            direction = direction.replace("go ", "").toUpperCase();
             switchableRoom = roomsList.get(rowIndex).get(columnIndex);
-             System.err.println("A room at: '" + direction+"' is not found. \nNow you are into: "+ switchableRoom.getName() + "\n");
+            System.err.println("There are no rooms in this direction. \nNow you are into: "+ switchableRoom.getName() + "\n");
             printAllRooms(player.getActuallyRoom().getName());
 
         }

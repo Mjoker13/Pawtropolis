@@ -204,8 +204,8 @@ public class GameCreator {
     }
     private @NotNull List<Animal> getRandomAnimals(){
         Random random = new Random();
-        int randomIndex = random.nextInt(10);
-        int randomIndex2 = random.nextInt(10);
+        int randomIndex = random.nextInt(createAnimals().values().stream().mapToInt(List::size).sum());
+        int randomIndex2 = random.nextInt(createAnimals().values().stream().mapToInt(List::size).sum());
         List<Animal> randomAnimal = new ArrayList<>();
         if(randomIndex != randomIndex2) {
             randomAnimal.add(zooController.getAllAnimalsForSpecies(Animal.class).get(randomIndex));
@@ -214,5 +214,5 @@ public class GameCreator {
             randomAnimal.add(zooController.getAllAnimalsForSpecies(Animal.class).get(randomIndex));
         }
         return randomAnimal;
-    } //TODO da sistemare
+    }
 }

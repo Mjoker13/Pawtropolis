@@ -1,14 +1,13 @@
 import Controller.GameController;
-import Domain.GameDomain.Bag;
-import Domain.GameDomain.Item;
 import Domain.GameDomain.Player;
-import Domain.GameDomain.Room;
 import lombok.extern.java.Log;
-
 import java.util.Scanner;
 
 @Log
 public class Main {
+    private static String pess;
+
+
     public static void main(String[] args) {
 
         GameController gameController = new GameController();
@@ -36,22 +35,13 @@ public class Main {
                 String action;
                 action=scanner.nextLine();
                 switch (action.toLowerCase()) {
-                    case "1" -> {
+                    case "1"->{
                         System.out.println("\n" + "These are a rooms, you are in : " + '"' + player.getActuallyRoom().getName() + '"');
                         gameController.printAllRooms(player.getActuallyRoom().getName());
-                        System.out.println();
                         System.out.println("Which direction do you want to go? \n1 -> go south ↓ \n2 -> go north ↑ \n3 -> go east → \n4 -> go west ←");
-                        String room = scanner.nextLine();
-                        if (room.equalsIgnoreCase("1"))
-                            room = "go south";
-                        else if (room.equalsIgnoreCase("2"))
-                            room = "go north";
-                        else if (room.equalsIgnoreCase("3"))
-                            room = "go east";
-                        else
-                            room = "go west";
-                        gameController.changeRoom(player, room);
-                    } //TODO da sistemare
+                        String room= scanner.nextLine();
+                        gameController.changeRoom(player,room);
+                    }
                     case "2" -> gameController.getInformationInRoom(player.getActuallyRoom());
                     case "3" -> gameController.getInformationBag(player.getBag());
                     case "4" -> {
@@ -68,7 +58,6 @@ public class Main {
                         System.out.println("Which item do you remove?");
                         chosenItem = scanner.nextLine();
                         player.addItemToRoomAndDropItemToBag(player.getItemInBag(chosenItem));
-                        System.out.println(player.getBag().getItemsInBag()+" ---- \n" + player.getActuallyRoom().getItemsPresentInRoom());
                         gameController.getInformationInRoom(player.getActuallyRoom());
                         gameController.getInformationBag(player.getBag());
                     }
