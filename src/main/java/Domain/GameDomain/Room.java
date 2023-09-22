@@ -19,9 +19,17 @@ public class Room {
     private List<Animal> animals;
 
     public void addItemsToRoom(@NotNull Item item) {
+        if(itemsPresentInRoom.contains(item)){
+            item.increaseTheQuantity();
+        }else {
             this.itemsPresentInRoom.add(item);
         }
+        }
     public void removeItemsToRoom(@NotNull Item item) {
+        if(itemsPresentInRoom.contains(item) && item.getQuantity()>1){
+            item.decreaseTheQuantity();
+        } else {
             this.itemsPresentInRoom.remove(item);
+        }
     }
 }

@@ -14,12 +14,9 @@ import java.util.stream.Collectors;
 public class ZooController {
 
     private Map<Class<? extends Animal>, List<Animal>> animals;
-
     public ZooController() {
         this.animals = GameCreator.createAnimals();
     }
-
-    // management methods generic
     public  <T extends Animal> List<T> getAllAnimalsForSpecies(Class<T> animalClass){
         if (animals.isEmpty()) {
             return Collections.emptyList();

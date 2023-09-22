@@ -8,6 +8,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Setter
 @Getter
 @ToString
@@ -22,7 +23,6 @@ public class Bag {
         this.slotAvailable = getSlotAvailable();
         this.maxCapacity = getMaxCapacity();
     }
-
     public int getSlotAvailable(){
         if(itemsInBag.isEmpty()){
             return getMaxCapacity();
@@ -32,20 +32,22 @@ public class Bag {
     public int getMaxCapacity() {
         return 20;
     }
-    public void addItemsToBag(@NotNull Item item) {
-        if(slotAvailable>item.getSlotRequired()){
+    public boolean addItemsToBag(@NotNull Item item) {
+        if(slotAvailable>= item.getSlotRequired()) {
             getItemsInBag().add(item);
-            slotAvailable-=item.getSlotRequired();
-        }else{
-            log.info("Maximum capacity exceeded");
+            item.setQuantity(1);
+            slotAvailable -= item.getSlotRequired();
+            return true;
         }
+        log.info("Maximum capacity exceeded");
+        return false;
     }
     public void removeItemsToBag(@NotNull Item item) {
-        if(maxCapacity >= (slotAvailable+item.getSlotRequired())){
+        if(item.getQuantity()> 1){
+            item.decreaseTheQuantity();
+            this.slotAvailable+=item.getSlotRequired();
+        }
             this.itemsInBag.remove(item);
             this.slotAvailable+=item.getSlotRequired();
-        }else{
-            log.info("You cannot exceed the maximum capacity");
-        }
     }
 }

@@ -15,7 +15,4 @@ public abstract class Animal {
     private LocalDate entryDate;
     private float weight;
     private float height;
-
-
-
 }

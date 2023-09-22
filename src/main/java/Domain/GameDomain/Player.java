@@ -22,8 +22,9 @@ public class Player {
     }
     public void addItemToBagAndDropItemToRoom(Item item){
         if(item != null) {
-            bag.addItemsToBag(item);
-            actuallyRoom.removeItemsToRoom(item);
+           if(bag.addItemsToBag(item)){
+               actuallyRoom.removeItemsToRoom(item);
+           }
         }else{
             log.info("Item not present in the room");
         }

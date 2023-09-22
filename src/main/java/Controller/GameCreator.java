@@ -93,6 +93,10 @@ public class GameCreator {
         Stream<Room> streamRoom = streamArrayRoom.flatMap(List::stream);
         return streamRoom.map(Room.class::cast).collect(Collectors.toList());
     }
+    private int randomRooms(){
+        Random random = new Random();
+        return random.nextInt(24);
+    }
     public List<Item> createItem(){
         List<Item> itemList= new ArrayList<>();
         Item hammer = new Item("Hammer","Use it to break things",3);
@@ -185,22 +189,18 @@ public class GameCreator {
         int randomIndex2 = random.nextInt(createItem().size());
         int randomIndex3 = random.nextInt(createItem().size());
         List<Item> randomItem = new ArrayList<>();
-        if(randomIndex != randomIndex2 && randomIndex3 != randomIndex) {
-            randomItem.add(createItem().get(randomIndex));
-            randomItem.add(createItem().get(randomIndex2));
-            randomItem.add(createItem().get(randomIndex3));
-        } else if (randomIndex == randomIndex2 && randomIndex3 != randomIndex) {
-            randomItem.add(createItem().get(randomIndex));
-            randomItem.add(createItem().get(randomIndex3));
-        }else if (randomIndex2 != randomIndex3){
-            randomItem.add(createItem().get(randomIndex2));
-            randomItem.add(createItem().get(randomIndex3));
-        }
+            if (randomIndex != randomIndex2 && randomIndex3 != randomIndex) {
+                randomItem.add(createItem().get(randomIndex));
+                randomItem.add(createItem().get(randomIndex2));
+                randomItem.add(createItem().get(randomIndex3));
+            } else if (randomIndex == randomIndex2 && randomIndex3 != randomIndex) {
+                randomItem.add(createItem().get(randomIndex));
+                randomItem.add(createItem().get(randomIndex3));
+            } else if (randomIndex2 != randomIndex3) {
+                randomItem.add(createItem().get(randomIndex2));
+                randomItem.add(createItem().get(randomIndex3));
+            }
         return randomItem;
-    }
-    private int randomRooms(){
-        Random random = new Random();
-        return random.nextInt(24);
     }
     private @NotNull List<Animal> getRandomAnimals(){
         Random random = new Random();
