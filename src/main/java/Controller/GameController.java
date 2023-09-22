@@ -82,11 +82,11 @@ public class GameController {
     }
     public void getInformationInRoom(@NotNull Room room){
         System.out.println("The name of room is: " + room.getName());
-        System.out.println("\nItem present in room : " + room.getItemsPresentInRoom().stream().filter(Objects::nonNull).map(item -> item.getName() + " (" + item.getQuantity() + ")").toList());
+        System.out.println("\nItem present in room : " + room.getItemsPresentInRoom().stream().filter(Objects::nonNull).map(item -> item.getName() + " (x" + item.getQuantity() + ")").toList());
         System.out.println("Animal in room are :" + room.getAnimals().stream().filter(Objects::nonNull).map(animal -> animal.getName() + " (" + animal.getClass().getSimpleName() + ")").toList() + "\n");
     }
     public void getInformationBag(@NotNull Bag bag){
-        System.out.println("Item present in bag : " + bag.getItemsInBag().stream().filter(Objects::nonNull).map(item -> item.getName() + " (" + item.getQuantity() + ")").toList());
+        System.out.println("Item present in bag : " + bag.getItemsInBag().stream().filter(Objects::nonNull).map(item -> item.getName() + " (x" + item.getQuantity() + ")").toList());
         System.out.println("Slot available :" + bag.getSlotAvailable());
     }
     public void printAllRooms(String roomPlayer){

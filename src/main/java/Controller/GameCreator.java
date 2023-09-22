@@ -196,9 +196,12 @@ public class GameCreator {
             } else if (randomIndex == randomIndex2 && randomIndex3 != randomIndex) {
                 randomItem.add(createItem().get(randomIndex));
                 randomItem.add(createItem().get(randomIndex3));
-            } else if (randomIndex2 != randomIndex3) {
+            } else if (randomIndex2 != randomIndex) {
                 randomItem.add(createItem().get(randomIndex2));
+                randomItem.add(createItem().get(randomIndex));
+            }else {
                 randomItem.add(createItem().get(randomIndex3));
+                randomItem.add(createItem().get(randomIndex));
             }
         return randomItem;
     }

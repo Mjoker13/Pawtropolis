@@ -17,7 +17,6 @@ public class Item {
         this.slotRequired = slotRequired;
         this.quantity = 1;
     }
-
     public void setQuantity(int quantity){
         if(quantity>= 1){
             this.quantity = quantity;
@@ -36,6 +35,6 @@ public class Item {
         return  "\n-" + name
                 +", description='" + description
                 +", slotRequired=" + slotRequired
-                +", quantity= (" + quantity + ")";
+                +", quantity= x" + quantity;
     }
 }
