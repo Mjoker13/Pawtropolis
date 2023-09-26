@@ -14,21 +14,17 @@ public class Item {
     public Item(String name, String description, int slotRequired) {
         this.name = name;
         this.description = description;
-        this.slotRequired = slotRequired;
+        if (slotRequired < 20) {
+            this.slotRequired = slotRequired;
+        } else throw new RuntimeException("The slot required cannot overcome 20.");
         this.quantity = 1;
     }
-    public void setQuantity(int quantity){
-        if(quantity>= 1){
-            this.quantity = quantity;
-        } else{
-            System.out.println("The quantity cannot be negative");
-        }
-    }
     public void increaseTheQuantity(){
-        quantity++;
+        this.quantity ++;
+
     }
     public void decreaseTheQuantity(){
-        quantity--;
+        this.quantity --;
     }
     @Override
     public String toString() {

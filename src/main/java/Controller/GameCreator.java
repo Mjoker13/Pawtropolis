@@ -93,7 +93,7 @@ public class GameCreator {
         Stream<Room> streamRoom = streamArrayRoom.flatMap(List::stream);
         return streamRoom.map(Room.class::cast).collect(Collectors.toList());
     }
-    private int randomRooms(){
+    public int randomRooms(){
         Random random = new Random();
         return random.nextInt(24);
     }
@@ -134,7 +134,7 @@ public class GameCreator {
         if(getAllRooms().isEmpty() || createBag()== null){
             return null;
         }
-        return new Player("Lego",100,getAllRooms().get(randomRooms()),createBag());
+        return new Player("Lego",100,createBag());
     }
     public static @NotNull Map<Class<? extends Animal>, List<Animal>> createAnimals() {
 
@@ -218,4 +218,5 @@ public class GameCreator {
         }
         return randomAnimal;
     }
+
 }

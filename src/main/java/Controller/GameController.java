@@ -17,15 +17,11 @@ import java.util.Objects;
 @ToString
 public class GameController {
     private Player player;
-    private Bag bag;
-    private List<Room> rooms;
-    private List<Item> itemList;
+    private Room actualRoom;
 
     public GameController() {
         this.player = gameCreator.createPlayer();
-        this.bag = gameCreator.createBag();
-        this.rooms = gameCreator.getAllRooms();
-        this.itemList = gameCreator.createItem();
+        this.actualRoom= gameCreator.getAllRooms().get(gameCreator.randomRooms());
     }
     GameCreator gameCreator = new GameCreator();
     private Room switchBetweenRooms(@NotNull String direction, int rowIndex, int columnIndex, List<ArrayList<Room>> roomsList){
@@ -34,22 +30,22 @@ public class GameController {
             switch (direction.toLowerCase()) {
                 case "1" -> {
                     switchableRoom = roomsList.get(rowIndex +1).get(columnIndex);
-                    player.setActuallyRoom(switchableRoom);
+                    setActualRoom(switchableRoom);
                     log.info("Now you are in the South Room " + switchableRoom.getName());
                 }
                 case "2"-> {
                     switchableRoom = roomsList.get(rowIndex -1).get(columnIndex);
-                    player.setActuallyRoom(switchableRoom);
+                    setActualRoom(switchableRoom);
                     log.info("Now you are in the North Room " + switchableRoom.getName());
                 }
                 case "3" -> {
                     switchableRoom = roomsList.get(rowIndex).get(columnIndex +1);
-                    player.setActuallyRoom(switchableRoom);
+                    setActualRoom(switchableRoom);
                     log.info("Now you are in the East Room "+ switchableRoom.getName());
                 }
                 case "4" -> {
                     switchableRoom = roomsList.get(rowIndex).get(columnIndex -1);
-                    player.setActuallyRoom(switchableRoom);
+                    setActualRoom(switchableRoom);
                     log.info("Now you are in the West Room "+ switchableRoom.getName());
                 }
                 default -> log.info("Direction not found. ChangeRoom");
@@ -57,37 +53,37 @@ public class GameController {
         } catch (IndexOutOfBoundsException e) {
             switchableRoom = roomsList.get(rowIndex).get(columnIndex);
             System.err.println("There are no rooms in this direction. \nNow you are into: "+ switchableRoom.getName() + "\n");
-            printAllRooms(player.getActuallyRoom().getName());
+            printAllRooms(getActualRoom().getName());
 
         }
         return switchableRoom;
     }
-    public void changeRoom(Player player, String direction) {
+    public void changeRoom(String direction) {
         Room switchableRoom =null;
         int rowIndex =0;
             for (List<Room> rowRoomList :gameCreator.createRooms()) {
                 int columnIndex = 0;
                 for (Room room1 : rowRoomList) {
                     String room = room1.getName();
-                    if (room.equalsIgnoreCase(player.getActuallyRoom().getName())) {
+                    if (room.equalsIgnoreCase(actualRoom.getName())) {
                          switchableRoom = switchBetweenRooms(direction, rowIndex, columnIndex, gameCreator.createRooms());
                         break;
                     }
                     columnIndex++;
                 }
-                if(switchableRoom !=null )
+                if(switchableRoom !=null)
                     break;
                 rowIndex++;
             }
     }
-    public void getInformationInRoom(@NotNull Room room){
-        System.out.println("The name of room is: " + room.getName());
-        System.out.println("\nItem present in room : " + room.getItemsPresentInRoom().stream().filter(Objects::nonNull).map(item -> item.getName() + " (x" + item.getQuantity() + ")").toList());
-        System.out.println("Animal in room are :" + room.getAnimals().stream().filter(Objects::nonNull).map(animal -> animal.getName() + " (" + animal.getClass().getSimpleName() + ")").toList() + "\n");
+    public void getInformationInRoom(){
+        System.out.println("The name of room is: " + actualRoom.getName());
+        System.out.println("\nItem present in room : " + actualRoom.getItems().stream().filter(Objects::nonNull).map(item -> item.getName() + " (x" + item.getQuantity() + ")").toList());
+        System.out.println("Animal in room are :" + actualRoom.getAnimals().stream().filter(Objects::nonNull).map(animal -> animal.getName() + " (" + animal.getClass().getSimpleName() + ")").toList() + "\n");
     }
-    public void getInformationBag(@NotNull Bag bag){
-        System.out.println("Item present in bag : " + bag.getItemsInBag().stream().filter(Objects::nonNull).map(item -> item.getName() + " (x" + item.getQuantity() + ")").toList());
-        System.out.println("Slot available :" + bag.getSlotAvailable());
+    public void getInformationBag(){
+        System.out.println("Item present in bag : " + player.getBag().getItems().stream().filter(Objects::nonNull).map(item -> item.getName() + " (x" + item.getQuantity() + ")").toList());
+        System.out.println("Slot available :" + player.getBag().getSlotAvailable());
     }
     public void printAllRooms(String roomPlayer){
         gameCreator.createRooms().forEach(row -> { row.stream()
@@ -96,6 +92,94 @@ public class GameController {
                 });
             System.out.println();
         });
+    }
+    public Item getItemFromRoom(String itemName){
+        return  actualRoom.getItems()
+                .stream()
+                .filter(item -> item.getName().equalsIgnoreCase(itemName))
+                .findFirst().orElse(null);
+    }
+    public Item getItemFromBag(String itemName){
+        return player.getBag().getItems().stream()
+                .filter(i-> i.getName().equalsIgnoreCase(itemName))
+                .findFirst().orElse(null);
+    }
+    public void addItemToBag(Item itemFromRoom){
+        boolean existingElement= false;
+        if(actualRoom.getItems().isEmpty()){
+            System.out.println("There aren't items in actual room");
+        }
+        else{
+            if(player.getBag().getSlotAvailable() >= itemFromRoom.getSlotRequired()){
+                for (Item itemCurrent: player.getBag().getItems()) {
+                    if(itemCurrent.getName().equalsIgnoreCase(itemFromRoom.getName())){
+                        itemCurrent.increaseTheQuantity();
+                        existingElement= true;
+                        break;
+                    }
+                }
+                if(!existingElement) {
+                    player.getBag().getItems().add(itemFromRoom);
+                }
+                player.getBag().setSlotAvailable(player.getBag().getSlotAvailable() - itemFromRoom.getSlotRequired());
+            }else{
+                log.info("Maximum capacity exceeded");
+            }
+        }
+    }
+    public void dropItemFromBag(Item itemFromBag){
+        boolean existingElement= false;
+        if(actualRoom.getItems().isEmpty()){
+            System.out.println("There aren't items in actual room");
+        }
+        else{
+                for (Item itemCurrent: player.getBag().getItems()) {
+                    if(itemCurrent.getName().equalsIgnoreCase(itemFromBag.getName()) && itemFromBag.getQuantity()> 1){
+                        itemCurrent.decreaseTheQuantity();
+                        existingElement= true;
+                        break;
+                    }
+                }
+                if(!existingElement) {
+                    player.getBag().getItems().remove(itemFromBag);
+                }
+                player.getBag().setSlotAvailable(player.getBag().getSlotAvailable() + itemFromBag.getSlotRequired());
+
+        }
+    }
+    public void addItemToRoom(Item itemFromBag){
+        boolean existingElement= false;
+        if(player.getBag().getItems().isEmpty()){
+            System.out.println("There aren't items in the bag");
+        }else{
+                for (Item itemCurrent: actualRoom.getItems()) {
+                    if(itemCurrent.getName().equalsIgnoreCase(itemFromBag.getName())){
+                        itemCurrent.increaseTheQuantity();
+                        existingElement= true;
+                        break;
+                    }
+                }
+                if(!existingElement) {
+                    actualRoom.getItems().add(itemFromBag);
+                }
+        }
+    }
+    public void dropItemFromRoom(Item itemFromRoom){
+        boolean existingElement= false;
+        if(actualRoom.getItems().isEmpty()){
+            System.out.println("There aren't items in actual room");
+        }else{
+            for (Item itemCurrent: player.getBag().getItems()) {
+                if(itemCurrent.getName().equalsIgnoreCase(itemFromRoom.getName()) && itemFromRoom.getQuantity()> 1){
+                    itemCurrent.decreaseTheQuantity();
+                    existingElement= true;
+                    break;
+                }
+            }
+            if(!existingElement) {
+                actualRoom.getItems().remove(itemFromRoom);
+            }
+        }
     }
 }
 

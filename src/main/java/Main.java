@@ -25,7 +25,7 @@ public class Main {
             System.out.println("\n" + "You have " + player.getLifePoints() + " life points");
             System.out.println("\n" + "You have a bag that it can contain many item, with maximum slot of "+player.getBag().getMaxCapacity() + "\n" +
                     "The item in your bag take up space, actually have a " + player.getBag().getSlotAvailable() + " slot available");
-            System.out.println(name + " your actually room is : "+ player.getActuallyRoom().getName());
+            System.out.println(name + " your actually room is : "+ gameController.getActualRoom().getName());
             while (!confirm) {
                 System.out.println("\n" + "Now "+name+", What would you like to do? ");
                 System.out.println("1 -> change room? \n2 -> look around? \n3 -> look bag? \n4 -> get items from the room? \n5 -> drop items from the bag? \n6 -> Exit from the game?");
@@ -33,30 +33,32 @@ public class Main {
                 action=scanner.nextLine();
                 switch (action.toLowerCase()) {
                     case "1"->{
-                        System.out.println("\n" + "These are a rooms, you are in : " + '"' + player.getActuallyRoom().getName() + '"');
-                        gameController.printAllRooms(player.getActuallyRoom().getName());
+                        System.out.println("\n" + "These are a rooms, you are in : " + '"' + gameController.getActualRoom().getName() + '"');
+                        gameController.printAllRooms(gameController.getActualRoom().getName());
                         System.out.println("Which direction do you want to go? \n1 -> go south ↓ \n2 -> go north ↑ \n3 -> go east → \n4 -> go west ←");
                         String room= scanner.nextLine();
-                        gameController.changeRoom(player,room);
+                        gameController.changeRoom(room);
                     }
-                    case "2" -> gameController.getInformationInRoom(player.getActuallyRoom());
-                    case "3" -> gameController.getInformationBag(player.getBag());
+                    case "2" -> gameController.getInformationInRoom();
+                    case "3" -> gameController.getInformationBag();
                     case "4" -> {
-                        System.out.println("In this room is present: " + player.getActuallyRoom().getItemsPresentInRoom());
+                        System.out.println("In this room is present: " + gameController.getActualRoom().getItems());
                         System.out.println("Which item?");
                         chosenItem = scanner.nextLine();
-                        player.addItemToBagAndDropItemToRoom(player.getItemInRoom(chosenItem));
-                        gameController.getInformationInRoom(player.getActuallyRoom());
-                        gameController.getInformationBag(player.getBag());
+                        gameController.addItemToBag(gameController.getItemFromRoom(chosenItem));
+                        gameController.dropItemFromRoom(gameController.getItemFromRoom(chosenItem));
+                        gameController.getInformationInRoom();
+                        gameController.getInformationBag();
                     }
                     case "5" -> {
                         System.out.println("In this bag is present: ");
-                        gameController.getInformationBag(player.getBag());
+                        gameController.getInformationBag();
                         System.out.println("Which item do you remove?");
                         chosenItem = scanner.nextLine();
-                        player.addItemToRoomAndDropItemToBag(player.getItemInBag(chosenItem));
-                        gameController.getInformationInRoom(player.getActuallyRoom());
-                        gameController.getInformationBag(player.getBag());
+                        gameController.addItemToRoom(gameController.getItemFromBag(chosenItem));
+                        gameController.dropItemFromBag(gameController.getItemFromBag(chosenItem));
+                        gameController.getInformationInRoom();
+                        gameController.getInformationBag();
                     }
                     case "6"->{
                         confirm=true;
