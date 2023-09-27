@@ -22,12 +22,11 @@ public class GameCreator {
         ArrayList<ArrayList<Room>> matrixRooms = new ArrayList<>();
 
         ArrayList<Room> firstRow = new ArrayList<>();
-        Room roomA1 = new Room("A1", getRandomItem(), getRandomAnimals());
-        Room roomA2 = new Room("A2", getRandomItem(), getRandomAnimals());
-        Room roomA3 = new Room("A3", getRandomItem(), getRandomAnimals());
-        Room roomA4 = new Room("A4", getRandomItem(), getRandomAnimals());
-        Room roomA5 = new Room("A5", getRandomItem(), getRandomAnimals());
-
+        Room roomA1 = new Room("A1", getRandomItems(), getRandomAnimals());
+        Room roomA2 = new Room("A2", getRandomItems(), getRandomAnimals());
+        Room roomA3 = new Room("A3", getRandomItems(), getRandomAnimals());
+        Room roomA4 = new Room("A4", getRandomItems(), getRandomAnimals());
+        Room roomA5 = new Room("A5", getRandomItems(), getRandomAnimals());
         firstRow.add(roomA1);
         firstRow.add(roomA2);
         firstRow.add(roomA3);
@@ -36,11 +35,11 @@ public class GameCreator {
         matrixRooms.add(0, firstRow);
 
         ArrayList<Room> secondRow = new ArrayList<>();
-        Room roomB1 = new Room("B1", getRandomItem(), getRandomAnimals());
-        Room roomB2 = new Room("B2", getRandomItem(), getRandomAnimals());
-        Room roomB3 = new Room("B3", getRandomItem(), getRandomAnimals());
-        Room roomB4 = new Room("B4", getRandomItem(), getRandomAnimals());
-        Room roomB5 = new Room("B5", getRandomItem(), getRandomAnimals());
+        Room roomB1 = new Room("B1", getRandomItems(), getRandomAnimals());
+        Room roomB2 = new Room("B2", getRandomItems(), getRandomAnimals());
+        Room roomB3 = new Room("B3", getRandomItems(), getRandomAnimals());
+        Room roomB4 = new Room("B4", getRandomItems(), getRandomAnimals());
+        Room roomB5 = new Room("B5", getRandomItems(), getRandomAnimals());
         secondRow.add(roomB1);
         secondRow.add(roomB2);
         secondRow.add(roomB3);
@@ -49,11 +48,11 @@ public class GameCreator {
         matrixRooms.add(1, secondRow);
 
         ArrayList<Room> thirdRow = new ArrayList<>();
-        Room roomC1 = new Room("C1", getRandomItem(), getRandomAnimals());
-        Room roomC2 = new Room("C2", getRandomItem(), getRandomAnimals());
-        Room roomC3 = new Room("C3", getRandomItem(), getRandomAnimals());
-        Room roomC4 = new Room("C4", getRandomItem(), getRandomAnimals());
-        Room roomC5 = new Room("C5", getRandomItem(), getRandomAnimals());
+        Room roomC1 = new Room("C1", getRandomItems(), getRandomAnimals());
+        Room roomC2 = new Room("C2", getRandomItems(), getRandomAnimals());
+        Room roomC3 = new Room("C3", getRandomItems(), getRandomAnimals());
+        Room roomC4 = new Room("C4", getRandomItems(), getRandomAnimals());
+        Room roomC5 = new Room("C5", getRandomItems(), getRandomAnimals());
         thirdRow.add(roomC1);
         thirdRow.add(roomC2);
         thirdRow.add(roomC3);
@@ -62,42 +61,42 @@ public class GameCreator {
         matrixRooms.add(2, thirdRow);
 
         ArrayList<Room> fourthRow = new ArrayList<>();
-        Room roomD1 = new Room("D1", getRandomItem(), getRandomAnimals());
-        Room roomD2 = new Room("D2", getRandomItem(), getRandomAnimals());
-        Room roomD3 = new Room("D3", getRandomItem(), getRandomAnimals());
-        Room roomfD4 = new Room("D4", getRandomItem(), getRandomAnimals());
-        Room roomfD5 = new Room("D5", getRandomItem(), getRandomAnimals());
+        Room roomD1 = new Room("D1", getRandomItems(), getRandomAnimals());
+        Room roomD2 = new Room("D2", getRandomItems(), getRandomAnimals());
+        Room roomD3 = new Room("D3", getRandomItems(), getRandomAnimals());
+        Room roomD4 = new Room("D4", getRandomItems(), getRandomAnimals());
+        Room roomD5 = new Room("D5", getRandomItems(), getRandomAnimals());
         fourthRow.add(roomD1);
         fourthRow.add(roomD2);
         fourthRow.add(roomD3);
-        fourthRow.add(roomfD4);
-        fourthRow.add(roomfD5);
+        fourthRow.add(roomD4);
+        fourthRow.add(roomD5);
         matrixRooms.add(3,fourthRow);
 
         ArrayList<Room> fifthRow = new ArrayList<>();
-        Room roomE1 = new Room("E1", getRandomItem(), getRandomAnimals());
-        Room roomE2 = new Room("E2", getRandomItem(), getRandomAnimals());
-        Room roomE3 = new Room("E3", getRandomItem(), getRandomAnimals());
-        Room roomqE4 = new Room("E4", getRandomItem(), getRandomAnimals());
-        Room roomE5 = new Room("E5", getRandomItem(), getRandomAnimals());
+        Room roomE1 = new Room("E1", getRandomItems(), getRandomAnimals());
+        Room roomE2 = new Room("E2", getRandomItems(), getRandomAnimals());
+        Room roomE3 = new Room("E3", getRandomItems(), getRandomAnimals());
+        Room roomE4 = new Room("E4", getRandomItems(), getRandomAnimals());
+        Room roomE5 = new Room("E5", getRandomItems(), getRandomAnimals());
         fifthRow.add(roomE1);
         fifthRow.add(roomE2);
         fifthRow.add(roomE3);
-        fifthRow.add(roomqE4);
+        fifthRow.add(roomE4);
         fifthRow.add(roomE5);
         matrixRooms.add(4, fifthRow);
         return matrixRooms;
     }
     public List<Room> getAllRooms(){
-        Stream<ArrayList<Room>> streamArrayRoom = createRooms().stream();
-        Stream<Room> streamRoom = streamArrayRoom.flatMap(List::stream);
-        return streamRoom.map(Room.class::cast).collect(Collectors.toList());
+        Stream<ArrayList<Room>> streamArrayRooms = createRooms().stream();
+        Stream<Room> streamRooms = streamArrayRooms.flatMap(List::stream);
+        return streamRooms.map(Room.class::cast).collect(Collectors.toList());
     }
     public int randomRooms(){
         Random random = new Random();
         return random.nextInt(24);
     }
-    public List<Item> createItem(){
+    public List<Item> createItems(){
         List<Item> itemList= new ArrayList<>();
         Item hammer = new Item("Hammer","Use it to break things",3);
         Item water = new Item("Water","Use it to quench your thirst",2);
@@ -134,7 +133,7 @@ public class GameCreator {
         if(getAllRooms().isEmpty() || createBag()== null){
             return null;
         }
-        return new Player("Lego",100,createBag());
+        return new Player("Lego",createBag());
     }
     public static @NotNull Map<Class<? extends Animal>, List<Animal>> createAnimals() {
 
@@ -183,40 +182,40 @@ public class GameCreator {
 
         return animals;
     }
-    private @NotNull List<Item> getRandomItem(){
+    private @NotNull List<Item> getRandomItems(){
         Random random = new Random();
-        int randomIndex = random.nextInt(createItem().size());
-        int randomIndex2 = random.nextInt(createItem().size());
-        int randomIndex3 = random.nextInt(createItem().size());
-        List<Item> randomItem = new ArrayList<>();
+        int randomIndex = random.nextInt(createItems().size());
+        int randomIndex2 = random.nextInt(createItems().size());
+        int randomIndex3 = random.nextInt(createItems().size());
+        List<Item> randomItems = new ArrayList<>();
             if (randomIndex != randomIndex2 && randomIndex3 != randomIndex) {
-                randomItem.add(createItem().get(randomIndex));
-                randomItem.add(createItem().get(randomIndex2));
-                randomItem.add(createItem().get(randomIndex3));
+                randomItems.add(createItems().get(randomIndex));
+                randomItems.add(createItems().get(randomIndex2));
+                randomItems.add(createItems().get(randomIndex3));
             } else if (randomIndex == randomIndex2 && randomIndex3 != randomIndex) {
-                randomItem.add(createItem().get(randomIndex));
-                randomItem.add(createItem().get(randomIndex3));
+                randomItems.add(createItems().get(randomIndex));
+                randomItems.add(createItems().get(randomIndex3));
             } else if (randomIndex2 != randomIndex) {
-                randomItem.add(createItem().get(randomIndex2));
-                randomItem.add(createItem().get(randomIndex));
+                randomItems.add(createItems().get(randomIndex2));
+                randomItems.add(createItems().get(randomIndex));
             }else {
-                randomItem.add(createItem().get(randomIndex3));
-                randomItem.add(createItem().get(randomIndex));
+                randomItems.add(createItems().get(randomIndex3));
+                randomItems.add(createItems().get(randomIndex));
             }
-        return randomItem;
+        return randomItems;
     }
     private @NotNull List<Animal> getRandomAnimals(){
         Random random = new Random();
         int randomIndex = random.nextInt(createAnimals().values().stream().mapToInt(List::size).sum());
         int randomIndex2 = random.nextInt(createAnimals().values().stream().mapToInt(List::size).sum());
-        List<Animal> randomAnimal = new ArrayList<>();
+        List<Animal> randomAnimals = new ArrayList<>();
         if(randomIndex != randomIndex2) {
-            randomAnimal.add(zooController.getAllAnimalsForSpecies(Animal.class).get(randomIndex));
-            randomAnimal.add(zooController.getAllAnimalsForSpecies(Animal.class).get(randomIndex2));
+            randomAnimals.add(zooController.getAllAnimalsForSpecies(Animal.class).get(randomIndex));
+            randomAnimals.add(zooController.getAllAnimalsForSpecies(Animal.class).get(randomIndex2));
         }else{
-            randomAnimal.add(zooController.getAllAnimalsForSpecies(Animal.class).get(randomIndex));
+            randomAnimals.add(zooController.getAllAnimalsForSpecies(Animal.class).get(randomIndex));
         }
-        return randomAnimal;
+        return randomAnimals;
     }
 
 }

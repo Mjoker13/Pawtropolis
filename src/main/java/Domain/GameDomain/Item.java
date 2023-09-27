@@ -19,11 +19,11 @@ public class Item {
         } else throw new RuntimeException("The slot required cannot overcome 20.");
         this.quantity = 1;
     }
-    public void increaseTheQuantity(){
+    public void increaseQuantity(){
         this.quantity ++;
 
     }
-    public void decreaseTheQuantity(){
+    public void decreaseQuantity(){
         this.quantity --;
     }
     @Override

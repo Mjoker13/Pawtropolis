@@ -1,12 +1,11 @@
 package Domain.GameDomain;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.java.Log;
 
-@AllArgsConstructor
+
 @Setter
 @Getter
 @ToString
@@ -16,7 +15,9 @@ public class Player {
     private int lifePoints;
     private Bag bag;
 
-    public int getLifePoints() {
-        return 100;
+    public Player(String name, Bag bag) {
+        this.name = name;
+        this.lifePoints = 100;
+        this.bag = bag;
     }
 }
