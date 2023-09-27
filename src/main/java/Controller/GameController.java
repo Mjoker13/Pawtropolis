@@ -7,8 +7,6 @@ import lombok.ToString;
 import lombok.extern.java.Log;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -24,56 +22,46 @@ public class GameController {
         this.actualRoom= gameCreator.getAllRooms().get(gameCreator.randomRooms());
     }
     GameCreator gameCreator = new GameCreator();
-    private Room switchBetweenRooms(@NotNull String direction, int rowIndex, int columnIndex, List<ArrayList<Room>> roomsList){
-        Room switchableRoom = null;
+    private void switchBetweenRooms(@NotNull String direction, int rowIndex, int columnIndex){
+
         try {
             switch (direction.toLowerCase()) {
-                case "1" -> {
-                    switchableRoom = roomsList.get(rowIndex +1).get(columnIndex);
-                    setActualRoom(switchableRoom);
-                    log.info("Now you are in the South Room " + switchableRoom.getName());
+                case "go north"-> {
+                    actualRoom = gameCreator.createRooms().get(rowIndex -1).get(columnIndex);
+                    log.info("Now you are in the North Room " + actualRoom.getName());
                 }
-                case "2"-> {
-                    switchableRoom = roomsList.get(rowIndex -1).get(columnIndex);
-                    setActualRoom(switchableRoom);
-                    log.info("Now you are in the North Room " + switchableRoom.getName());
+                case "go south" -> {
+                    actualRoom = gameCreator.createRooms().get(rowIndex +1).get(columnIndex);
+                    log.info("Now you are in the South Room " + actualRoom.getName());
                 }
-                case "3" -> {
-                    switchableRoom = roomsList.get(rowIndex).get(columnIndex +1);
-                    setActualRoom(switchableRoom);
-                    log.info("Now you are in the East Room "+ switchableRoom.getName());
+                case "go east" -> {
+                    actualRoom = gameCreator.createRooms().get(rowIndex).get(columnIndex +1);
+                    log.info("Now you are in the East Room "+ actualRoom.getName());
                 }
-                case "4" -> {
-                    switchableRoom = roomsList.get(rowIndex).get(columnIndex -1);
-                    setActualRoom(switchableRoom);
-                    log.info("Now you are in the West Room "+ switchableRoom.getName());
+                case "go west" -> {
+                    actualRoom = gameCreator.createRooms().get(rowIndex).get(columnIndex -1);
+                    log.info("Now you are in the West Room "+ actualRoom.getName());
                 }
-                default -> log.info("Direction not found. ChangeRoom");
+                default -> log.info("Direction not found.");
             }
         } catch (IndexOutOfBoundsException e) {
-            switchableRoom = roomsList.get(rowIndex).get(columnIndex);
-            System.err.println("There are no rooms in this direction. \nNow you are into: "+ switchableRoom.getName() + "\n");
-            printAllRooms(getActualRoom().getName());
+            direction = direction.replace("go ", "").toUpperCase();
+            log.info("A room at: '" + direction+"' is not found. \nNow you are into: "+ actualRoom.getName() + "\n");
+            printAllRooms(actualRoom.getName());
 
         }
-        return switchableRoom;
     }
     public void changeRoom(String direction) {
-        Room switchableRoom =null;
-        int rowIndex =0;
-            for (List<Room> rowRoomList :gameCreator.createRooms()) {
-                int columnIndex = 0;
-                for (Room room1 : rowRoomList) {
-                    String room = room1.getName();
-                    if (room.equalsIgnoreCase(actualRoom.getName())) {
-                         switchableRoom = switchBetweenRooms(direction, rowIndex, columnIndex, gameCreator.createRooms());
+        boolean flag=true;
+
+            for (int rowIndex =0;rowIndex<gameCreator.createRooms().size();rowIndex++) {
+                for (int columnIndex = 0; columnIndex<gameCreator.createRooms().get(rowIndex).size();columnIndex++) {
+                    if (gameCreator.createRooms().get(rowIndex).get(columnIndex).getName().equalsIgnoreCase(actualRoom.getName())&&flag) {
+                         switchBetweenRooms(direction, rowIndex, columnIndex);
+                         flag=false;
                         break;
                     }
-                    columnIndex++;
                 }
-                if(switchableRoom !=null)
-                    break;
-                rowIndex++;
             }
     }
     public void getInformationInRoom(){
