@@ -18,6 +18,7 @@ import java.util.stream.Stream;
 
 public class GameCreator {
     ZooController zooController= new ZooController();
+    //TODO sistemare le stanze
     public List<ArrayList<Room>> createRooms() {
         ArrayList<ArrayList<Room>> matrixRooms = new ArrayList<>();
 

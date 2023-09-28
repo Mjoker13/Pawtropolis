@@ -5,6 +5,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.java.Log;
 
+import java.util.Objects;
+
 
 @Setter
 @Getter
@@ -19,5 +21,8 @@ public class Player {
         this.name = name;
         this.lifePoints = 100;
         this.bag = bag;
+    }
+    public void showBagInformation(){
+        bag.showItemsInformation();
     }
 }

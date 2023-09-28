@@ -15,73 +15,78 @@ import java.util.Objects;
 @ToString
 public class GameController {
     private Player player;
-    private Room actualRoom;
+    private Room currentRoom;
 
+    //todo trovare un modo per utilizzare gli enum
+
+    //TODO aggiungere il map controller ed
     public GameController() {
         this.player = gameCreator.createPlayer();
-        this.actualRoom= gameCreator.getAllRooms().get(gameCreator.randomRooms());
+        this.currentRoom = gameCreator.getAllRooms().get(gameCreator.randomRooms());
     }
     GameCreator gameCreator = new GameCreator();
     private void moveBetweenRooms(@NotNull String direction, int rowIndex, int columnIndex){
+        //TODO mettere un controllo prima per evitare di andare in eccezzione
+
         direction = direction.trim().replace("go", "");
         try {
             switch (direction.toLowerCase()) {
                 case "north"-> {
-                    actualRoom = gameCreator.createRooms().get(rowIndex -1).get(columnIndex);
-                    log.info("Now you are in the North Room " + actualRoom.getName());
+                    currentRoom = gameCreator.createRooms().get(rowIndex -1).get(columnIndex);
+                    log.info("Now you are in the North Room " + currentRoom.getName());
                 }
                 case "south" -> {
-                    actualRoom = gameCreator.createRooms().get(rowIndex +1).get(columnIndex);
-                    log.info("Now you are in the South Room " + actualRoom.getName());
+                    currentRoom = gameCreator.createRooms().get(rowIndex +1).get(columnIndex);
+                    log.info("Now you are in the South Room " + currentRoom.getName());
                 }
                 case "east" -> {
-                    actualRoom = gameCreator.createRooms().get(rowIndex).get(columnIndex +1);
-                    log.info("Now you are in the East Room "+ actualRoom.getName());
+                    currentRoom = gameCreator.createRooms().get(rowIndex).get(columnIndex +1);
+                    log.info("Now you are in the East Room "+ currentRoom.getName());
                 }
                 case "west" -> {
-                    actualRoom = gameCreator.createRooms().get(rowIndex).get(columnIndex -1);
-                    log.info("Now you are in the West Room "+ actualRoom.getName());
+                    currentRoom = gameCreator.createRooms().get(rowIndex).get(columnIndex -1);
+                    log.info("Now you are in the West Room "+ currentRoom.getName());
                 }
                 default -> log.info("Direction not found.");
             }
         } catch (IndexOutOfBoundsException e) {
             direction = direction.replace("go ", "").toUpperCase();
-            log.info("A room at: '" + direction+"' is not found. \nNow you are into: "+ actualRoom.getName() + "\n");
-            showAllRooms(actualRoom.getName());
-
+            log.info("A room at: '" + direction+"' is not found. \nNow you are into: "+ currentRoom.getName() + "\n");
+            showAllRooms();
         }
     }
     public void changeRoom(String direction) {
-        boolean flag=true;
             for (int rowIndex =0;rowIndex<gameCreator.createRooms().size();rowIndex++) {
                 for (int columnIndex = 0; columnIndex<gameCreator.createRooms().get(rowIndex).size(); columnIndex++) {
-                    if (gameCreator.createRooms().get(rowIndex).get(columnIndex).getName().equalsIgnoreCase(actualRoom.getName()) && flag) {
+                    if (gameCreator.createRooms().get(rowIndex).get(columnIndex).getName().equalsIgnoreCase(currentRoom.getName())) {
                          moveBetweenRooms(direction, rowIndex, columnIndex);
-                         flag=false;
-                        break;
+                         return;
                     }
                 }
             }
     }
-    public void getInformationFromRoom(){
-        System.out.println("You are in: " + actualRoom.getName());
-        System.out.println("\nItems present in room: " + actualRoom.getItems().stream().filter(Objects::nonNull).map(item -> item.getName() + " (x" + item.getQuantity() + ")").toList());
-        System.out.println("NPC: " + actualRoom.getAnimals().stream().filter(Objects::nonNull).map(animal -> animal.getName() + " (" + animal.getClass().getSimpleName() + ")").toList() + "\n");
+    public void showRoomInformation(){
+        currentRoom.showRoomInformation();
     }
-    public void getInformationFromBag(){
-        System.out.println("In bag: " + player.getBag().getItems().stream().filter(Objects::nonNull).map(item -> item.getName() + " (x" + item.getQuantity() + ")").toList());
-        System.out.println("Slot available:" + player.getBag().getSlotAvailable());
+    public void showBagInformation(){
+        player.showBagInformation();
     }
-    public void showAllRooms(String roomPlayer){
+    public void showAllRooms(){
         gameCreator.createRooms().forEach(row -> { row.stream()
                 .map(Room::getName)
-                .forEach(name -> {if(name.equalsIgnoreCase(roomPlayer)) System.out.print('"'+name+'"'); else System.out.print(" "+name + " ");
+                .forEach(name -> {
+                    if(name.equalsIgnoreCase(currentRoom.getName())) {
+                        System.out.print('"'+name+'"');
+                    }
+                    else {
+                        System.out.print(" " + name + " ");
+                    }
                 });
             System.out.println();
         });
     }
     public Item getItemFromRoom(String itemName){
-            return  actualRoom.getItems()
+            return  currentRoom.getItems()
                     .stream()
                     .filter(item -> item.getName().replaceAll("\\s+","").equalsIgnoreCase(itemName))
                     .findFirst().orElse(null);
@@ -135,7 +140,7 @@ public class GameController {
     public void addItemToRoom(Item itemFromBag){
         boolean existingElement= false;
         if (itemFromBag != null) {
-                for (Item itemCurrent: actualRoom.getItems()) {
+                for (Item itemCurrent: currentRoom.getItems()) {
                     if(itemCurrent.getName().replaceAll("\\s+","").equalsIgnoreCase(itemFromBag.getName())){
                         itemCurrent.increaseQuantity();
                         existingElement = true;
@@ -143,7 +148,7 @@ public class GameController {
                     }
                 }
                 if(!existingElement) {
-                    actualRoom.getItems().add(itemFromBag);
+                    currentRoom.getItems().add(itemFromBag);
                 }
         }
     }
@@ -158,7 +163,7 @@ public class GameController {
                 }
             }
             if(!existingElement) {
-                actualRoom.getItems().remove(itemFromRoom);
+                currentRoom.getItems().remove(itemFromRoom);
             }
         }
     }

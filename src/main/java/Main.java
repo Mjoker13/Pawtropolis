@@ -18,34 +18,34 @@ public class Main {
 
             System.out.println("Hello " + name+ " welcome to the Pawtropolis.");
             do{
-                System.out.println("Your actual room is : "+ gameController.getActualRoom().getName());
+                System.out.println("Your actual room is : "+ gameController.getCurrentRoom().getName());
                 System.out.println("\n" + "Now "+name+", What would you like to do? ");
                 action=scanner.nextLine();
                 String[] spiltAction = action.trim().split("\\s+");
                     switch (spiltAction[0].toLowerCase()) {
                         case "go" ->gameController.changeRoom(action.trim().replaceAll("\\s+",""));
-                        case "look" -> gameController.getInformationFromRoom();
-                        case "bag" -> gameController.getInformationFromBag();
+                        case "look" -> gameController.showRoomInformation();
+                        case "bag" -> gameController.showBagInformation();
                         case "get" -> {
                             action= action.replace("get", "");
                             gameController.addItemToBag(gameController.getItemFromRoom(action.replaceAll("\\s+","")));
                             gameController.dropItemFromRoom(gameController.getItemFromRoom(action.replaceAll("\\s+","")));
-                            gameController.getInformationFromRoom();
-                            gameController.getInformationFromBag();
+                            gameController.showRoomInformation();
+                            gameController.showBagInformation();
                         }
                         case "drop" -> {
                             action= action.replace("drop", "");
                             gameController.addItemToRoom(gameController.getItemFromBag(action.replaceAll("\\s+","")));
                             gameController.dropItemFromBag(gameController.getItemFromBag(action.replaceAll("\\s+","")));
-                            gameController.getInformationFromRoom();
-                            gameController.getInformationFromBag();
+                            gameController.showRoomInformation();
+                            gameController.showBagInformation();
                         }
                         case "help" ->System.out.println("\n-Go <direction> \n-Look \n-Bag \n-Get <item> \n-Drop <item> \n-Exit");
                         case "exit" -> {
                             exitGame = true;
                             log.info("Thank you for your time, GoodBye " + name);
                         }
-                        default -> log.info("Action not available");
+                        default -> log.info("Action not available, for more information write help");
                     }
                 }while(!exitGame);
             }
