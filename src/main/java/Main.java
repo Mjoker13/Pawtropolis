@@ -1,4 +1,5 @@
 import Controller.GameController;
+import GameControls.Menu;
 import lombok.extern.java.Log;
 
 import java.util.Scanner;
@@ -22,26 +23,27 @@ public class Main {
                 System.out.println("\n" + "Now "+name+", What would you like to do? ");
                 action=scanner.nextLine();
                 String[] spiltAction = action.trim().split("\\s+");
-                    switch (spiltAction[0].toLowerCase()) {
-                        case "go" ->gameController.changeRoom(action.trim().replaceAll("\\s+",""));
-                        case "look" -> gameController.showRoomInformation();
-                        case "bag" -> gameController.showBagInformation();
-                        case "get" -> {
+                Menu gameControls = Menu.valueOf(spiltAction[0].toUpperCase());
+                    switch (gameControls) {
+                        case  GO ->gameController.changeRoom(action.trim().replaceAll("\\s+",""));
+                        case LOOK -> gameController.showRoomInformation();
+                        case BAG -> gameController.showBagInformation();
+                        case GET -> {
                             action= action.replace("get", "");
                             gameController.addItemToBag(gameController.getItemFromRoom(action.replaceAll("\\s+","")));
                             gameController.dropItemFromRoom(gameController.getItemFromRoom(action.replaceAll("\\s+","")));
                             gameController.showRoomInformation();
                             gameController.showBagInformation();
                         }
-                        case "drop" -> {
+                        case DROP -> {
                             action= action.replace("drop", "");
                             gameController.addItemToRoom(gameController.getItemFromBag(action.replaceAll("\\s+","")));
                             gameController.dropItemFromBag(gameController.getItemFromBag(action.replaceAll("\\s+","")));
                             gameController.showRoomInformation();
                             gameController.showBagInformation();
                         }
-                        case "help" ->System.out.println("\n-Go <direction> \n-Look \n-Bag \n-Get <item> \n-Drop <item> \n-Exit");
-                        case "exit" -> {
+                        case HELP ->System.out.println("\n-Go <direction> \n-Look \n-Bag \n-Get <item> \n-Drop <item> \n-Exit");
+                        case EXIT -> {
                             exitGame = true;
                             log.info("Thank you for your time, GoodBye " + name);
                         }
