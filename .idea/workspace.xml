@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dee5a1fd-b017-46d2-a361-09cea28faee3" name="Changes" comment="(refactor) reduce command line to methods changeRoom, fix getRandomAnimals' method and reduce commandLine into Main">
+    <list default="true" id="dee5a1fd-b017-46d2-a361-09cea28faee3" name="Changes" comment="(refactor) management class item, player, bag  v1.4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameControls/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameControls/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <list id="4b9ee034-e73f-41d5-97a5-89487157e6ba" name="AnotherChanges" comment="AnotherChanges">
@@ -60,6 +63,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -67,23 +72,16 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gsovailescu\Documents\Pawtropolis\PawtropolisTems\FileSchema" />
+      <recent name="C:\Users\gsovailescu\Documents\Pawtropolis\PawtropolisTems\src" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="start" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Zoo" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -109,7 +107,12 @@
       <workItem from="1695286335383" duration="15400000" />
       <workItem from="1695370068077" duration="59802000" />
       <workItem from="1695713991354" duration="9453000" />
-      <workItem from="1695799375723" duration="5798000" />
+      <workItem from="1695799375723" duration="8044000" />
+      <workItem from="1695817387068" duration="4998000" />
+      <workItem from="1695904689027" duration="8518000" />
+      <workItem from="1695990805404" duration="10344000" />
+      <workItem from="1696232526856" duration="10496000" />
+      <workItem from="1696249419119" duration="3878000" />
     </task>
     <task id="LOCAL-00001" summary="try commit">
       <option name="closed" value="true" />
@@ -166,7 +169,21 @@
       <option name="project" value="LOCAL" />
       <updated>1695301270732</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="(refactor) reduce command line to methods changeRoom">
+      <created>1695809172471</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1695809172471</updated>
+    </task>
+    <task id="LOCAL-00009" summary="(refactor) management class item, player, bag  v1.4">
+      <created>1696252956490</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1696252956490</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,7 +200,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
@@ -223,7 +240,9 @@
     <MESSAGE value="(feat) added new lombook library and its function" />
     <MESSAGE value="try commit" />
     <MESSAGE value="(refactor) reduce command line to methods changeRoom, fix getRandomAnimals' method and reduce commandLine into Main" />
-    <option name="LAST_COMMIT_MESSAGE" value="(refactor) reduce command line to methods changeRoom, fix getRandomAnimals' method and reduce commandLine into Main" />
+    <MESSAGE value="(refactor) reduce command line to methods changeRoom" />
+    <MESSAGE value="(refactor) management class item, player, bag  v1.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="(refactor) management class item, player, bag  v1.4" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -236,45 +255,15 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="8" />
         </breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Domain/GameDomain/Player.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="216" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Domain/GameDomain/Item.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="223" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Domain/GameDomain/Bag.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="228" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="243" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="229" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="231" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="232" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="233" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="234" />
+          <line>24</line>
+          <option name="timeStamp" value="244" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

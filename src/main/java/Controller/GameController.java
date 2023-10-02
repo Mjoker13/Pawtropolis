@@ -1,13 +1,13 @@
 package Controller;
 
 import Domain.GameDomain.*;
+import GameControls.Direction;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.java.Log;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.Objects;
+import java.util.Arrays;
 
 @Getter
 @Setter
@@ -19,16 +19,50 @@ public class GameController {
 
     public GameController() {
         this.player = gameCreator.createPlayer();
-        this.currentRoom = gameCreator.getAllRooms().get(gameCreator.randomRooms());
+        this.currentRoom = gameCreator.getAllRooms().get(gameCreator.randomRoom());
     }
     GameCreator gameCreator = new GameCreator();
 
+    public void changeRoom(String directionString) {
+        if(Arrays.stream(Direction.values()).anyMatch(a -> directionString.equalsIgnoreCase(a.name()))) {
+            Direction direction = Direction.valueOf(directionString.trim().replaceAll("\\s+", "").toUpperCase());
+             Room adjacentRoom = currentRoom.getAdjacentRoom(direction);
+               if (adjacentRoom != null) {
+                 System.out.println("You moved from the room " + currentRoom.getName() + " to room " + adjacentRoom.getName());
+                 currentRoom = adjacentRoom;
+              }
+               else {
+                System.out.println("You cannot move in this direction.");
+              }
+        }
+        else{
+            log.info("Direction not valid. Introduce right direction. ");
+        }
+    }
+
     public void showRoomInformation(){
         currentRoom.showRoomInformation();
+
     }
     public void showBagInformation(){
         player.showBagInformation();
     }
+   /* public void showAllRooms(){
+        gameCreator.createRooms().forEach(name -> {
+                    if(name.getName().equalsIgnoreCase(currentRoom.getName())) {
+                        System.out.print('"'+name.getName()+'"');
+                        System.out.println("Room at North: " + currentRoom.getAdjacentRoom(Direction.NORTH).getName()+ '\n'+
+                                "Room at west: " + currentRoom.getAdjacentRoom(Direction.WEST).getName() +
+                                '"'+ currentRoom.getName()+'"'+
+                                "Room at East: " + currentRoom.getAdjacentRoom(Direction.EAST).getName() + '\n'+
+                                "Room at South: " + currentRoom.getAdjacentRoom(Direction.SOUTH).getName());
+                    }
+                    else {
+                        System.out.print(" " + name + " ");
+                    }
+                });
+            System.out.println();
+    }*/
     public Item getItemFromRoom(String itemName){
             return  currentRoom.getItems()
                     .stream()
@@ -41,74 +75,28 @@ public class GameController {
                 .findFirst().orElse(null);
     }
     public void addItemToBag(Item itemFromRoom) {
-        boolean existingElement = false;
         if (itemFromRoom == null) {
             log.info("This item does not exist in actual room \n");
         } else {
-            if (player.getBag().getSlotAvailable() >= itemFromRoom.getSlotRequired()) {
-                for (Item itemCurrent : player.getBag().getItems()) {
-                    if (itemCurrent.getName().replaceAll("\\s+", "").equalsIgnoreCase(itemFromRoom.getName())) {
-                        itemCurrent.increaseQuantity();
-                        existingElement= true;
-                        break;
-                    }
-                }
-                if (!existingElement) {
-                    player.getBag().getItems().add(itemFromRoom);
-                }
-                player.getBag().setSlotAvailable(player.getBag().getSlotAvailable() - itemFromRoom.getSlotRequired());
-            } else {
-                log.info("Maximum capacity exceeded");
-            }
+            player.addItemToBag(itemFromRoom);
         }
     }
     public void dropItemFromBag(Item itemFromBag){
-        boolean existingElement= false;
         if (itemFromBag == null) {
             log.info("This item does not exist in the bag \n");
         } else{
-                for (Item itemCurrent: player.getBag().getItems()) {
-                    if(itemCurrent.getName().replaceAll("\\s+","").equalsIgnoreCase(itemFromBag.getName()) && itemFromBag.getQuantity()> 1){
-                        itemCurrent.decreaseQuantity();
-                        existingElement= true;
-                        break;
-                    }
-                }
-                if(!existingElement) {
-                    player.getBag().getItems().remove(itemFromBag);
-                }
-                player.getBag().setSlotAvailable(player.getBag().getSlotAvailable() + itemFromBag.getSlotRequired());
-
+            player.dropItemFromBag(itemFromBag);
         }
     }
-    public void addItemToRoom(Item itemFromBag){
-        boolean existingElement= false;
+    public void addItemToRoom(Item itemFromBag) {
+
         if (itemFromBag != null) {
-                for (Item itemCurrent: currentRoom.getItems()) {
-                    if(itemCurrent.getName().replaceAll("\\s+","").equalsIgnoreCase(itemFromBag.getName())){
-                        itemCurrent.increaseQuantity();
-                        existingElement = true;
-                        break;
-                    }
-                }
-                if(!existingElement) {
-                    currentRoom.getItems().add(itemFromBag);
-                }
+            currentRoom.addItem(itemFromBag);
         }
     }
     public void dropItemFromRoom(Item itemFromRoom){
-        boolean existingElement= false;
         if (itemFromRoom != null) {
-            for (Item itemCurrent: player.getBag().getItems()) {
-                if(itemCurrent.getName().replaceAll("\\s+","").equalsIgnoreCase(itemFromRoom.getName()) && itemFromRoom.getQuantity()> 1){
-                    itemCurrent.decreaseQuantity();
-                    existingElement= true;
-                    break;
-                }
-            }
-            if(!existingElement) {
-                currentRoom.getItems().remove(itemFromRoom);
-            }
+            currentRoom.dropItem(itemFromRoom);
         }
     }
 }
