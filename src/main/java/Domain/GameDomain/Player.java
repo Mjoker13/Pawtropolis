@@ -8,13 +8,14 @@ import lombok.extern.java.Log;
 import java.util.Objects;
 
 
-@Setter
 @Getter
 @ToString
 @Log
 public class Player {
+    @Setter
     private String name;
-    private int lifePoints;
+    private final int lifePoints;
+    @Setter
     private Bag bag;
 
     public Player(String name, Bag bag) {
@@ -25,4 +26,6 @@ public class Player {
     public void showBagInformation(){
         bag.showItemsInformation();
     }
+    public void addItemToBag(Item item){bag.addItem(item);}
+    public void dropItemFromBag(Item item){bag.dropItem(item);}
 }

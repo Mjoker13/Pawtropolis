@@ -9,12 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@Setter
+
 @Getter
 @ToString
 @Log
 public class Bag {
-    //todo non dare a nessuno la gestione dei propri attributi
+
+    @Setter
     private List<Item> items;
     private int slotAvailable;
     private final int maxCapacity;
@@ -23,6 +24,13 @@ public class Bag {
         this.items = new ArrayList<>();
         this.slotAvailable = getSlotAvailable();
         this.maxCapacity = getMaxCapacity();
+    }
+
+    public void decreaseSlotAvailable(Item item){
+        slotAvailable+=item.getSlotRequired();
+    }
+    public void increaseSlotAvailable(Item item){
+        slotAvailable-=item.getSlotRequired();
     }
     public int getSlotAvailable(){
         if(items.isEmpty()){
@@ -34,10 +42,21 @@ public class Bag {
         return 20;
     }
 
-    //todo sistemare getter e setter
-
     public void showItemsInformation(){
         System.out.println("In bag: " + items.stream().filter(Objects::nonNull).map(item -> item.getName() + " (x" + item.getQuantity() + ")").toList());
         System.out.println("Slot available:" + slotAvailable);
     }
-}
+    public void addItem(Item item){
+        if (slotAvailable >= item.getSlotRequired()) {
+            items.add(item);
+            increaseSlotAvailable(item);
+        } else {
+            log.info("Maximum capacity exceeded");
+        }
+    }
+    public void dropItem(Item item){
+            items.remove(item);
+            decreaseSlotAvailable(item);
+    }
+    }
+
