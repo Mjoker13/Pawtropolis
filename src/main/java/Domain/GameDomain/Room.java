@@ -47,4 +47,9 @@ public class Room {
             }else System.out.print("");
         }
     }
+    public Item getItemFromRoom(String itemName){
+        return  items.stream()
+                .filter(item -> item.getName().replaceAll("\\s+","").equalsIgnoreCase(itemName))
+                .findFirst().orElse(null);
+    }
 }

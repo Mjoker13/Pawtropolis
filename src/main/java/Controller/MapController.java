@@ -7,10 +7,10 @@ import lombok.extern.java.Log;
 
 import java.util.Arrays;
 @Log
-public class GameMap {
+public class MapController {
     private Room currentRoom;
     GameCreator creator= new GameCreator();
-    public GameMap() {
+    public MapController() {
         this.currentRoom = creator.getAllRooms().get(creator.randomRoom());
     }
     public void changeRoom(String directionString) {
@@ -34,10 +34,7 @@ public class GameMap {
         currentRoom.showRoomInformation();
     }
     public Item getItemFromRoom(String itemName){
-        return  currentRoom.getItems()
-                .stream()
-                .filter(item -> item.getName().replaceAll("\\s+","").equalsIgnoreCase(itemName))
-                .findFirst().orElse(null);
+       return currentRoom.getItemFromRoom(itemName);
     }
     public void addItemToRoom(Item itemFromBag) {
         if (itemFromBag != null) {

@@ -55,5 +55,10 @@ public class Bag {
             items.remove(item);
             decreaseSlotAvailable(item);
     }
+    public Item getItemFromBag(String itemName){
+        return items.stream()
+                .filter(i-> i.getName().replaceAll("\\s+","").equalsIgnoreCase(itemName))
+                .findFirst().orElse(null);
+    }
     }
 
