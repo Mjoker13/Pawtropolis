@@ -4,17 +4,16 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.java.Log;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
 @Getter
 @ToString
 @Log
 public class Bag {
-
     @Setter
     private List<Item> items;
     private int slotAvailable;
@@ -25,11 +24,10 @@ public class Bag {
         this.slotAvailable = getSlotAvailable();
         this.maxCapacity = getMaxCapacity();
     }
-
-    public void decreaseSlotAvailable(Item item){
+    public void decreaseSlotAvailable(@NotNull Item item){
         slotAvailable+=item.getSlotRequired();
     }
-    public void increaseSlotAvailable(Item item){
+    public void increaseSlotAvailable(@NotNull Item item){
         slotAvailable-=item.getSlotRequired();
     }
     public int getSlotAvailable(){
@@ -41,12 +39,11 @@ public class Bag {
     public int getMaxCapacity() {
         return 20;
     }
-
     public void showItemsInformation(){
         System.out.println("In bag: " + items.stream().filter(Objects::nonNull).map(item -> item.getName() + " (x" + item.getQuantity() + ")").toList());
         System.out.println("Slot available:" + slotAvailable);
     }
-    public void addItem(Item item){
+    public void addItem(@NotNull Item item){
         if (slotAvailable >= item.getSlotRequired()) {
             items.add(item);
             increaseSlotAvailable(item);

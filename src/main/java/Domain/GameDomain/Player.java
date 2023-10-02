@@ -7,7 +7,6 @@ import lombok.extern.java.Log;
 
 import java.util.Objects;
 
-
 @Getter
 @ToString
 @Log

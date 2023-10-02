@@ -2,7 +2,6 @@ package Domain.GameDomain;
 
 import lombok.Getter;
 
-
 @Getter
 public class Item {
     private final String name;

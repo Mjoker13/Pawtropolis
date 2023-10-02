@@ -47,26 +47,26 @@ public class GameCreator {
         rooms.add(roomB4);
         rooms.add(roomB5);
 
-        roomA1.connectRoom(Direction.SOUTH, roomA2);
-        roomA1.connectRoom(Direction.EAST,roomB5);
-        roomA1.connectRoom(Direction.WEST,roomB1);
-        roomB1.connectRoom(Direction.WEST, roomA1);
-        roomB1.connectRoom(Direction.NORTH,roomB2);
-        roomB2.connectRoom(Direction.EAST,roomB1);
-        roomB2.connectRoom(Direction.SOUTH,roomA3);
-        roomA3.connectRoom(Direction.WEST,roomB2);
-        roomA3.connectRoom(Direction.NORTH,roomA2);
-        roomA3.connectRoom(Direction.EAST,roomA4);
-        roomA4.connectRoom(Direction.SOUTH,roomA3);
-        roomA4.connectRoom(Direction.NORTH,roomB4);
-        roomB4.connectRoom(Direction.SOUTH,roomA4);
-        roomB4.connectRoom(Direction.WEST,roomB3);
-        roomB3.connectRoom(Direction.EAST,roomB4);
-        roomA2.connectRoom(Direction.NORTH,roomA1);
-        roomA2.connectRoom(Direction.SOUTH,roomA3);
-        roomA2.connectRoom(Direction.EAST,roomA5);
-        roomA5.connectRoom(Direction.WEST,roomA2);
-        roomB5.connectRoom(Direction.EAST,roomA1);
+        roomA1.fillingMap(Direction.SOUTH, roomA2);
+        roomA1.fillingMap(Direction.EAST,roomB5);
+        roomA1.fillingMap(Direction.WEST,roomB1);
+        roomB1.fillingMap(Direction.WEST, roomA1);
+        roomB1.fillingMap(Direction.NORTH,roomB2);
+        roomB2.fillingMap(Direction.EAST,roomB1);
+        roomB2.fillingMap(Direction.SOUTH,roomA3);
+        roomA3.fillingMap(Direction.WEST,roomB2);
+        roomA3.fillingMap(Direction.NORTH,roomA2);
+        roomA3.fillingMap(Direction.EAST,roomA4);
+        roomA4.fillingMap(Direction.SOUTH,roomA3);
+        roomA4.fillingMap(Direction.NORTH,roomB4);
+        roomB4.fillingMap(Direction.SOUTH,roomA4);
+        roomB4.fillingMap(Direction.WEST,roomB3);
+        roomB3.fillingMap(Direction.EAST,roomB4);
+        roomA2.fillingMap(Direction.NORTH,roomA1);
+        roomA2.fillingMap(Direction.SOUTH,roomA3);
+        roomA2.fillingMap(Direction.EAST,roomA5);
+        roomA5.fillingMap(Direction.WEST,roomA2);
+        roomB5.fillingMap(Direction.EAST,roomA1);
         return rooms;
 
 
@@ -76,8 +76,7 @@ public class GameCreator {
         return streamArrayRooms.map(Room.class::cast).collect(Collectors.toList());
     }
     public int randomRoom(){
-
-        return random.nextInt(9);
+        return random.nextInt(createRooms().size());
     }
     public List<Item> createItems(){
         List<Item> itemList= new ArrayList<>();
@@ -119,7 +118,6 @@ public class GameCreator {
         return new Player("Lego",createBag());
     }
     public static @NotNull Map<Class<? extends Animal>, List<Animal>> createAnimals() {
-
         Map<Class<? extends Animal>, List<Animal>> animals = new HashMap<>();
 
         LocalDate dateSherkan = LocalDate.of(2012, 8, 20);
@@ -198,5 +196,4 @@ public class GameCreator {
         }
         return randomAnimals;
     }
-
 }
