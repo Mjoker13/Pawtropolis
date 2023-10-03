@@ -2,6 +2,8 @@ package Domain.GameDomain;
 
 import lombok.Getter;
 
+import java.util.Objects;
+
 @Getter
 public class Item {
     private final String name;
@@ -19,11 +21,24 @@ public class Item {
     }
     public void increaseQuantity(){
         this.quantity ++;
-
     }
     public void decreaseQuantity(){
         this.quantity --;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return slotRequired == item.slotRequired && quantity == item.quantity && Objects.equals(name, item.name) && Objects.equals(description, item.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, description, slotRequired, quantity);
+    }
+
     @Override
     public String toString() {
         return  "\n-" + name

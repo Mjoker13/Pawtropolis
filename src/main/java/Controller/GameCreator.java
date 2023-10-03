@@ -86,26 +86,26 @@ public class GameCreator {
         Item banana = new Item("Banana","Give it to the animals",1);
         Item apple = new Item("Apple","Give it to the animals",1);
         Item cane = new Item("Cane","Relax with animals",1);
-        Item gas = new Item("Gas","Drink to suicide",1);
+       /* Item gas = new Item("Gas","Drink to suicide",1);
         Item nutella = new Item("Nutella","Paradise's moment",2);
         Item screwdriver = new Item("Screwdriver","To be",2);
         Item chainsaw = new Item("Chainsaw","Cut all",4);
         Item electricChair = new Item("Electric chair","use for cook the chicken",4);
         Item chicken = new Item("Chicken","Cook it with the electric chair",4);
-        Item oldBread = new Item("Old bread","It cuts with chainsaw",4);
+        Item oldBread = new Item("Old bread","It cuts with chainsaw",4);*/
         itemList.add(hammer);
         itemList.add(water);
         itemList.add(knife);
         itemList.add(banana);
         itemList.add(apple);
         itemList.add(cane);
-        itemList.add(gas);
+       /* itemList.add(gas);
         itemList.add(nutella);
         itemList.add(screwdriver);
         itemList.add(chainsaw);
         itemList.add(electricChair);
         itemList.add(chicken);
-        itemList.add(oldBread);
+        itemList.add(oldBread);*/
         return itemList;
     }
     public Bag createBag(){
@@ -168,11 +168,11 @@ public class GameCreator {
         int randomIndex2 = random.nextInt(createItems().size());
         int randomIndex3 = random.nextInt(createItems().size());
         List<Item> randomItems = new ArrayList<>();
-            if (randomIndex != randomIndex2 && randomIndex3 != randomIndex) {
+            if (randomIndex != randomIndex2) {
                 randomItems.add(createItems().get(randomIndex));
                 randomItems.add(createItems().get(randomIndex2));
                 randomItems.add(createItems().get(randomIndex3));
-            } else if (randomIndex == randomIndex2 && randomIndex3 != randomIndex) {
+            }/* else if (randomIndex == randomIndex2 && randomIndex3 != randomIndex) {
                 randomItems.add(createItems().get(randomIndex));
                 randomItems.add(createItems().get(randomIndex3));
             } else if (randomIndex2 != randomIndex) {
@@ -181,7 +181,7 @@ public class GameCreator {
             }else {
                 randomItems.add(createItems().get(randomIndex3));
                 randomItems.add(createItems().get(randomIndex));
-            }
+            }*/
         return randomItems;
     }
     private @NotNull List<Animal> getRandomAnimals(){

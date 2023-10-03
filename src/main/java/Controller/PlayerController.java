@@ -24,18 +24,10 @@ public class PlayerController {
         return player.getItemFromBag(itemName);
     }
     public void addItemToBag(Item itemFromRoom) {
-        if (itemFromRoom == null) {
-            log.info("This item does not exist in actual room \n");
-        } else {
             player.addItemToBag(itemFromRoom);
-        }
     }
     public void dropItemFromBag(Item itemFromBag){
-        if (itemFromBag == null) {
-            log.info("This item does not exist in the bag \n");
-        } else{
             player.dropItemFromBag(itemFromBag);
-        }
     }
 }
 

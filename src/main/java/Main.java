@@ -27,20 +27,28 @@ public class Main {
                     Menu gameControls = Menu.valueOf(spiltAction[0].toUpperCase());
                     switch (gameControls) {
                         case GO -> {
-                            action = action.replace("go ", "");
-                            mapController.changeRoom(action);
+                                action = action.trim().replace("go", "");
+                                mapController.changeRoom(action);
                         }
                         case LOOK -> mapController.showRoomInformation();
                         case BAG -> playerController.showBagInformation();
                         case GET ->{
                             action = action.replace("get", "");
-                            playerController.addItemToBag(mapController.getItemFromRoom(action.replaceAll("\\s+", "")));
-                            mapController.dropItemFromRoom(mapController.getItemFromRoom(action.replaceAll("\\s+", "")));
+                            if(mapController.getItemFromRoom(action.replaceAll("\\s+", "")) == null){
+                                log.info("Item not present;");
+                            }else {
+                                playerController.addItemToBag(mapController.getItemFromRoom(action.replaceAll("\\s+", "")));
+                                mapController.dropItemFromRoom(mapController.getItemFromRoom(action.replaceAll("\\s+", "")));
+                            }
                         }
                         case DROP ->{
                             action = action.replace("drop", "");
-                            mapController.addItemToRoom(playerController.getItemFromBag(action.replaceAll("\\s+", "")));
-                            playerController.dropItemFromBag(playerController.getItemFromBag(action.replaceAll("\\s+", "")));
+                            if(playerController.getItemFromBag(action.replaceAll("\\s+", ""))== null){
+                                log.info("Item not present;");
+                            }else{
+                                mapController.addItemToRoom(playerController.getItemFromBag(action.replaceAll("\\s+", "")));
+                                playerController.dropItemFromBag(playerController.getItemFromBag(action.replaceAll("\\s+", "")));
+                            }
                         }
                         case HELP -> System.out.println("\n-Go <direction> \n-Look \n-Bag \n-Get <item> \n-Drop <item> \n-Exit");
                         case EXIT -> {

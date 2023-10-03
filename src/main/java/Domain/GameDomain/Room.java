@@ -5,9 +5,11 @@ import GameControls.Direction;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.extern.java.Log;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
-
+@Log
 @Getter
 @Setter
 @ToString
@@ -29,10 +31,10 @@ public class Room {
         System.out.println("NPC: " + animals.stream().filter(Objects::nonNull).map(animal -> animal.getName() + " (" + animal.getClass().getSimpleName() + ")").toList());
     }
     public void addItem(Item item){
-        items.add(item);
+            items.add(item);
     }
     public void dropItem(Item item){
-        items.remove(item);
+            items.remove(item);
     }
     public void fillingMap(Direction direction, Room room) {
         adjacentRoom.put(direction, room);

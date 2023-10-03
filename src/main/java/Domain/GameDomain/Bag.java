@@ -44,12 +44,17 @@ public class Bag {
         System.out.println("Slot available:" + slotAvailable);
     }
     public void addItem(@NotNull Item item){
+       // Item itemQuantity = new Item(item.getName(),item.getDescription(),item.getSlotRequired());
         if (slotAvailable >= item.getSlotRequired()) {
-            items.add(item);
-            increaseSlotAvailable(item);
-        } else {
-            log.info("Maximum capacity exceeded");
-        }
+                    if(items.contains(item)){
+                      item.increaseQuantity();
+                     }else{
+                      items.add(item);
+                    }
+                     increaseSlotAvailable(item);
+                } else {
+                log.info("Maximum capacity exceeded");
+            }
     }
     public void dropItem(Item item){
             items.remove(item);
