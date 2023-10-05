@@ -7,6 +7,7 @@ public class Tiger extends AnimalsWithTail {
     public Tiger(String name, String favoriteFood, int age, LocalDate entryDate, float weight, float height, float tailLength) {
         super(name, favoriteFood, age, entryDate, weight, height, tailLength);
     }
+
     @Override
     public String toString() {
         return "\n-Tiger{" +

@@ -17,17 +17,21 @@ public class PlayerController {
     public PlayerController() {
         this.player = gameCreator.createPlayer();
     }
-    public void showsBagInformation(){
+
+    public void showsBagInformation() {
         player.showBagInformation();
     }
+
     public Item getItemFromBag(String itemName) {
         return player.getItemFromBag(itemName);
     }
+
     public void addItemToBag(Item itemFromRoom) {
-            player.addItemToBag(itemFromRoom);
+        player.addItemToBag(itemFromRoom);
     }
-    public void dropItemFromBag(Item itemFromBag){
-            player.dropItemFromBag(itemFromBag);
+
+    public void dropItemFromBag(Item itemFromBag) {
+        player.dropItemFromBag(itemFromBag);
     }
 }
 

@@ -24,22 +24,27 @@ public class Bag {
         this.maxCapacity = 20;
         this.slotAvailable = getSlotAvailable();
     }
-    public void decreaseSlotAvailable(@NotNull Item item){
-        slotAvailable+=item.getSlotRequired();
+
+    public void decreaseSlotAvailable(@NotNull Item item) {
+        slotAvailable += item.getSlotRequired();
     }
-    public void increaseSlotAvailable(@NotNull Item item){
-        slotAvailable-=item.getSlotRequired();
+
+    public void increaseSlotAvailable(@NotNull Item item) {
+        slotAvailable -= item.getSlotRequired();
     }
-    public int getSlotAvailable(){
-        if(items.isEmpty()){
+
+    public int getSlotAvailable() {
+        if (items.isEmpty()) {
             return getMaxCapacity();
         }
         return slotAvailable;
     }
-    public void showItemsInformation(){
+
+    public void showItemsInformation() {
         System.out.println("In bag: " + items.stream().filter(Objects::nonNull).map(item -> item.getName() + " (x" + item.getQuantity() + ")").toList());
         System.out.println("Slot available:" + slotAvailable);
     }
+
     public void addItem(@NotNull Item item) {
         if (slotAvailable >= item.getSlotRequired()) {
             if (items.contains(item)) {
@@ -52,14 +57,16 @@ public class Bag {
             log.info("Maximum capacity exceeded");
         }
     }
-    public void dropItem(Item item){
-            items.remove(item);
-            decreaseSlotAvailable(item);
+
+    public void dropItem(Item item) {
+        items.remove(item);
+        decreaseSlotAvailable(item);
     }
-    public Item getItemFromBag(String itemName){
+
+    public Item getItemFromBag(String itemName) {
         return items.stream()
-                .filter(i-> i.getName().replaceAll("\\s+","").equalsIgnoreCase(itemName))
+                .filter(i -> i.getName().replaceAll("\\s+", "").equalsIgnoreCase(itemName))
                 .findFirst().orElse(null);
     }
-    }
+}
 

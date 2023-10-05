@@ -19,6 +19,7 @@ public enum Direction {
     Direction(String direction) {
         this.directionType = direction;
     }
+
     public static @Nullable Direction convertingStringToDirection(String text) {
         return Arrays.stream(Direction.values()).filter(d -> d.directionType.equalsIgnoreCase(text))
                 .findFirst()

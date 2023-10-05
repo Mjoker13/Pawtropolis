@@ -20,6 +20,7 @@ public enum CommandType {
     CommandType(String commandAction) {
         this.commandAction = commandAction;
     }
+
     public static @Nullable CommandType convertingStringToCommandType(String text) {
         return Arrays.stream(CommandType.values()).filter(commandType -> commandType.commandAction.equalsIgnoreCase(text))
                 .findFirst()

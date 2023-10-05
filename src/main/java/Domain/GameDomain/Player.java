@@ -19,12 +19,20 @@ public class Player {
         this.lifePoints = 100;
         this.bag = bag;
     }
-    public void showBagInformation(){
+
+    public void showBagInformation() {
         bag.showItemsInformation();
     }
-    public void addItemToBag(Item item){bag.addItem(item);}
-    public void dropItemFromBag(Item item){bag.dropItem(item);}
+
+    public void addItemToBag(Item item) {
+        bag.addItem(item);
+    }
+
+    public void dropItemFromBag(Item item) {
+        bag.dropItem(item);
+    }
+
     public Item getItemFromBag(String itemName) {
-    return bag.getItemFromBag(itemName);
+        return bag.getItemFromBag(itemName);
     }
 }
