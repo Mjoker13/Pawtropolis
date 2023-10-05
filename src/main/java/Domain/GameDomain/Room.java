@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.java.Log;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 @Log
@@ -17,13 +16,13 @@ public class Room {
     private String name;
     private List<Item> items;
     private List<Animal> animals;
-    private EnumMap<Direction, Room> adjacentRoom;
+    private EnumMap<Direction, Room> adjacentRooms;
 
     public Room(String name, List<Item> items, List<Animal> animals) {
         this.name = name;
-        this.items = items;
-        this.animals = animals;
-        this.adjacentRoom = new EnumMap<>(Direction.class);
+        this.items = Objects.requireNonNullElseGet(items, ArrayList::new);
+        this.animals = Objects.requireNonNullElseGet(animals, ArrayList::new);
+        this.adjacentRooms = new EnumMap<>(Direction.class);
     }
     public void showRoomInformation(){
         System.out.println("You are in: " + name);
@@ -36,16 +35,20 @@ public class Room {
     public void dropItem(Item item){
             items.remove(item);
     }
-    public void fillingMap(Direction direction, Room room) {
-        adjacentRoom.put(direction, room);
+    public void linkRoomByDirection(Direction direction,Room adjacentRoom,Room actualRoom) {
+        adjacentRooms.put(direction, adjacentRoom);
+        adjacentRoom.linkAdjacentRoomToActualRoom(direction,actualRoom);
     }
-    public Room getAdjacentRoom(Direction direction) {
-        return adjacentRoom.get(direction);
+    private void linkAdjacentRoomToActualRoom(Direction direction, Room actualRoom){
+        adjacentRooms.put(Direction.roundTrip(direction), actualRoom);
     }
-    public void nearbyRoom(){
+    public Room getAdjacentRooms(Direction direction) {
+        return adjacentRooms.get(direction);
+    }
+    public void showNearbyRoom(){
         for (Direction d: Direction.values()) {
-            if(this.getAdjacentRoom(d)!= null){
-                System.out.println("You can move at direction "+d.name().toLowerCase() +" to "+getAdjacentRoom(d).getName()+" ");
+            if(this.getAdjacentRooms(d)!= null){
+                System.out.println("You can move at direction "+d.name().toLowerCase() +" to "+ getAdjacentRooms(d).getName()+" ");
             }else System.out.print("");
         }
     }

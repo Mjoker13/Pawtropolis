@@ -1,8 +1,47 @@
 package GameControls;
 
+
+import lombok.Getter;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Arrays;
+
+@Getter
 public enum Direction {
-    NORTH,
-    SOUTH,
-    EAST,
-    WEST;
+    NORTH("north"),
+    SOUTH("south"),
+    EAST("east"),
+    WEST("west");
+
+    private final String directionType;
+
+    Direction(String direction) {
+        this.directionType = direction;
+    }
+    public static @Nullable Direction convertingStringToDirection(String text) {
+        return Arrays.stream(Direction.values()).filter(d -> d.directionType.equalsIgnoreCase(text))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public static @Nullable Direction roundTrip(@NotNull Direction direction) {
+        switch (direction) {
+            case NORTH -> {
+                return SOUTH;
+            }
+            case SOUTH -> {
+                return NORTH;
+            }
+            case EAST -> {
+                return WEST;
+            }
+            case WEST -> {
+                return EAST;
+            }
+            default -> {
+                return null;
+            }
+        }
+    }
 }

@@ -17,7 +17,7 @@ public class PlayerController {
     public PlayerController() {
         this.player = gameCreator.createPlayer();
     }
-    public void showBagInformation(){
+    public void showsBagInformation(){
         player.showBagInformation();
     }
     public Item getItemFromBag(String itemName) {

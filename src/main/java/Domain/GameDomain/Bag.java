@@ -21,8 +21,8 @@ public class Bag {
 
     public Bag() {
         this.items = new ArrayList<>();
+        this.maxCapacity = 20;
         this.slotAvailable = getSlotAvailable();
-        this.maxCapacity = getMaxCapacity();
     }
     public void decreaseSlotAvailable(@NotNull Item item){
         slotAvailable+=item.getSlotRequired();
@@ -36,25 +36,21 @@ public class Bag {
         }
         return slotAvailable;
     }
-    public int getMaxCapacity() {
-        return 20;
-    }
     public void showItemsInformation(){
         System.out.println("In bag: " + items.stream().filter(Objects::nonNull).map(item -> item.getName() + " (x" + item.getQuantity() + ")").toList());
         System.out.println("Slot available:" + slotAvailable);
     }
-    public void addItem(@NotNull Item item){
-       // Item itemQuantity = new Item(item.getName(),item.getDescription(),item.getSlotRequired());
+    public void addItem(@NotNull Item item) {
         if (slotAvailable >= item.getSlotRequired()) {
-                    if(items.contains(item)){
-                      item.increaseQuantity();
-                     }else{
-                      items.add(item);
-                    }
-                     increaseSlotAvailable(item);
-                } else {
-                log.info("Maximum capacity exceeded");
+            if (items.contains(item)) {
+                item.increaseQuantity();
+            } else {
+                items.add(item);
             }
+            increaseSlotAvailable(item);
+        } else {
+            log.info("Maximum capacity exceeded");
+        }
     }
     public void dropItem(Item item){
             items.remove(item);

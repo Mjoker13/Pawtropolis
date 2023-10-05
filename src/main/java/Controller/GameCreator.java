@@ -20,16 +20,13 @@ import java.util.stream.Stream;
 public class GameCreator {
     ZooController zooController= new ZooController();
     Random random = new Random();
-
     public List<Room> createRooms() {
         List<Room> rooms = new ArrayList<>();
-
         Room roomA1 = new Room("A1", getRandomItems(), getRandomAnimals());
-        Room roomA2 = new Room("A2", getRandomItems(), getRandomAnimals());
+        Room roomA2 = new Room("Home", null, null);
         Room roomA3 = new Room("A3", getRandomItems(), getRandomAnimals());
         Room roomA4 = new Room("A4", getRandomItems(), getRandomAnimals());
         Room roomA5 = new Room("A5", getRandomItems(), getRandomAnimals());
-
         Room roomB1 = new Room("B1", getRandomItems(), getRandomAnimals());
         Room roomB2 = new Room("B2", getRandomItems(), getRandomAnimals());
         Room roomB3 = new Room("B3", getRandomItems(), getRandomAnimals());
@@ -47,36 +44,21 @@ public class GameCreator {
         rooms.add(roomB4);
         rooms.add(roomB5);
 
-        roomA1.fillingMap(Direction.SOUTH, roomA2);
-        roomA1.fillingMap(Direction.EAST,roomB5);
-        roomA1.fillingMap(Direction.WEST,roomB1);
-        roomB1.fillingMap(Direction.WEST, roomA1);
-        roomB1.fillingMap(Direction.NORTH,roomB2);
-        roomB2.fillingMap(Direction.EAST,roomB1);
-        roomB2.fillingMap(Direction.SOUTH,roomA3);
-        roomA3.fillingMap(Direction.WEST,roomB2);
-        roomA3.fillingMap(Direction.NORTH,roomA2);
-        roomA3.fillingMap(Direction.EAST,roomA4);
-        roomA4.fillingMap(Direction.SOUTH,roomA3);
-        roomA4.fillingMap(Direction.NORTH,roomB4);
-        roomB4.fillingMap(Direction.SOUTH,roomA4);
-        roomB4.fillingMap(Direction.WEST,roomB3);
-        roomB3.fillingMap(Direction.EAST,roomB4);
-        roomA2.fillingMap(Direction.NORTH,roomA1);
-        roomA2.fillingMap(Direction.SOUTH,roomA3);
-        roomA2.fillingMap(Direction.EAST,roomA5);
-        roomA5.fillingMap(Direction.WEST,roomA2);
-        roomB5.fillingMap(Direction.EAST,roomA1);
+        roomA1.linkRoomByDirection(Direction.SOUTH,roomA2,roomA1);
+        roomA2.linkRoomByDirection(Direction.SOUTH,roomA3,roomA2);
+        roomA3.linkRoomByDirection(Direction.EAST,roomA4,roomA3);
+        roomA4.linkRoomByDirection(Direction.NORTH,roomB2,roomA4);
+        roomA5.linkRoomByDirection(Direction.WEST,roomA2,roomA5);
+        roomB1.linkRoomByDirection(Direction.WEST,roomA1,roomB1);
+        roomB2.linkRoomByDirection(Direction.NORTH,roomB1,roomB2);
+        roomB3.linkRoomByDirection(Direction.WEST,roomB1,roomB3);
+        roomB4.linkRoomByDirection(Direction.NORTH,roomB3,roomB4);
+        roomB5.linkRoomByDirection(Direction.EAST,roomA1,roomB5);
         return rooms;
-
-
     }
     public List<Room> getAllRooms(){
         Stream<Room> streamArrayRooms = createRooms().stream();
         return streamArrayRooms.map(Room.class::cast).collect(Collectors.toList());
-    }
-    public int randomRoom(){
-        return random.nextInt(createRooms().size());
     }
     public List<Item> createItems(){
         List<Item> itemList= new ArrayList<>();
@@ -86,26 +68,26 @@ public class GameCreator {
         Item banana = new Item("Banana","Give it to the animals",1);
         Item apple = new Item("Apple","Give it to the animals",1);
         Item cane = new Item("Cane","Relax with animals",1);
-       /* Item gas = new Item("Gas","Drink to suicide",1);
+        Item gas = new Item("Gas","Drink to suicide",1);
         Item nutella = new Item("Nutella","Paradise's moment",2);
         Item screwdriver = new Item("Screwdriver","To be",2);
         Item chainsaw = new Item("Chainsaw","Cut all",4);
         Item electricChair = new Item("Electric chair","use for cook the chicken",4);
         Item chicken = new Item("Chicken","Cook it with the electric chair",4);
-        Item oldBread = new Item("Old bread","It cuts with chainsaw",4);*/
+        Item oldBread = new Item("Old bread","It cuts with chainsaw",4);
         itemList.add(hammer);
         itemList.add(water);
         itemList.add(knife);
         itemList.add(banana);
         itemList.add(apple);
         itemList.add(cane);
-       /* itemList.add(gas);
+        itemList.add(gas);
         itemList.add(nutella);
         itemList.add(screwdriver);
         itemList.add(chainsaw);
         itemList.add(electricChair);
         itemList.add(chicken);
-        itemList.add(oldBread);*/
+        itemList.add(oldBread);
         return itemList;
     }
     public Bag createBag(){
@@ -168,11 +150,11 @@ public class GameCreator {
         int randomIndex2 = random.nextInt(createItems().size());
         int randomIndex3 = random.nextInt(createItems().size());
         List<Item> randomItems = new ArrayList<>();
-            if (randomIndex != randomIndex2) {
+            if (randomIndex != randomIndex2 && randomIndex3 != randomIndex) {
                 randomItems.add(createItems().get(randomIndex));
                 randomItems.add(createItems().get(randomIndex2));
                 randomItems.add(createItems().get(randomIndex3));
-            }/* else if (randomIndex == randomIndex2 && randomIndex3 != randomIndex) {
+            } else if (randomIndex == randomIndex2 && randomIndex3 != randomIndex) {
                 randomItems.add(createItems().get(randomIndex));
                 randomItems.add(createItems().get(randomIndex3));
             } else if (randomIndex2 != randomIndex) {
@@ -181,7 +163,7 @@ public class GameCreator {
             }else {
                 randomItems.add(createItems().get(randomIndex3));
                 randomItems.add(createItems().get(randomIndex));
-            }*/
+            }
         return randomItems;
     }
     private @NotNull List<Animal> getRandomAnimals(){

@@ -1,14 +1,16 @@
 package Domain.GameDomain;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Objects;
 
 @Getter
-public class Item {
+public class Item{
     private final String name;
     private final String description;
     private final int slotRequired;
+    @Setter
     private int quantity;
 
     public Item(String name, String description, int slotRequired) {
@@ -20,12 +22,11 @@ public class Item {
         this.quantity = 1;
     }
     public void increaseQuantity(){
-        this.quantity ++;
+        this.quantity++;
     }
     public void decreaseQuantity(){
         this.quantity --;
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -33,12 +34,10 @@ public class Item {
         Item item = (Item) o;
         return slotRequired == item.slotRequired && quantity == item.quantity && Objects.equals(name, item.name) && Objects.equals(description, item.description);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(name, description, slotRequired, quantity);
     }
-
     @Override
     public String toString() {
         return  "\n-" + name

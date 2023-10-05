@@ -4,38 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dee5a1fd-b017-46d2-a361-09cea28faee3" name="Changes" comment="(refactor) management class item, player, bag  v1.4">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameControls/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameControls/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-    </list>
-    <list id="4b9ee034-e73f-41d5-97a5-89487157e6ba" name="AnotherChanges" comment="AnotherChanges">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="dee5a1fd-b017-46d2-a361-09cea28faee3" name="Changes" comment="(refactor) enum management CommandType and Direction and made the linkRoomByDirection method bidirectional. v1.7.0">
+      <change afterPath="$PROJECT_DIR$/FileSchema/Mappa delle stanze [MConverter.eu].jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/9/09ff625d925a9e2e927348c2fa29baf96af7aab7" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/d/0d55fa115144eab888cd95209940a95141b78b22" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/b/4bedc17a70519978084524756d3bc17c532204a5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/3/932de3b452945aedd153557536be93f0e731c3bc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/5/c562c589c8a1dee6fe7ab43c76612d2801820c81" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/d/cd2b9950864dc723fe3c102b0882a24b19b5eed2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/4/e44a8606ce010ad9b89aafdfcee2ab49afbf6d10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/5/f5eb0a7093983315d73e0fadffb16e3c42586903" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/4/e44a8606ce010ad9b89aafdfcee2ab49afbf6d10" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/4/e44a8606ce010ad9b89aafdfcee2ab49afbf6d10" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/d/0d55fa115144eab888cd95209940a95141b78b22" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileSchema/MapScheme.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Bag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameControls/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameControls/Direction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameControls/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameControls/CommandType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="AnnotationType" />
+        <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -48,6 +49,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Mjoker13&quot;
+  }
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -56,26 +63,46 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2TSzGIsOrrrckG5jWcsHPFeUU7l" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/m.alemanni/IdeaProjects/ZooProject2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\gsovailescu\Documents\Pawtropolis\PawtropolisTems\FileSchema" />
-      <recent name="C:\Users\gsovailescu\Documents\Pawtropolis\PawtropolisTems\src" />
+      <recent name="C:\Users\m.alemanni\IdeaProjects\ZooProject2\FileSchema" />
     </key>
   </component>
   <component name="RunManager">
@@ -91,7 +118,6 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="dee5a1fd-b017-46d2-a361-09cea28faee3" name="Changes" comment="" />
-      <changelist id="4b9ee034-e73f-41d5-97a5-89487157e6ba" name="AnotherChanges" comment="" />
       <created>1691051173019</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -103,16 +129,31 @@
       <workItem from="1694074116033" duration="8917000" />
       <workItem from="1694156953122" duration="15242000" />
       <workItem from="1694419332161" duration="4185000" />
-      <workItem from="1694595778920" duration="1852000" />
-      <workItem from="1695286335383" duration="15400000" />
-      <workItem from="1695370068077" duration="59802000" />
-      <workItem from="1695713991354" duration="9453000" />
-      <workItem from="1695799375723" duration="8044000" />
-      <workItem from="1695817387068" duration="4998000" />
-      <workItem from="1695904689027" duration="8518000" />
-      <workItem from="1695990805404" duration="10344000" />
-      <workItem from="1696232526856" duration="10496000" />
-      <workItem from="1696249419119" duration="3878000" />
+      <workItem from="1694595778920" duration="16610000" />
+      <workItem from="1694676395811" duration="12433000" />
+      <workItem from="1694695252730" duration="11122000" />
+      <workItem from="1694708244278" duration="90000" />
+      <workItem from="1694785858325" duration="48000" />
+      <workItem from="1695021633899" duration="25831000" />
+      <workItem from="1695107912108" duration="23092000" />
+      <workItem from="1695193886816" duration="22422000" />
+      <workItem from="1695281673800" duration="22654000" />
+      <workItem from="1695363072939" duration="20557000" />
+      <workItem from="1695399945685" duration="1343000" />
+      <workItem from="1695625202271" duration="21958000" />
+      <workItem from="1695713536070" duration="11539000" />
+      <workItem from="1695799194176" duration="23630000" />
+      <workItem from="1695904541934" duration="9218000" />
+      <workItem from="1695989631355" duration="2198000" />
+      <workItem from="1696235026082" duration="268000" />
+      <workItem from="1696236535206" duration="145000" />
+      <workItem from="1696249842302" duration="62000" />
+      <workItem from="1696249923362" duration="655000" />
+      <workItem from="1696250639319" duration="10208000" />
+      <workItem from="1696317254842" duration="16528000" />
+      <workItem from="1696341676231" duration="4273000" />
+      <workItem from="1696403888682" duration="15189000" />
+      <workItem from="1696490585340" duration="12234000" />
     </task>
     <task id="LOCAL-00001" summary="try commit">
       <option name="closed" value="true" />
@@ -162,34 +203,236 @@
       <option name="project" value="LOCAL" />
       <updated>1694446196479</updated>
     </task>
-    <task id="LOCAL-00007" summary="(refactor) reduce command line to methods changeRoom, fix getRandomAnimals' method and reduce commandLine into Main">
-      <created>1695301270732</created>
+    <task id="LOCAL-00007" summary="team">
+      <option name="closed" value="true" />
+      <created>1694597679101</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1695301270732</updated>
+      <updated>1694597679101</updated>
     </task>
-    <task id="LOCAL-00008" summary="(refactor) reduce command line to methods changeRoom">
-      <created>1695809172471</created>
+    <task id="LOCAL-00008" summary="(fix) create package and class Player and bag">
+      <option name="closed" value="true" />
+      <created>1694599474848</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1695809172471</updated>
+      <updated>1694599474848</updated>
     </task>
-    <task id="LOCAL-00009" summary="(refactor) management class item, player, bag  v1.4">
-      <created>1696252956490</created>
+    <task id="LOCAL-00009" summary="(fix) create Bag and Controller">
+      <option name="closed" value="true" />
+      <created>1694601005473</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1696252956490</updated>
+      <updated>1694601005473</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="(fix) continue">
+      <option name="closed" value="true" />
+      <created>1694611460885</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1694611460885</updated>
+    </task>
+    <task id="LOCAL-00011" summary="(fix) method to move player">
+      <option name="closed" value="true" />
+      <created>1694618709442</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1694618709442</updated>
+    </task>
+    <task id="LOCAL-00012" summary="(fix) method for create room and refactor">
+      <option name="closed" value="true" />
+      <created>1694686926997</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1694686926997</updated>
+    </task>
+    <task id="LOCAL-00013" summary="(fix) contiued">
+      <option name="closed" value="true" />
+      <created>1694697609724</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1694697609726</updated>
+    </task>
+    <task id="LOCAL-00014" summary="(fix) create method for add and drop item and refactor class">
+      <option name="closed" value="true" />
+      <created>1694707008598</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1694707008598</updated>
+    </task>
+    <task id="LOCAL-00015" summary="(fix) latest changes to the methods add &amp; drop item">
+      <option name="closed" value="true" />
+      <created>1695041539377</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1695041539377</updated>
+    </task>
+    <task id="LOCAL-00016" summary="(fix) first part of development main">
+      <option name="closed" value="true" />
+      <created>1695112347198</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1695112347198</updated>
+    </task>
+    <task id="LOCAL-00017" summary="(refactor) method to generate random Item and random Animal">
+      <option name="closed" value="true" />
+      <created>1695116735680</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1695116735680</updated>
+    </task>
+    <task id="LOCAL-00018" summary="(refactor) generic">
+      <option name="closed" value="true" />
+      <created>1695119999315</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1695119999315</updated>
+    </task>
+    <task id="LOCAL-00019" summary="(refactor) generic v1.0.1">
+      <option name="closed" value="true" />
+      <created>1695133236459</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1695133236459</updated>
+    </task>
+    <task id="LOCAL-00020" summary="(refactor) methods look room and bag v1.0.2">
+      <option name="closed" value="true" />
+      <created>1695136995554</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1695136995554</updated>
+    </task>
+    <task id="LOCAL-00021" summary="(refactor) methods add and drop item v1.0.3">
+      <option name="closed" value="true" />
+      <created>1695196163034</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1695196163034</updated>
+    </task>
+    <task id="LOCAL-00022" summary="(refactor) management methods for add and drop item and main v1.1.0">
+      <option name="closed" value="true" />
+      <created>1695223072179</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1695223072179</updated>
+    </task>
+    <task id="LOCAL-00023" summary="(refactor) Cleaning main code and all classes v1.1.1">
+      <option name="closed" value="true" />
+      <created>1695291383079</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1695291383079</updated>
+    </task>
+    <task id="LOCAL-00024" summary="(fix) add attribute quantity to item and refactor methods add and drop item v 1.2.0">
+      <option name="closed" value="true" />
+      <created>1695370726804</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1695370726804</updated>
+    </task>
+    <task id="LOCAL-00025" summary="(refactor) management method getRandomItem v1.2.1">
+      <option name="closed" value="true" />
+      <created>1695376297264</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1695376297264</updated>
+    </task>
+    <task id="LOCAL-00026" summary="(refactor) management and move method addItem and dropItem into game controller">
+      <option name="closed" value="true" />
+      <created>1695714211874</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1695714211874</updated>
+    </task>
+    <task id="LOCAL-00027" summary="(refactor) management main, syntax and spelling check in all classes v1.2.2">
+      <option name="closed" value="true" />
+      <created>1695821959139</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1695821959139</updated>
+    </task>
+    <task id="LOCAL-00028" summary="(refactor) showInformationBag and showInformationRoom v1.2.4">
+      <option name="closed" value="true" />
+      <created>1695904927151</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1695904927151</updated>
+    </task>
+    <task id="LOCAL-00029" summary="(fix) adding enum controls and enum direction, management main. v1.3.0">
+      <option name="closed" value="true" />
+      <created>1695911757052</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1695911757052</updated>
+    </task>
+    <task id="LOCAL-00030" summary="(fix) creation GameMap for management rooms v1.6.0">
+      <option name="closed" value="true" />
+      <created>1696257509994</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1696257509994</updated>
+    </task>
+    <task id="LOCAL-00031" summary="(refactor) improvement methods getItemFromBag and getItemFromRoom, and generic syntax checking v1.6.1">
+      <option name="closed" value="true" />
+      <created>1696262493086</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1696262493086</updated>
+    </task>
+    <task id="LOCAL-00032" summary="(refactor) Handling of nullable exceptions v1.6.2">
+      <option name="closed" value="true" />
+      <created>1696338116255</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1696338116255</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -200,7 +443,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -218,53 +461,50 @@
         </entry>
       </map>
     </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="User">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="*" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="(refactor) change methods in ZooCreator and ZooController" />
-    <MESSAGE value="(feat) added new lombook library and its function" />
-    <MESSAGE value="try commit" />
-    <MESSAGE value="(refactor) reduce command line to methods changeRoom, fix getRandomAnimals' method and reduce commandLine into Main" />
-    <MESSAGE value="(refactor) reduce command line to methods changeRoom" />
-    <MESSAGE value="(refactor) management class item, player, bag  v1.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="(refactor) management class item, player, bag  v1.4" />
+    <MESSAGE value="(fix) contiued" />
+    <MESSAGE value="(fix) create method for add and drop item and refactor class" />
+    <MESSAGE value="(fix) latest changes to the methods add &amp; drop item" />
+    <MESSAGE value="(fix) first part of development main" />
+    <MESSAGE value="(refactor) method to generate random Item and random Animal" />
+    <MESSAGE value="(refactor) generic" />
+    <MESSAGE value="(refactor) generic v1.0.1" />
+    <MESSAGE value="(refactor) methods look room and bag v1.0.2" />
+    <MESSAGE value="(refactor) methods add and drop item v1.0.3" />
+    <MESSAGE value="(fix) method to move player" />
+    <MESSAGE value="(refactor) management methods for add and drop item and main v1.1.0" />
+    <MESSAGE value="(refactor) Cleaning main code and all classes v1.1.1" />
+    <MESSAGE value="(fix) add attribute quantity to item and refactor methods add and drop item v 1.2.0" />
+    <MESSAGE value="(refactor)" />
+    <MESSAGE value="(refactor) management method getRandomItem v1.2.1" />
+    <MESSAGE value="(refactor) management and move method addItem and dropItem into game controller" />
+    <MESSAGE value="(refactor) management main, syntax and spelling check in all classes v1.2.2" />
+    <MESSAGE value="(refactor) showInformationBag and showInformationRoom v1.2.4" />
+    <MESSAGE value="(fix) adding enum controls and enum direction, management main. v1.3.0" />
+    <MESSAGE value="(fix) creation GameMap for management rooms v1.6.0" />
+    <MESSAGE value="(refactor) improvement methods getItemFromBag and getItemFromRoom, and generic syntax checking v1.6.1" />
+    <MESSAGE value="(refactor) Handling of nullable exceptions v1.6.2" />
+    <MESSAGE value="(refactor) management method" />
+    <MESSAGE value="(refactor) management enum CommandType" />
+    <MESSAGE value="(refactor) enum management CommandType and Direction and made the linkRoomByDirection method bidirectional. v1.7.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="(refactor) enum management CommandType and Direction and made the linkRoomByDirection method bidirectional. v1.7.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <breakpoint type="java-exception">
+        <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="5" />
         </breakpoint>
-        <breakpoint type="java-exception">
+        <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="8" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="243" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="244" />
-        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="13" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
@@ -272,10 +512,5 @@
         <PinnedItemInfo parentTag="org.example.Domain.ZooController" memberName="zooCreator" />
       </pinned-members>
     </pin-to-top-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="((Bag)((Player)this).bag).itemsInBag" custom="Domain.GameDomain.Player,Domain.GameDomain.Bag" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>
