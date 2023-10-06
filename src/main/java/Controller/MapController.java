@@ -19,23 +19,20 @@ public class MapController {
     }
 
     public void changeRoom(@NotNull String directionString) {
-        if (directionString.isEmpty()) {
-            log.info("Direction not valid. Introduce right direction. ");
-            return;
-        }
         Direction direction = Direction.convertingStringToDirection(directionString.trim());
-        Optional<Direction> validDirection = Arrays.stream(Direction.values())
-                .filter(a -> {
-                    assert direction != null;
-                    return direction.name().equalsIgnoreCase(a.name());
-                })
-                .findFirst();
-        if (validDirection.isPresent() && currentRoom.getAdjacentRooms(direction) != null) {
-            System.out.println("You moved from the room " + currentRoom.getName() + " to room " + currentRoom.getAdjacentRooms(direction).getName());
-            currentRoom = currentRoom.getAdjacentRooms(direction);
-        } else {
+        if(direction == null){
             log.info("Direction not valid. Introduce right direction. ");
-            currentRoom.showNearbyRoom();
+        }else {
+            Optional<Direction> validDirection = Arrays.stream(Direction.values())
+                    .filter(a -> direction.name().equalsIgnoreCase(a.name()))
+                    .findFirst();
+            if (validDirection.isPresent() && currentRoom.getAdjacentRooms(direction) != null ) {
+                System.out.println("You moved from the room " + currentRoom.getName() + " to room " + currentRoom.getAdjacentRooms(direction).getName());
+                currentRoom = currentRoom.getAdjacentRooms(direction);
+            } else {
+                log.info("Direction not valid. Introduce right direction. ");
+                currentRoom.showNearbyRoom();
+            }
         }
     }
 
