@@ -22,9 +22,10 @@ public class GameCreator {
     Random random = new Random();
 
     public List<Room> createRooms() {
+
         List<Room> rooms = new ArrayList<>();
         Room roomA1 = new Room("A1", getRandomItems(), getRandomAnimals());
-        Room roomA2 = new Room("Home", null, null);
+        Room roomHome = new Room("Home", null, null);
         Room roomA3 = new Room("A3", getRandomItems(), getRandomAnimals());
         Room roomA4 = new Room("A4", getRandomItems(), getRandomAnimals());
         Room roomA5 = new Room("A5", getRandomItems(), getRandomAnimals());
@@ -35,7 +36,7 @@ public class GameCreator {
         Room roomB5 = new Room("B5", getRandomItems(), getRandomAnimals());
 
         rooms.add(roomA1);
-        rooms.add(roomA2);
+        rooms.add(roomHome);
         rooms.add(roomA3);
         rooms.add(roomA4);
         rooms.add(roomA5);
@@ -45,16 +46,16 @@ public class GameCreator {
         rooms.add(roomB4);
         rooms.add(roomB5);
 
-        roomA1.linkRoomByDirection(Direction.SOUTH, roomA2, roomA1);
-        roomA2.linkRoomByDirection(Direction.SOUTH, roomA3, roomA2);
-        roomA3.linkRoomByDirection(Direction.EAST, roomA4, roomA3);
-        roomA4.linkRoomByDirection(Direction.NORTH, roomB2, roomA4);
-        roomA5.linkRoomByDirection(Direction.WEST, roomA2, roomA5);
-        roomB1.linkRoomByDirection(Direction.WEST, roomA1, roomB1);
-        roomB2.linkRoomByDirection(Direction.NORTH, roomB1, roomB2);
-        roomB3.linkRoomByDirection(Direction.WEST, roomB1, roomB3);
-        roomB4.linkRoomByDirection(Direction.NORTH, roomB3, roomB4);
-        roomB5.linkRoomByDirection(Direction.EAST, roomA1, roomB5);
+        roomA1.linkRoomByDirection(Direction.SOUTH, roomHome);
+        roomHome.linkRoomByDirection(Direction.SOUTH, roomA3);
+        roomA3.linkRoomByDirection(Direction.EAST, roomA4);
+        roomA4.linkRoomByDirection(Direction.NORTH, roomB2);
+        roomA5.linkRoomByDirection(Direction.WEST, roomHome);
+        roomB1.linkRoomByDirection(Direction.WEST, roomA1);
+        roomB2.linkRoomByDirection(Direction.NORTH, roomB1);
+        roomB3.linkRoomByDirection(Direction.WEST, roomB1);
+        roomB4.linkRoomByDirection(Direction.NORTH, roomB3);
+        roomB5.linkRoomByDirection(Direction.EAST, roomA1);
 
         return rooms;
     }

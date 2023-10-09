@@ -15,15 +15,17 @@ public enum CommandType {
     HELP("help"),
     EXIT("exit");
 
-    private final String commandAction;
+    private final String commandName;
 
-    CommandType(String commandAction) {
-        this.commandAction = commandAction;
+    CommandType(String commandName) {
+        this.commandName = commandName;
     }
 
-    public static @Nullable CommandType convertingStringToCommandType(String text) {
-        return Arrays.stream(CommandType.values()).filter(commandType -> commandType.commandAction.equalsIgnoreCase(text))
+    public static @Nullable CommandType convertString(String text) {
+        return Arrays.stream(CommandType.values()).filter(commandType -> commandType.commandName.equalsIgnoreCase(text))
                 .findFirst()
                 .orElse(null);
     }
+    public static boolean isCommandValid(String text){
+        return Arrays.stream(CommandType.values()).anyMatch(a -> text.equalsIgnoreCase(a.name()));}
 }

@@ -26,23 +26,12 @@ public enum Direction {
                 .orElse(null);
     }
 
-    public static @Nullable Direction roundTrip(@NotNull Direction direction) {
-        switch (direction) {
-            case NORTH -> {
-                return SOUTH;
-            }
-            case SOUTH -> {
-                return NORTH;
-            }
-            case EAST -> {
-                return WEST;
-            }
-            case WEST -> {
-                return EAST;
-            }
-            default -> {
-                return null;
-            }
-        }
+    public static Direction getOppositeDirection(@NotNull Direction direction) {
+        return switch (direction) {
+            case NORTH -> SOUTH;
+            case SOUTH -> NORTH;
+            case EAST -> WEST;
+            case WEST -> EAST;
+        };
     }
 }

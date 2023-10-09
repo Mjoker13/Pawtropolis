@@ -40,30 +40,28 @@ public class Room {
         items.remove(item);
     }
 
-    public void linkRoomByDirection(Direction direction, Room adjacentRoom, Room actualRoom) {
-        adjacentRooms.put(direction, adjacentRoom);
-        adjacentRoom.linkAdjacentRoomToActualRoom(direction, actualRoom);
-    }
-
-    private void linkAdjacentRoomToActualRoom(Direction direction, Room actualRoom) {
-        adjacentRooms.put(Direction.roundTrip(direction), actualRoom);
-    }
-
     public Room getAdjacentRooms(Direction direction) {
         return adjacentRooms.get(direction);
     }
 
-    public void showNearbyRoom() {
-        for (Direction d : Direction.values()) {
-            if (this.getAdjacentRooms(d) != null) {
-                System.out.println("You can move at direction " + d.name().toLowerCase() + " to " + getAdjacentRooms(d).getName() + " ");
-            } else System.out.print("");
-        }
+    public void showAdjacentRooms() {
+        Arrays.stream(Direction.values()).
+                forEach(d -> {
+                    if (getAdjacentRooms(d) != null)
+                        System.out.println("You can move at direction " + d.name().toLowerCase() + " to " + getAdjacentRooms(d).getName() + " ");
+                });
     }
 
     public Item getItemFromRoom(String itemName) {
         return items.stream()
                 .filter(item -> item.getName().replaceAll("\\s+", "").equalsIgnoreCase(itemName))
                 .findFirst().orElse(null);
+    }
+    public void linkRoomByDirection(Direction direction, Room adjacentRoom) {
+        adjacentRooms.put(direction, adjacentRoom);
+        adjacentRoom.linkAdjacentRoomToActualRoom(direction, this);
+    }
+    private void linkAdjacentRoomToActualRoom(Direction direction, Room actualRoom) {
+        adjacentRooms.put(Direction.getOppositeDirection(direction), actualRoom);
     }
 }

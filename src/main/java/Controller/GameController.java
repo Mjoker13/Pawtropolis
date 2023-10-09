@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
-import static GameControls.CommandType.convertingStringToCommandType;
 
 @Getter
 @Setter
@@ -23,7 +22,6 @@ public class GameController {
     PlayerController playerController = new PlayerController();
     MapController mapController = new MapController();
 
-
     public void startGame() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("What's your name?");
@@ -34,17 +32,18 @@ public class GameController {
             System.out.println("\n" + name + " what would you like to do? ");
             input = scanner.nextLine();
             inputTokens = input.trim().split("\\s+");
-
-            if (Arrays.stream(CommandType.values()).anyMatch(a -> inputTokens[0].equalsIgnoreCase(a.name()))) {
-                switchableCommandGame();
+            if (CommandType.isCommandValid(inputTokens[0])) {
+                runCommand();
             } else {
-                log.info("Action not available, for more information write help");
+                log.info("Command not valid, for more information write help");
             }
         } while (!exitGame);
     }
+//TODO creare una classe per ogni comando, con una classe padre comando e le sotto classi con i vari command type, con un metodo runcommand() che verrà implementato in ogni classe.
+//TODO obiettivo: se dovessi creare un nuovo comando, non devo modificare il codice, ma creare solo la classe. plus: se riusciamo aggiumgere un nuovo comando e utilizzarlo senza ricompilare.
 
-    private void switchableCommandGame() {
-        switch (Objects.requireNonNull(convertingStringToCommandType(inputTokens[0]))) {
+    private void runCommand() {
+        switch (Objects.requireNonNull(CommandType.convertString(inputTokens[0]))) {
             case GO -> {
                 input = input.trim().replace("go", "");
                 mapController.changeRoom(input);
