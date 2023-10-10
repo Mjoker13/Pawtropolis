@@ -4,26 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dee5a1fd-b017-46d2-a361-09cea28faee3" name="Changes" comment="(refactor) method for management the rooms from matrix to map with enum direction  v1.5.0">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" afterDir="false" />
+    <list default="true" id="dee5a1fd-b017-46d2-a361-09cea28faee3" name="Changes" comment="(refactor) creation gameController class   v1.7.1">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/CommandController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Bag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/CommandClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/CommandClassWithInput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/CommandClassWithoutInput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Drop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Exit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Get.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Go.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Help.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Look.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ZooController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ZooController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/AnimalsWithTail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/AnimalsWithTail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/AnimalsWithWings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/AnimalsWithWings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/Eagle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/Eagle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/Lion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/Lion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/Tiger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/Tiger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Bag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameControls/CommandType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameControls/CommandType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameControls/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameControls/Direction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <list id="4b9ee034-e73f-41d5-97a5-89487157e6ba" name="AnotherChanges" comment="AnotherChanges">
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
@@ -86,6 +81,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\m.alemanni\IdeaProjects\ZooProject2\FileSchema" />
@@ -99,15 +101,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -153,6 +153,11 @@
       <workItem from="1696341676231" duration="4273000" />
       <workItem from="1696403888682" duration="15189000" />
       <workItem from="1696490585340" duration="12234000" />
+      <workItem from="1696576868809" duration="3809000" />
+      <workItem from="1696847073178" duration="255000" />
+      <workItem from="1696865893767" duration="3000" />
+      <workItem from="1696866233810" duration="38000" />
+      <workItem from="1696922404842" duration="14291000" />
     </task>
     <task id="LOCAL-00001" summary="try commit">
       <option name="closed" value="true" />
@@ -410,7 +415,21 @@
       <option name="project" value="LOCAL" />
       <updated>1696338116255</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="(refactor) creation gameController class   v1.7.1">
+      <created>1696514092815</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1696514092815</updated>
+    </task>
+    <task id="LOCAL-00034" summary="(refactor) creation gameController class   v1.7.1">
+      <created>1696576979505</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1696576979505</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,7 +446,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
@@ -463,7 +482,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="(fix) contiued" />
     <MESSAGE value="(fix) create method for add and drop item and refactor class" />
     <MESSAGE value="(fix) latest changes to the methods add &amp; drop item" />
     <MESSAGE value="(fix) first part of development main" />
@@ -488,7 +506,8 @@
     <MESSAGE value="(refactor) management method" />
     <MESSAGE value="(refactor) management enum CommandType" />
     <MESSAGE value="(refactor) enum management CommandType and Direction and made the linkRoomByDirection method bidirectional. v1.7.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="(refactor) enum management CommandType and Direction and made the linkRoomByDirection method bidirectional. v1.7.0" />
+    <MESSAGE value="(refactor) creation gameController class   v1.7.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="(refactor) creation gameController class   v1.7.1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -505,6 +524,36 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="13" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Controller/GameController.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Domain/CommandDomain/CommandClass.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Look.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Domain/CommandDomain/CommandClass.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Domain/CommandDomain/CommandClass.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Controller/CommandController.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

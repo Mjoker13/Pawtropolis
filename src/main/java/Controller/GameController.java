@@ -1,5 +1,7 @@
 package Controller;
 
+import Domain.CommandDomain.CommandClass;
+import Domain.CommandDomain.Go;
 import GameControls.CommandType;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,6 +23,8 @@ public class GameController {
 
     PlayerController playerController = new PlayerController();
     MapController mapController = new MapController();
+    CommandController commandController= new CommandController();
+
 
     public void startGame() {
         Scanner scanner = new Scanner(System.in);
@@ -32,8 +36,11 @@ public class GameController {
             System.out.println("\n" + name + " what would you like to do? ");
             input = scanner.nextLine();
             inputTokens = input.trim().split("\\s+");
+            CommandClass commandClass= new CommandClass(inputTokens[0], mapController, playerController) { };
+
             if (CommandType.isCommandValid(inputTokens[0])) {
-                runCommand();
+                commandController.getClass(commandClass.getClass(),inputTokens);
+
             } else {
                 log.info("Command not valid, for more information write help");
             }
@@ -45,8 +52,7 @@ public class GameController {
     private void runCommand() {
         switch (Objects.requireNonNull(CommandType.convertString(inputTokens[0]))) {
             case GO -> {
-                input = input.trim().replace("go", "");
-                mapController.changeRoom(input);
+
             }
             case LOOK -> mapController.showsRoomInformation();
             case BAG -> playerController.showsBagInformation();

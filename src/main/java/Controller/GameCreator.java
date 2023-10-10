@@ -4,6 +4,9 @@ import Domain.AnimalDomain.Animal;
 import Domain.AnimalDomain.Eagle;
 import Domain.AnimalDomain.Lion;
 import Domain.AnimalDomain.Tiger;
+import Domain.CommandDomain.CommandClass;
+import Domain.CommandDomain.CommandClassWithInput;
+import Domain.CommandDomain.Go;
 import Domain.GameDomain.Bag;
 import Domain.GameDomain.Item;
 import Domain.GameDomain.Player;
@@ -188,4 +191,13 @@ public class GameCreator {
         }
         return randomAnimals;
     }
+/*
+    public Map<Class<? extends CommandClass>, List<CommandClass>> createMapCommand(){
+        Map<CommandClass,List<CommandClass>> commandsMap = new HashMap<>();
+        List<CommandClassWithInput> commandsWithInput= new ArrayList<>();
+        commandsWithInput.add(Go.class);
+        commandsMap.put(CommandClassWithInput.class,);
+
+    }
+    */
 }
