@@ -2,9 +2,9 @@ package Domain.CommandDomain;
 
 import Controller.PlayerController;
 
-public class Bag extends CommandClassWithoutInput{
-    public Bag(PlayerController playerController) {
-        super("bag", playerController);
+public class BagButton extends Command{
+    public BagButton(PlayerController playerController) {
+        super("bag",playerController);
     }
 
     @Override

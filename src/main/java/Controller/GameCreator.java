@@ -4,9 +4,7 @@ import Domain.AnimalDomain.Animal;
 import Domain.AnimalDomain.Eagle;
 import Domain.AnimalDomain.Lion;
 import Domain.AnimalDomain.Tiger;
-import Domain.CommandDomain.CommandClass;
-import Domain.CommandDomain.CommandClassWithInput;
-import Domain.CommandDomain.Go;
+import Domain.CommandDomain.*;
 import Domain.GameDomain.Bag;
 import Domain.GameDomain.Item;
 import Domain.GameDomain.Player;
@@ -22,6 +20,7 @@ import java.util.stream.Stream;
 
 public class GameCreator {
     ZooController zooController = new ZooController();
+    Map<Class<? extends Command>, List<Command>> commandList = new HashMap<>();
     Random random = new Random();
 
     public List<Room> createRooms() {
@@ -191,13 +190,33 @@ public class GameCreator {
         }
         return randomAnimals;
     }
-/*
-    public Map<Class<? extends CommandClass>, List<CommandClass>> createMapCommand(){
-        Map<CommandClass,List<CommandClass>> commandsMap = new HashMap<>();
-        List<CommandClassWithInput> commandsWithInput= new ArrayList<>();
-        commandsWithInput.add(Go.class);
-        commandsMap.put(CommandClassWithInput.class,);
 
+    public Map<Class<? extends Command>, List<Command>> createCommands(String[] input, MapController mapController, PlayerController playerController) {
+
+        List<Command> commandsWithInput = new ArrayList<>();
+        List<Command> commands = new ArrayList<>();
+
+        Go go = new Go(mapController, input);
+        Drop drop = new Drop(mapController, playerController, input);
+        Get get = new Get(mapController, playerController, input);
+        BagButton bag = new BagButton(playerController);
+        Look look = new Look(mapController);
+        Help help = new Help();
+        Exit exit = new Exit();
+
+
+        commands.add(bag);
+        commands.add(look);
+        commands.add(help);
+        commands.add(exit);
+        commandsWithInput.add(go);
+        commandsWithInput.add(drop);
+        commandsWithInput.add(get);
+
+
+        commandList.put(CommandWithInput.class, commandsWithInput);
+        commandList.put(Command.class, commands);
+
+        return commandList;
     }
-    */
 }

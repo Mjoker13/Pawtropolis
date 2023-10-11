@@ -21,11 +21,7 @@ public enum CommandType {
         this.commandName = commandName;
     }
 
-    public static @Nullable CommandType convertString(String text) {
-        return Arrays.stream(CommandType.values()).filter(commandType -> commandType.commandName.equalsIgnoreCase(text))
-                .findFirst()
-                .orElse(null);
+    public static boolean isCommandValid(String text) {
+        return Arrays.stream(CommandType.values()).anyMatch(a -> text.equalsIgnoreCase(a.name()));
     }
-    public static boolean isCommandValid(String text){
-        return Arrays.stream(CommandType.values()).anyMatch(a -> text.equalsIgnoreCase(a.name()));}
 }

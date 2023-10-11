@@ -4,7 +4,7 @@ import Controller.PlayerController;
 import lombok.extern.java.Log;
 
 @Log
-public class Exit extends CommandClassWithoutInput{
+public class Exit extends Command{
 
     public Exit() {
         super("exit");

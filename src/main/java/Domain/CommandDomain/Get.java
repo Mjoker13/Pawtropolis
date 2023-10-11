@@ -5,20 +5,23 @@ import Controller.PlayerController;
 import lombok.extern.java.Log;
 
 @Log
-public class Get extends CommandClassWithInput{
+public class Get extends CommandWithInput {
 
-    public Get( MapController mapController, PlayerController playerController, String item) {
-        super("get", mapController, playerController, item);
+    public Get(MapController mapController, PlayerController playerController, String[] input) {
+        super("get", mapController, playerController, input);
     }
 
     @Override
-   public void runCommand() {
-        String item = getInput().replace("get", "");
-        if (getMapController().getItemFromRoom(item.replaceAll("\\s+", "")) == null) {
-            log.info("Item not present;");
+    public void runCommand() {
+        if (getInput().length < 2) {
+            log.info("Command not valid, for more information write help");
         } else {
-            getPlayerController().addItemToBag(getMapController().getItemFromRoom(item.replaceAll("\\s+", "")));
-            getMapController().dropItemFromRoom(getMapController().getItemFromRoom(item.replaceAll("\\s+", "")));
+            if (getMapController().getItemFromRoom(getInput()[1]) == null) {
+                log.info("Item not present;");
+            } else {
+                getPlayerController().addItemToBag(getMapController().getItemFromRoom(getInput()[1].replaceAll("\\s+", "")));
+                getMapController().dropItemFromRoom(getMapController().getItemFromRoom(getInput()[1].replaceAll("\\s+", "")));
+            }
         }
     }
 }

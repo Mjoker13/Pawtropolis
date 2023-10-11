@@ -12,9 +12,9 @@ import java.util.Optional;
 @Log
 public class MapController {
     private Room currentRoom;
-    GameCreator creator = new GameCreator();
-    public MapController() {
-        this.currentRoom = creator.getAllRooms().get(1);
+
+    public MapController(Room currentRoom) {
+        this.currentRoom = currentRoom;
     }
 
     public void changeRoom(@NotNull String directionString) {

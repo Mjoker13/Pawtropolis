@@ -12,12 +12,10 @@ import lombok.extern.java.Log;
 @ToString
 public class PlayerController {
     private Player player;
-    GameCreator gameCreator = new GameCreator();
 
-    public PlayerController() {
-        this.player = gameCreator.createPlayer();
+    public PlayerController(Player player) {
+        this.player = player;
     }
-
     public void showsBagInformation() {
         player.showBagInformation();
     }

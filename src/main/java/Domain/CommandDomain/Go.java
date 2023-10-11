@@ -3,21 +3,21 @@ package Domain.CommandDomain;
 import Controller.MapController;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.java.Log;
 
-@Getter
-@Setter
-public class Go extends CommandClassWithInput{
+@Log
+public class Go extends CommandWithInput {
 
-
-
-
-    public Go(MapController mapController,String direction) {
-        super("go", mapController,direction);
+    public Go(MapController mapController, String[] input) {
+        super("go",mapController, input);
     }
 
     @Override
     public void runCommand() {
-        String direction = getInput().trim().replace("go", "");
-        getMapController().changeRoom(direction);
+        if(getInput().length<2){
+            log.info("Command not valid, for more information write help");
+        }else{
+            getMapController().changeRoom(getInput()[1].trim().replace("go", ""));
+        }
     }
 }

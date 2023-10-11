@@ -5,20 +5,23 @@ import Controller.PlayerController;
 import lombok.extern.java.Log;
 
 @Log
-public class Drop extends CommandClassWithInput{
+public class Drop extends CommandWithInput {
 
-    public Drop( MapController mapController, PlayerController playerController, String input) {
+    public Drop(MapController mapController, PlayerController playerController, String[] input) {
         super("drop", mapController, playerController, input);
     }
 
     @Override
     public void runCommand() {
-        String item = getInput().replace("drop", "");
-        if (getPlayerController().getItemFromBag(item.replaceAll("\\s+", "")) == null) {
-            log.info("Item not present;");
+        if (getInput().length < 2) {
+            log.info("Command not valid, for more information write help");
         } else {
-            getMapController().addItemToRoom(getPlayerController().getItemFromBag(item.replaceAll("\\s+", "")));
-            getPlayerController().dropItemFromBag(getPlayerController().getItemFromBag(item.replaceAll("\\s+", "")));
+            if (getPlayerController().getItemFromBag(getInput()[1]) == null) {
+                log.info("Item not present;");
+            } else {
+                getMapController().addItemToRoom(getPlayerController().getItemFromBag(getInput()[1].replaceAll("\\s+", "")));
+                getPlayerController().dropItemFromBag(getPlayerController().getItemFromBag(getInput()[1].replaceAll("\\s+", "")));
+            }
         }
     }
 }

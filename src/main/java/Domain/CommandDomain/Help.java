@@ -1,6 +1,6 @@
 package Domain.CommandDomain;
 
-public class Help extends CommandClassWithoutInput{
+public class Help extends Command{
     public Help() {
         super("help");
     }
