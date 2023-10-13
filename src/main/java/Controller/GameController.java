@@ -1,15 +1,15 @@
 package Controller;
 
 import Domain.CommandDomain.Command;
-import Domain.CommandDomain.CommandWithInput;
 import GameControls.CommandType;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.java.Log;
 
 import java.util.Scanner;
+import java.util.ServiceLoader;
 
-//TODO obiettivo:se riusciamo aggiumgere un nuovo comando e utilizzarlo senza ricompilare.
+//TODO obiettivo: riuscire ad aggiungere un nuovo comando e utilizzarlo senza ricompilare.
 
 @Getter
 @Setter
@@ -21,9 +21,8 @@ public class GameController {
     private String name;
 
     GameCreator creator = new GameCreator();
-    PlayerController playerController = new PlayerController(creator.createPlayer());
     MapController mapController = new MapController(creator.getAllRooms().get(1));
-
+    PlayerController playerController = new PlayerController(creator.createPlayer());
 
     public void startGame() {
         Scanner scanner = new Scanner(System.in);
@@ -36,20 +35,20 @@ public class GameController {
             input = scanner.nextLine();
             inputTokens = input.trim().split("\\s+");
 
-            if (CommandType.isCommandValid(inputTokens[0])) {
-                CommandController commandController = new CommandController(creator.createCommands(inputTokens, mapController, playerController));
-                if (inputTokens.length < 2) {
-                    commandController.getClass(Command.class, inputTokens).runCommand();
-                    if (inputTokens[0].equalsIgnoreCase("exit")) {
-                        exitGame = true;
+            ServiceLoader<? extends Command> loader = ServiceLoader.load(Command.class);
+            if(CommandType.isCommandValid(inputTokens[0])){
+                for (Command c : loader) {
+                    if (c.getClass().getSimpleName().equalsIgnoreCase(inputTokens[0])) {
+                        c.setPlayerController(playerController);
+                        c.setMapController(mapController);
+                        c.setInput(inputTokens);
+                        c.runCommand();
+                        exitGame= c.getName().equalsIgnoreCase("exit");
                     }
-                } else {
-                    commandController.getClass(CommandWithInput.class, inputTokens).runCommand();
                 }
-            } else {
+            }else {
                 log.info("Command not valid, for more information write help");
             }
         } while (!exitGame);
     }
-
 }

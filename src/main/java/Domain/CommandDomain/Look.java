@@ -1,14 +1,10 @@
 package Domain.CommandDomain;
 
-
-import Controller.MapController;
-
 public class Look extends Command{
 
-    public Look(MapController mapController) {
-        super("look", mapController);
+    public Look() {
+        super("look");
     }
-
     @Override
    public void runCommand() {
         getMapController().showsRoomInformation();

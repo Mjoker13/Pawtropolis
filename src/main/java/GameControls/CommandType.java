@@ -13,7 +13,8 @@ public enum CommandType {
     GET("get"),
     DROP("drop"),
     HELP("help"),
-    EXIT("exit");
+    EXIT("exit"),
+    TEST("test");
 
     private final String commandName;
 

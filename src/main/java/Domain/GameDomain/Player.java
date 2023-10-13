@@ -12,27 +12,27 @@ import lombok.extern.java.Log;
 public class Player {
     private String name;
     private final int lifePoints;
-    private Bag bag;
+    private BagPlayer bagPlayer;
 
-    public Player(String name, Bag bag) {
+    public Player(String name, BagPlayer bagPlayer) {
         this.name = name;
         this.lifePoints = 100;
-        this.bag = bag;
+        this.bagPlayer = bagPlayer;
     }
 
     public void showBagInformation() {
-        bag.showItemsInformation();
+        bagPlayer.showItemsInformation();
     }
 
     public void addItemToBag(Item item) {
-        bag.addItem(item);
+        bagPlayer.addItem(item);
     }
 
     public void dropItemFromBag(Item item) {
-        bag.dropItem(item);
+        bagPlayer.dropItem(item);
     }
 
     public Item getItemFromBag(String itemName) {
-        return bag.getItemFromBag(itemName);
+        return bagPlayer.getItemFromBag(itemName);
     }
 }

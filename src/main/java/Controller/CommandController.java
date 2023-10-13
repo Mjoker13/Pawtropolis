@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 @Setter
 public class CommandController {
     private Map<Class<? extends Command>, List<Command>> commands;
-    private String input;
 
     public CommandController(Map<Class<? extends Command>, List<Command>> commands) {
         this.commands = commands;

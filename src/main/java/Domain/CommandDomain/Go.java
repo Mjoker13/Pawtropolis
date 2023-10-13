@@ -1,15 +1,12 @@
 package Domain.CommandDomain;
 
-import Controller.MapController;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.extern.java.Log;
 
 @Log
-public class Go extends CommandWithInput {
+public class Go extends Command {
 
-    public Go(MapController mapController, String[] input) {
-        super("go",mapController, input);
+    public Go() {
+        super("go");
     }
 
     @Override

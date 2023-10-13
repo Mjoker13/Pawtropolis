@@ -1,14 +1,12 @@
 package Domain.CommandDomain;
 
-import Controller.MapController;
-import Controller.PlayerController;
 import lombok.extern.java.Log;
 
 @Log
-public class Drop extends CommandWithInput {
+public class Drop extends Command {
 
-    public Drop(MapController mapController, PlayerController playerController, String[] input) {
-        super("drop", mapController, playerController, input);
+    public Drop() {
+        super("drop");
     }
 
     @Override

@@ -5,7 +5,7 @@ import Domain.AnimalDomain.Eagle;
 import Domain.AnimalDomain.Lion;
 import Domain.AnimalDomain.Tiger;
 import Domain.CommandDomain.*;
-import Domain.GameDomain.Bag;
+import Domain.GameDomain.BagPlayer;
 import Domain.GameDomain.Item;
 import Domain.GameDomain.Player;
 import Domain.GameDomain.Room;
@@ -98,8 +98,8 @@ public class GameCreator {
         return itemList;
     }
 
-    public Bag createBag() {
-        return new Bag();
+    public BagPlayer createBag() {
+        return new BagPlayer();
     }
 
     public Player createPlayer() {
@@ -189,34 +189,5 @@ public class GameCreator {
             randomAnimals.add(zooController.getAllAnimalsForSpecies(Animal.class).get(randomIndex));
         }
         return randomAnimals;
-    }
-
-    public Map<Class<? extends Command>, List<Command>> createCommands(String[] input, MapController mapController, PlayerController playerController) {
-
-        List<Command> commandsWithInput = new ArrayList<>();
-        List<Command> commands = new ArrayList<>();
-
-        Go go = new Go(mapController, input);
-        Drop drop = new Drop(mapController, playerController, input);
-        Get get = new Get(mapController, playerController, input);
-        BagButton bag = new BagButton(playerController);
-        Look look = new Look(mapController);
-        Help help = new Help();
-        Exit exit = new Exit();
-
-
-        commands.add(bag);
-        commands.add(look);
-        commands.add(help);
-        commands.add(exit);
-        commandsWithInput.add(go);
-        commandsWithInput.add(drop);
-        commandsWithInput.add(get);
-
-
-        commandList.put(CommandWithInput.class, commandsWithInput);
-        commandList.put(Command.class, commands);
-
-        return commandList;
     }
 }

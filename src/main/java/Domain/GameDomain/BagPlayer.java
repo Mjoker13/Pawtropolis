@@ -13,13 +13,13 @@ import java.util.Objects;
 @Getter
 @ToString
 @Log
-public class Bag {
+public class BagPlayer {
     @Setter
     private List<Item> items;
     private int slotAvailable;
     private final int maxCapacity;
 
-    public Bag() {
+    public BagPlayer() {
         this.items = new ArrayList<>();
         this.maxCapacity = 20;
         this.slotAvailable = getSlotAvailable();
