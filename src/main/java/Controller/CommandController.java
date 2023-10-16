@@ -30,7 +30,7 @@ public class CommandController {
 
     public <T extends Command> T getClass(Class<T> commandClass, String[] nameClass) {
         return getAllCommandsForType(commandClass).stream()
-                .filter(s -> s.getName().equalsIgnoreCase(nameClass[0]))
+                .filter(s -> s.getClass().getSimpleName().equalsIgnoreCase(nameClass[0]))
                 .findFirst().orElse(null);
     }
 

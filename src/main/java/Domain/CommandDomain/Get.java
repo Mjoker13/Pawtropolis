@@ -5,10 +5,6 @@ import lombok.extern.java.Log;
 @Log
 public class Get extends Command {
 
-    public Get() {
-        super("get");
-    }
-
     @Override
     public void runCommand() {
         if (getInput().length < 2) {

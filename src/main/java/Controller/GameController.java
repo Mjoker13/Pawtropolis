@@ -5,11 +5,10 @@ import GameControls.CommandType;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.java.Log;
-
 import java.util.Scanner;
 import java.util.ServiceLoader;
 
-//TODO obiettivo: riuscire ad aggiungere un nuovo comando e utilizzarlo senza ricompilare.
+//TODO implementare l'utilizzo di lombok, spring e maven;
 
 @Getter
 @Setter
@@ -36,17 +35,17 @@ public class GameController {
             inputTokens = input.trim().split("\\s+");
 
             ServiceLoader<? extends Command> loader = ServiceLoader.load(Command.class);
-            if(CommandType.isCommandValid(inputTokens[0])){
-                for (Command c : loader) {
-                    if (c.getClass().getSimpleName().equalsIgnoreCase(inputTokens[0])) {
-                        c.setPlayerController(playerController);
-                        c.setMapController(mapController);
-                        c.setInput(inputTokens);
-                        c.runCommand();
-                        exitGame= c.getName().equalsIgnoreCase("exit");
+            if (CommandType.isCommandValid(inputTokens[0])) {
+                for (Command currentCommand : loader) {
+                    if (currentCommand.getClass().getSimpleName().equalsIgnoreCase(inputTokens[0])) {
+                        currentCommand.setPlayerController(playerController);
+                        currentCommand.setMapController(mapController);
+                        currentCommand.setInput(inputTokens);
+                        currentCommand.runCommand();
+                        exitGame = currentCommand.getClass().getSimpleName().equalsIgnoreCase("exit");
                     }
                 }
-            }else {
+            } else {
                 log.info("Command not valid, for more information write help");
             }
         } while (!exitGame);

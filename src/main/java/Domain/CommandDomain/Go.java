@@ -5,10 +5,6 @@ import lombok.extern.java.Log;
 @Log
 public class Go extends Command {
 
-    public Go() {
-        super("go");
-    }
-
     @Override
     public void runCommand() {
         if(getInput().length<2){

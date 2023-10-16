@@ -5,10 +5,6 @@ import lombok.extern.java.Log;
 @Log
 public class Drop extends Command {
 
-    public Drop() {
-        super("drop");
-    }
-
     @Override
     public void runCommand() {
         if (getInput().length < 2) {
