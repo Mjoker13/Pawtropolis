@@ -4,36 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dee5a1fd-b017-46d2-a361-09cea28faee3" name="Changes" comment="(refactor) creation gameController class   v1.7.1">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/CommandController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Bag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/CommandClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/CommandClassWithInput.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/CommandClassWithoutInput.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Drop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Exit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Get.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Go.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Help.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Look.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameCreator.java" afterDir="false" />
-    </list>
-    <list id="4b9ee034-e73f-41d5-97a5-89487157e6ba" name="AnotherChanges" comment="AnotherChanges">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="dee5a1fd-b017-46d2-a361-09cea28faee3" name="Changes" comment="(fix) implementation service loader">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/9/09ff625d925a9e2e927348c2fa29baf96af7aab7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/b/4bedc17a70519978084524756d3bc17c532204a5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/3/932de3b452945aedd153557536be93f0e731c3bc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/5/c562c589c8a1dee6fe7ab43c76612d2801820c81" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/d/cd2b9950864dc723fe3c102b0882a24b19b5eed2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/4/e44a8606ce010ad9b89aafdfcee2ab49afbf6d10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/5/f5eb0a7093983315d73e0fadffb16e3c42586903" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/4/e44a8606ce010ad9b89aafdfcee2ab49afbf6d10" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/4/e44a8606ce010ad9b89aafdfcee2ab49afbf6d10" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Controller/CommandController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Controller/GameCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Controller/MapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Controller/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ZooController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Controller/ZooController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/AnimalDomain/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/AnimalsWithTail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/AnimalDomain/AnimalsWithTail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/AnimalsWithWings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/AnimalDomain/AnimalsWithWings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/Eagle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/AnimalDomain/Eagle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/Lion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/AnimalDomain/Lion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/Tiger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/AnimalDomain/Tiger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/CommandDomain/Bag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/CommandDomain/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/CommandWithInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Drop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/CommandDomain/Drop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/CommandDomain/Exit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Get.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/CommandDomain/Get.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Go.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/CommandDomain/Go.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/CommandDomain/Help.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Look.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/CommandDomain/Look.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/BagPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/GameDomain/BagPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/GameDomain/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/GameDomain/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/GameDomain/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameControls/CommandType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/GameControls/CommandType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameControls/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/GameControls/Direction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/services/Domain.CommandDomain.Command" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/services/com.example.pawtropolis.Domain.CommandDomain.Command" afterDir="false" />
     </list>
+    <list id="4b9ee034-e73f-41d5-97a5-89487157e6ba" name="AnotherChanges" comment="AnotherChanges" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +55,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -59,6 +69,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Mjoker13&quot;
+  }
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -70,9 +86,15 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2TSzGIsOrrrckG5jWcsHPFeUU7l" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -81,33 +103,69 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/m.alemanni/IdeaProjects/ZooProject2/target/Zoo-1.0-SNAPSHOT.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Facets",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\m.alemanni\IdeaProjects\ZooProject2\src\main\resources\META-INF\services" />
+      <recent name="C:\Users\m.alemanni\IdeaProjects\ZooProject2\src\main\java\Domain\CommandDomain" />
+      <recent name="C:\Users\m.alemanni\IdeaProjects\ZooProject2\src\main\java\Controller" />
       <recent name="C:\Users\m.alemanni\IdeaProjects\ZooProject2\FileSchema" />
     </key>
   </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn install" />
+    </option>
+  </component>
   <component name="RunManager">
-    <configuration name="start" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Zoo" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="start" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Zoo" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Start" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Zoo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.pawtropolis.Main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -158,6 +216,18 @@
       <workItem from="1696865893767" duration="3000" />
       <workItem from="1696866233810" duration="38000" />
       <workItem from="1696922404842" duration="14291000" />
+      <workItem from="1696490585340" duration="20144000" />
+      <workItem from="1696576336466" duration="3186000" />
+      <workItem from="1696835456190" duration="14709000" />
+      <workItem from="1696867148097" duration="46000" />
+      <workItem from="1696921806524" duration="7731000" />
+      <workItem from="1697008259969" duration="21067000" />
+      <workItem from="1697094608370" duration="12719000" />
+      <workItem from="1697115295472" duration="4132000" />
+      <workItem from="1697181729750" duration="11339000" />
+      <workItem from="1697438995650" duration="22498000" />
+      <workItem from="1697528030997" duration="3305000" />
+      <workItem from="1697531561856" duration="3610000" />
     </task>
     <task id="LOCAL-00001" summary="try commit">
       <option name="closed" value="true" />
@@ -415,29 +485,80 @@
       <option name="project" value="LOCAL" />
       <updated>1696338116255</updated>
     </task>
-    <task id="LOCAL-00033" summary="(refactor) creation gameController class   v1.7.1">
-      <created>1696514092815</created>
+    <task id="LOCAL-00033" summary="(refactor) enum management CommandType and Direction and made the linkRoomByDirection method bidirectional. v1.7.0">
+      <option name="closed" value="true" />
+      <created>1696503390676</created>
       <option name="number" value="00033" />
       <option name="presentableId" value="LOCAL-00033" />
       <option name="project" value="LOCAL" />
-      <updated>1696514092815</updated>
+      <updated>1696503390676</updated>
     </task>
-    <task id="LOCAL-00034" summary="(refactor) creation gameController class   v1.7.1">
-      <created>1696576979505</created>
+    <task id="LOCAL-00034" summary="(refactor) Improved method and variable names v1.7.2">
+      <option name="closed" value="true" />
+      <created>1696866198933</created>
       <option name="number" value="00034" />
       <option name="presentableId" value="LOCAL-00034" />
       <option name="project" value="LOCAL" />
-      <updated>1696576979505</updated>
+      <updated>1696866198933</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="(refactor) implementation of command and CommandController v1.8.1">
+      <option name="closed" value="true" />
+      <created>1697031096135</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1697031096135</updated>
+    </task>
+    <task id="LOCAL-00036" summary="(fix) creation services ,implementation service loader and management command v1.9.0">
+      <option name="closed" value="true" />
+      <created>1697193924513</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1697193924513</updated>
+    </task>
+    <task id="LOCAL-00037" summary="(refactor) code cleanup v1.9.1">
+      <option name="closed" value="true" />
+      <created>1697468688260</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1697468688260</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="17dac9ff-c129-4f6b-a2df-9bc33c3aeff1" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
+        <entry key="17dac9ff-c129-4f6b-a2df-9bc33c3aeff1">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -464,30 +585,8 @@
         </entry>
       </map>
     </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="User">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="*" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="(fix) create method for add and drop item and refactor class" />
-    <MESSAGE value="(fix) latest changes to the methods add &amp; drop item" />
-    <MESSAGE value="(fix) first part of development main" />
-    <MESSAGE value="(refactor) method to generate random Item and random Animal" />
-    <MESSAGE value="(refactor) generic" />
-    <MESSAGE value="(refactor) generic v1.0.1" />
     <MESSAGE value="(refactor) methods look room and bag v1.0.2" />
     <MESSAGE value="(refactor) methods add and drop item v1.0.3" />
     <MESSAGE value="(fix) method to move player" />
@@ -507,7 +606,13 @@
     <MESSAGE value="(refactor) management enum CommandType" />
     <MESSAGE value="(refactor) enum management CommandType and Direction and made the linkRoomByDirection method bidirectional. v1.7.0" />
     <MESSAGE value="(refactor) creation gameController class   v1.7.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="(refactor) creation gameController class   v1.7.1" />
+    <MESSAGE value="(refactor) Improved method and variable names v1.7.2" />
+    <MESSAGE value="(refactor) name of method and variable v1.7.2" />
+    <MESSAGE value="(refactor) implementation of command and CommandController v1.8.1" />
+    <MESSAGE value="(fix) creation services ,implementation service loader and management command v1.9.0" />
+    <MESSAGE value="(fix) implementation service loader" />
+    <MESSAGE value="(refactor) code cleanup v1.9.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="(refactor) code cleanup v1.9.1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -524,36 +629,10 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="13" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Controller/GameController.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Domain/CommandDomain/CommandClass.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Look.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Domain/CommandDomain/CommandClass.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Domain/CommandDomain/CommandClass.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Controller/CommandController.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.StackOverflowError" package="java.lang" />
+          <option name="timeStamp" value="40" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
