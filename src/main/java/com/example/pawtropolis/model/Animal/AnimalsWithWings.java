@@ -1,16 +1,10 @@
 package com.example.pawtropolis.model.Animal;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 
-@Setter
-@Getter
-@ToString
-@EqualsAndHashCode(callSuper = true)
+@Data
 public abstract class AnimalsWithWings extends Animal {
 
     private float wingspan;

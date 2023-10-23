@@ -4,43 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dee5a1fd-b017-46d2-a361-09cea28faee3" name="Changes" comment="(fix) implementation service loader">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Main.java" afterDir="false" />
+    <list default="true" id="dee5a1fd-b017-46d2-a361-09cea28faee3" name="Changes" comment="(fix)">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/4/e44a8606ce010ad9b89aafdfcee2ab49afbf6d10" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/4/e44a8606ce010ad9b89aafdfcee2ab49afbf6d10" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Controller/CommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Controller/GameCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Controller/MapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Controller/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ZooController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Controller/ZooController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/AnimalDomain/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/AnimalsWithTail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/AnimalDomain/AnimalsWithTail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/AnimalsWithWings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/AnimalDomain/AnimalsWithWings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/Eagle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/AnimalDomain/Eagle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/Lion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/AnimalDomain/Lion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/AnimalDomain/Tiger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/AnimalDomain/Tiger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/CommandDomain/Bag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/CommandDomain/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/CommandWithInput.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Drop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/CommandDomain/Drop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/CommandDomain/Exit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Get.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/CommandDomain/Get.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Go.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/CommandDomain/Go.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/CommandDomain/Help.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/CommandDomain/Look.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/CommandDomain/Look.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/BagPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/GameDomain/BagPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/GameDomain/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/GameDomain/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Domain/GameDomain/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Domain/GameDomain/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameControls/CommandType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/GameControls/CommandType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameControls/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/GameControls/Direction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/services/Domain.CommandDomain.Command" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/services/com.example.pawtropolis.Domain.CommandDomain.Command" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/GameCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/GameCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/MapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/ZooController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/ZooController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Animal/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Animal/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Animal/AnimalsWithTail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Animal/AnimalsWithTail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Animal/AnimalsWithWings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Animal/AnimalsWithWings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Bag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Drop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Drop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Exit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Get.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Get.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Go.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Go.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Help.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Look.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Look.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/BagPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/BagPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Room.java" afterDir="false" />
     </list>
     <list id="4b9ee034-e73f-41d5-97a5-89487157e6ba" name="AnotherChanges" comment="AnotherChanges" />
     <option name="SHOW_DIALOG" value="false" />
@@ -115,6 +102,7 @@
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
     "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/m.alemanni/IdeaProjects/ZooProject2/target/Zoo-1.0-SNAPSHOT.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -124,7 +112,7 @@
     "project.structure.last.edited": "Facets",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -141,7 +129,7 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.Start">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -158,7 +146,6 @@
     <configuration name="start" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Zoo" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -228,6 +215,9 @@
       <workItem from="1697438995650" duration="22498000" />
       <workItem from="1697528030997" duration="3305000" />
       <workItem from="1697531561856" duration="3610000" />
+      <workItem from="1697792938505" duration="1288000" />
+      <workItem from="1698045359726" duration="15922000" />
+      <workItem from="1698070961263" duration="346000" />
     </task>
     <task id="LOCAL-00001" summary="try commit">
       <option name="closed" value="true" />
@@ -617,19 +607,19 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="5" />
         </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="8" />
         </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="13" />
         </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.lang.StackOverflowError" package="java.lang" />
           <option name="timeStamp" value="40" />
         </breakpoint>

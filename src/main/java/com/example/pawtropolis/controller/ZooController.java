@@ -3,14 +3,14 @@ package com.example.pawtropolis.controller;
 import com.example.pawtropolis.model.Animal.Animal;
 import com.example.pawtropolis.model.Animal.AnimalsWithTail;
 import com.example.pawtropolis.model.Animal.AnimalsWithWings;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-@Getter
-@Setter
+@Data
+@Service
 public class ZooController {
 
     private Map<Class<? extends Animal>, List<Animal>> animals;

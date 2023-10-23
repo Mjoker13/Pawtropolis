@@ -3,16 +3,23 @@ package com.example.pawtropolis.controller;
 import com.example.pawtropolis.model.Game.Item;
 import com.example.pawtropolis.model.Game.Room;
 import com.example.pawtropolis.gameControls.Direction;
+import lombok.Data;
 import lombok.extern.java.Log;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Optional;
 
 @Log
+@Data
+@Service
 public class MapController {
     private Room currentRoom;
 
+    @Autowired
     public MapController(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
@@ -25,30 +32,48 @@ public class MapController {
             Optional<Direction> validDirection = Arrays.stream(Direction.values())
                     .filter(a -> direction.name().equalsIgnoreCase(a.name()))
                     .findFirst();
-            if (validDirection.isPresent() && currentRoom.getAdjacentRooms(direction) != null) {
-                System.out.println("You moved from the room " + currentRoom.getName() + " to room " + currentRoom.getAdjacentRooms(direction).getName());
-                currentRoom = currentRoom.getAdjacentRooms(direction);
+            if (validDirection.isPresent() && getAdjacentRooms(direction) != null) {
+                System.out.println("You moved from the room " + currentRoom.getName() + " to room " + getAdjacentRooms(direction).getName());
+                currentRoom = getAdjacentRooms(direction);
             } else {
                 log.info("Direction not valid. Introduce right direction. ");
-                currentRoom.showAdjacentRooms();
+                showAdjacentRooms();
             }
         }
     }
 
-    public void showsRoomInformation() {
-        currentRoom.showRoomInformation();
+
+    public void showRoomInformation() {
+        System.out.println("You are in: " + currentRoom.getName());
+        System.out.println("Items present in room: " + currentRoom.getItems().stream().filter(Objects::nonNull).map(item -> item.getName() + " (x" + item.getQuantity() + ")").toList());
+        System.out.println("NPC: " + currentRoom.getAnimals().stream().filter(Objects::nonNull).map(animal -> animal.getName() + " (" + animal.getClass().getSimpleName() + ")").toList());
+    }
+
+    public void addItemToRoom(Item item) {
+        currentRoom.getItems().add(item);
+    }
+
+    public void dropItemFromRoom(Item item) {
+        currentRoom.getItems().remove(item);
+    }
+
+    public Room getAdjacentRooms(Direction direction) {
+        return currentRoom.getAdjacentRooms().get(direction);
+    }
+
+    public void showAdjacentRooms() {
+        Arrays.stream(Direction.values()).
+                forEach(d -> {
+                    if (getAdjacentRooms(d) != null)
+                        System.out.println("You can move at direction " + d.name().toLowerCase() + " to " + getAdjacentRooms(d).getName() + " ");
+                });
     }
 
     public Item getItemFromRoom(String itemName) {
-        return currentRoom.getItemFromRoom(itemName);
+        return currentRoom.getItems().stream()
+                .filter(item -> item.getName().replaceAll("\\s+", "").equalsIgnoreCase(itemName))
+                .findFirst().orElse(null);
     }
 
-    public void addItemToRoom(Item itemFromBag) {
-        currentRoom.addItem(itemFromBag);
-    }
-
-    public void dropItemFromRoom(Item itemFromRoom) {
-        currentRoom.dropItem(itemFromRoom);
-    }
 
 }

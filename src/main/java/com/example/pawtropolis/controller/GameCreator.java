@@ -8,14 +8,24 @@ import com.example.pawtropolis.model.Game.Item;
 import com.example.pawtropolis.model.Game.Room;
 import com.example.pawtropolis.gameControls.Direction;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Random;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+@Service
 public class GameCreator {
-    ZooController zooController = new ZooController();
+    private ZooController zooController;
+
+    @Autowired
+    public GameCreator(ZooController zooController) {
+        this.zooController = zooController;
+    }
+
     Random random = new Random();
 
     public List<Room> createRooms() {
