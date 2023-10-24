@@ -13,7 +13,7 @@ public class Get extends Command {
             if (getMapController().getItemFromRoom(getInput()[1]) == null) {
                 log.info("Item not present;");
             } else {
-                getPlayerController().addItemToBag(getMapController().getItemFromRoom(getInput()[1].replaceAll("\\s+", "")));
+                getPlayerController().getPlayer().addItemToBag(getMapController().getItemFromRoom(getInput()[1].replaceAll("\\s+", "")));
                 getMapController().dropItemFromRoom(getMapController().getItemFromRoom(getInput()[1].replaceAll("\\s+", "")));
             }
         }

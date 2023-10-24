@@ -9,11 +9,11 @@ public class Drop extends Command {
         if (getInput().length < 2) {
             log.info("Command not valid, for more information write help");
         } else {
-            if (getPlayerController().getItemFromBag(getInput()[1]) == null) {
+            if (getPlayerController().getPlayer().getItemFromBag(getInput()[1]) == null) {
                 log.info("Item not present;");
             } else {
-                getMapController().addItemToRoom(getPlayerController().getItemFromBag(getInput()[1].replaceAll("\\s+", "")));
-                getPlayerController().dropItemFromBag(getPlayerController().getItemFromBag(getInput()[1].replaceAll("\\s+", "")));
+                getMapController().addItemToRoom(getPlayerController().getPlayer().getItemFromBag(getInput()[1].replaceAll("\\s+", "")));
+                getPlayerController().getPlayer().dropItemFromBag(getPlayerController().getPlayer().getItemFromBag(getInput()[1].replaceAll("\\s+", "")));
             }
         }
     }

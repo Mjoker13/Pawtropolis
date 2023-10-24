@@ -4,7 +4,9 @@ import com.example.pawtropolis.model.Game.Item;
 import com.example.pawtropolis.model.Game.Room;
 import com.example.pawtropolis.gameControls.Direction;
 import lombok.Data;
-import lombok.extern.java.Log;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.log4j.Log4j2;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,8 +15,9 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Optional;
 
-@Log
-@Data
+@Log4j2
+@Getter
+@Setter
 @Service
 public class MapController {
     private Room currentRoom;
@@ -41,7 +44,6 @@ public class MapController {
             }
         }
     }
-
 
     public void showRoomInformation() {
         System.out.println("You are in: " + currentRoom.getName());
@@ -75,5 +77,8 @@ public class MapController {
                 .findFirst().orElse(null);
     }
 
-
+    public void linkRoomByDirection(Direction direction, Room adjacentRoom, @NotNull Room actualRoom) {
+        actualRoom.getAdjacentRooms().put(direction, adjacentRoom);
+        adjacentRoom.getAdjacentRooms().put(Direction.getOppositeDirection(direction), actualRoom);
+    }
 }

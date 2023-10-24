@@ -1,12 +1,14 @@
 package com.example.pawtropolis.model.Game;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
 public class Item {
     private final String name;
     private final String description;
     private final int slotRequired;
+    @Setter
     private int quantity;
 
     public Item(String name, String description, int slotRequired) {
@@ -17,6 +19,5 @@ public class Item {
         } else throw new RuntimeException("The slot required cannot overcome 20.");
         this.quantity = 1;
     }
-
 
 }

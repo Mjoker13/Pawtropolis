@@ -4,7 +4,9 @@ import lombok.*;
 
 import java.time.LocalDate;
 
-@Data
+@EqualsAndHashCode(callSuper = true)
+@Getter
+@Setter
 public abstract class AnimalsWithWings extends Animal {
 
     private float wingspan;

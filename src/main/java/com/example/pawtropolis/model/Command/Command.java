@@ -3,8 +3,11 @@ package com.example.pawtropolis.model.Command;
 import com.example.pawtropolis.controller.MapController;
 import com.example.pawtropolis.controller.PlayerController;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public abstract class Command {
 
     private MapController mapController;

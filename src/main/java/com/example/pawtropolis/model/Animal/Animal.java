@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
 public abstract class Animal {
     private String name;
     private String favoriteFood;

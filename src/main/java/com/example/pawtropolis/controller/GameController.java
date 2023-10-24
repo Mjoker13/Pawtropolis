@@ -2,7 +2,6 @@ package com.example.pawtropolis.controller;
 
 import com.example.pawtropolis.model.Command.Command;
 import com.example.pawtropolis.gameControls.CommandType;
-import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -11,32 +10,34 @@ import org.springframework.stereotype.Controller;
 import java.util.Scanner;
 import java.util.ServiceLoader;
 
-@Data
 @Log4j2
 @Controller
 public class GameController implements CommandLineRunner {
-    private boolean exitGame = false;
-    private String input;
-    private String[] inputTokens;
-    private String name;
-    private PlayerController playerController;
-    private MapController mapController;
-    private GameCreator creator;
+    private final PlayerController playerController;
+    private final MapController mapController;
+    private final GameCreator gameCreator;
 
     @Autowired
-    public GameController(PlayerController playerController, MapController mapController, GameCreator creator) {
+    public GameController(PlayerController playerController, MapController mapController, GameCreator gameCreator) {
         this.playerController = playerController;
         this.mapController = mapController;
-        this.creator = creator;
+        this.gameCreator = gameCreator;
     }
 
     public void startGame() {
-        mapController.setCurrentRoom(creator.getAllRooms().get(1));
+        boolean exitGame = false;
+        String input;
+        String[] inputTokens;
+        String name;
+
+        mapController.setCurrentRoom(gameCreator.getAllRooms().get(1));
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("What's your name?");
         name = scanner.nextLine();
         name = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
         System.out.println("Hello " + name + " welcome to the Pawtropolis.");
+
         playerController.getPlayer().setName(name);
         playerController.getPlayer().setLifePoints(100);
         do {

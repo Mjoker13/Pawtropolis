@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import java.util.Random;
 import java.time.LocalDate;
 import java.util.*;
@@ -19,11 +20,13 @@ import java.util.stream.Stream;
 
 @Service
 public class GameCreator {
-    private ZooController zooController;
+    private final ZooController zooController;
+    private final MapController mapController;
 
     @Autowired
-    public GameCreator(ZooController zooController) {
+    public GameCreator(ZooController zooController, MapController mapController) {
         this.zooController = zooController;
+        this.mapController = mapController;
     }
 
     Random random = new Random();
@@ -31,6 +34,7 @@ public class GameCreator {
     public List<Room> createRooms() {
 
         List<Room> rooms = new ArrayList<>();
+
         Room roomA1 = new Room("A1", getRandomItems(), getRandomAnimals());
         Room roomHome = new Room("Home", null, null);
         Room roomA3 = new Room("A3", getRandomItems(), getRandomAnimals());
@@ -53,16 +57,16 @@ public class GameCreator {
         rooms.add(roomB4);
         rooms.add(roomB5);
 
-        roomA1.linkRoomByDirection(Direction.SOUTH, roomHome);
-        roomHome.linkRoomByDirection(Direction.SOUTH, roomA3);
-        roomA3.linkRoomByDirection(Direction.EAST, roomA4);
-        roomA4.linkRoomByDirection(Direction.NORTH, roomB2);
-        roomA5.linkRoomByDirection(Direction.WEST, roomHome);
-        roomB1.linkRoomByDirection(Direction.WEST, roomA1);
-        roomB2.linkRoomByDirection(Direction.NORTH, roomB1);
-        roomB3.linkRoomByDirection(Direction.WEST, roomB1);
-        roomB4.linkRoomByDirection(Direction.NORTH, roomB3);
-        roomB5.linkRoomByDirection(Direction.EAST, roomA1);
+        mapController.linkRoomByDirection(Direction.SOUTH, roomHome, roomA1);
+        mapController.linkRoomByDirection(Direction.SOUTH, roomA3, roomHome);
+        mapController.linkRoomByDirection(Direction.EAST, roomA4, roomA3);
+        mapController.linkRoomByDirection(Direction.NORTH, roomB2, roomA4);
+        mapController.linkRoomByDirection(Direction.WEST, roomHome, roomA5);
+        mapController.linkRoomByDirection(Direction.WEST, roomA1, roomB1);
+        mapController.linkRoomByDirection(Direction.NORTH, roomB1, roomB2);
+        mapController.linkRoomByDirection(Direction.WEST, roomB1, roomB3);
+        mapController.linkRoomByDirection(Direction.NORTH, roomB3, roomB4);
+        mapController.linkRoomByDirection(Direction.EAST, roomA1, roomB5);
 
         return rooms;
     }
