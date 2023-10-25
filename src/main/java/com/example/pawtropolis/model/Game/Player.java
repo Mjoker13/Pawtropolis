@@ -16,45 +16,45 @@ import java.util.Objects;
 public class Player {
     private String name;
     private int lifePoints;
-    private Bag bag;
+    private PlayerBag playerBag;
 
     @Autowired
-    public Player(Bag bag){
-        this.bag= bag;
+    public Player(PlayerBag playerBag){
+        this.playerBag = playerBag;
     }
 
     public void showsBagInformation() {
-        System.out.println("In bag: " + bag.getItems().stream().filter(Objects::nonNull).map(item -> item.getName() + " (x" + item.getQuantity() + ")").toList());
-        System.out.println("Slot available:" + bag.getSlotAvailable());
+        log.info("In bag: " + playerBag.getItems().stream().filter(Objects::nonNull).map(item -> item.getName() + " (x" + item.getQuantity() + ")").toList());
+        log.info("Slot available:" + playerBag.getSlotAvailable());
     }
     public void addItemToBag(@NotNull Item item) {
-        bag.setSlotAvailable(getSlotAvailable());
-        if (bag.getSlotAvailable() >= item.getSlotRequired()) {
-            bag.getItems().add(item);
+        playerBag.setSlotAvailable(getSlotAvailable());
+        if (playerBag.getSlotAvailable() >= item.getSlotRequired()) {
+            playerBag.getItems().add(item);
             increaseSlotAvailable(item);
         } else {
-            log.info("Maximum capacity exceeded");
+            log.info("\n" +"Maximum capacity exceeded");
         }
     }
     public void dropItemFromBag(Item item) {
-        bag.getItems().remove(item);
+        playerBag.getItems().remove(item);
         decreaseSlotAvailable(item);
     }
     public Item getItemFromBag(String itemName) {
-        return bag.getItems().stream()
+        return playerBag.getItems().stream()
                 .filter(i -> i.getName().replaceAll("\\s+", "").equalsIgnoreCase(itemName))
                 .findFirst().orElse(null);
     }
     public int getSlotAvailable() {
-        if (bag.getItems().isEmpty()) {
-            return bag.getMaxCapacity();
+        if (playerBag.getItems().isEmpty()) {
+            return playerBag.getMaxCapacity();
         }
-        return bag.getSlotAvailable();
+        return playerBag.getSlotAvailable();
     }
     public void decreaseSlotAvailable(@NotNull Item item) {
-        bag.setSlotAvailable(bag.getSlotAvailable() + item.getSlotRequired());
+        playerBag.setSlotAvailable(playerBag.getSlotAvailable() + item.getSlotRequired());
     }
     public void increaseSlotAvailable(@NotNull Item item) {
-        bag.setSlotAvailable(bag.getSlotAvailable() - item.getSlotRequired());
+        playerBag.setSlotAvailable(playerBag.getSlotAvailable() - item.getSlotRequired());
     }
 }

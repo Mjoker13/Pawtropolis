@@ -4,30 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dee5a1fd-b017-46d2-a361-09cea28faee3" name="Changes" comment="(fix)">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="dee5a1fd-b017-46d2-a361-09cea28faee3" name="Changes" comment="(refactor) management of spring annotations in classes v. 1.9.3">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/4/e44a8606ce010ad9b89aafdfcee2ab49afbf6d10" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/b/6b808cdce567bda0d4eddb2a06134807335d2f69" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/4/e44a8606ce010ad9b89aafdfcee2ab49afbf6d10" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/GameCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/GameCreator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/MapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/ZooController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/ZooController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Animal/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Animal/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Animal/AnimalsWithTail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Animal/AnimalsWithTail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Animal/AnimalsWithWings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Animal/AnimalsWithWings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Bag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Drop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Drop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Exit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Get.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Get.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Go.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Go.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Help.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Look.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Look.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/BagPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/BagPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/gameControls/CommandType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/gameControls/CommandType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/BagCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Bag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/PlayerBag.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/services/com.example.pawtropolis.model.Command.Command" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/services/com.example.pawtropolis.model.Command.Command" afterDir="false" />
     </list>
     <list id="4b9ee034-e73f-41d5-97a5-89487157e6ba" name="AnotherChanges" comment="AnotherChanges" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,32 +80,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/m.alemanni/IdeaProjects/ZooProject2/target/Zoo-1.0-SNAPSHOT.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Facets",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/m.alemanni/IdeaProjects/ZooProject2/target/Zoo-1.0-SNAPSHOT.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\m.alemanni\IdeaProjects\ZooProject2\src\main\resources\META-INF\services" />
@@ -217,7 +207,10 @@
       <workItem from="1697531561856" duration="3610000" />
       <workItem from="1697792938505" duration="1288000" />
       <workItem from="1698045359726" duration="15922000" />
-      <workItem from="1698070961263" duration="346000" />
+      <workItem from="1698070961263" duration="1945000" />
+      <workItem from="1698073325167" duration="2280000" />
+      <workItem from="1698131615723" duration="3821000" />
+      <workItem from="1698217761321" duration="1077000" />
     </task>
     <task id="LOCAL-00001" summary="try commit">
       <option name="closed" value="true" />
@@ -515,7 +508,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697468688260</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="(refactor) management of spring annotations in classes v. 1.9.2">
+      <option name="closed" value="true" />
+      <created>1698071547965</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1698071547965</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +558,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -577,7 +578,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="(refactor) methods look room and bag v1.0.2" />
     <MESSAGE value="(refactor) methods add and drop item v1.0.3" />
     <MESSAGE value="(fix) method to move player" />
     <MESSAGE value="(refactor) management methods for add and drop item and main v1.1.0" />
@@ -602,7 +602,8 @@
     <MESSAGE value="(fix) creation services ,implementation service loader and management command v1.9.0" />
     <MESSAGE value="(fix) implementation service loader" />
     <MESSAGE value="(refactor) code cleanup v1.9.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="(refactor) code cleanup v1.9.1" />
+    <MESSAGE value="(refactor) management of spring annotations in classes v. 1.9.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="(refactor) management of spring annotations in classes v. 1.9.2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

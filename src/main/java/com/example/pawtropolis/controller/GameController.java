@@ -33,15 +33,15 @@ public class GameController implements CommandLineRunner {
         mapController.setCurrentRoom(gameCreator.getAllRooms().get(1));
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("What's your name?");
+        log.info("\n" +"What's your name?");
         name = scanner.nextLine();
         name = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
-        System.out.println("Hello " + name + " welcome to the Pawtropolis.");
+        log.info("\n" +"Hello " + name + " welcome to the Pawtropolis.");
 
         playerController.getPlayer().setName(name);
         playerController.getPlayer().setLifePoints(100);
         do {
-            System.out.println("\n" + name + " what would you like to do? ");
+            log.info("\n" + name + " what would you like to do? ");
             input = scanner.nextLine();
             inputTokens = input.trim().split("\\s+");
 

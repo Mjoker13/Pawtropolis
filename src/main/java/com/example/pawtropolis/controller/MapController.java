@@ -30,25 +30,25 @@ public class MapController {
     public void changeRoom(@NotNull String directionString) {
         Direction direction = Direction.convertingStringToDirection(directionString.trim());
         if (direction == null) {
-            log.info("Direction not valid. Introduce right direction. ");
+            log.info("\n" +"Direction not valid. Introduce right direction. ");
         } else {
             Optional<Direction> validDirection = Arrays.stream(Direction.values())
                     .filter(a -> direction.name().equalsIgnoreCase(a.name()))
                     .findFirst();
             if (validDirection.isPresent() && getAdjacentRooms(direction) != null) {
-                System.out.println("You moved from the room " + currentRoom.getName() + " to room " + getAdjacentRooms(direction).getName());
+                log.info("\n" +"You moved from the room " + currentRoom.getName() + " to room " + getAdjacentRooms(direction).getName());
                 currentRoom = getAdjacentRooms(direction);
             } else {
-                log.info("Direction not valid. Introduce right direction. ");
+                log.info("\n" +"Direction not valid. Introduce right direction. ");
                 showAdjacentRooms();
             }
         }
     }
 
     public void showRoomInformation() {
-        System.out.println("You are in: " + currentRoom.getName());
-        System.out.println("Items present in room: " + currentRoom.getItems().stream().filter(Objects::nonNull).map(item -> item.getName() + " (x" + item.getQuantity() + ")").toList());
-        System.out.println("NPC: " + currentRoom.getAnimals().stream().filter(Objects::nonNull).map(animal -> animal.getName() + " (" + animal.getClass().getSimpleName() + ")").toList());
+        log.info("You are in: " + currentRoom.getName());
+        log.info("Items present in room: " + currentRoom.getItems().stream().filter(Objects::nonNull).map(item -> item.getName() + " (x" + item.getQuantity() + ")").toList());
+        log.info("NPC: " + currentRoom.getAnimals().stream().filter(Objects::nonNull).map(animal -> animal.getName() + " (" + animal.getClass().getSimpleName() + ")").toList());
     }
 
     public void addItemToRoom(Item item) {
@@ -67,7 +67,7 @@ public class MapController {
         Arrays.stream(Direction.values()).
                 forEach(d -> {
                     if (getAdjacentRooms(d) != null)
-                        System.out.println("You can move at direction " + d.name().toLowerCase() + " to " + getAdjacentRooms(d).getName() + " ");
+                        log.info("\n" +"You can move at direction " + d.name().toLowerCase() + " to " + getAdjacentRooms(d).getName() + " ");
                 });
     }
 

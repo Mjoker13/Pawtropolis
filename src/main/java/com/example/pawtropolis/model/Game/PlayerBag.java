@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @Component
-public class Bag {
+public class PlayerBag {
     private List<Item> items = new ArrayList<>();
     private int slotAvailable;
     private int maxCapacity=20;

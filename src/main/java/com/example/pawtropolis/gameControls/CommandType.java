@@ -8,7 +8,7 @@ import java.util.Arrays;
 public enum CommandType {
     GO("go"),
     LOOK("look"),
-    BAGCOMMAND("bagcommand"),
+    BAG("bag"),
     GET("get"),
     DROP("drop"),
     HELP("help"),
