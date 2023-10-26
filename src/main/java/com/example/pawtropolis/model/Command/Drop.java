@@ -6,15 +6,18 @@ import lombok.extern.log4j.Log4j2;
 public class Drop extends Command {
     @Override
     public void runCommand() {
-        if (getInput().length < 2) {
-            log.info("Command not valid, for more information write help");
+
+        if (getInput()[0].isEmpty()) {
+            log.info("Item not present");
         } else {
-            if (getPlayerController().getPlayer().getItemFromBag(getInput()[1]) == null) {
-                log.info("Item not present;");
+            if (getPlayerController().getPlayer().getItemFromBag(getInput()[0]) != null) {
+                getMapController().addItemToRoom(getPlayerController().getPlayer().getItemFromBag(getInput()[0]));
+                getPlayerController().getPlayer().dropItemFromBag(getPlayerController().getPlayer().getItemFromBag(getInput()[0]));
             } else {
-                getMapController().addItemToRoom(getPlayerController().getPlayer().getItemFromBag(getInput()[1].replaceAll("\\s+", "")));
-                getPlayerController().getPlayer().dropItemFromBag(getPlayerController().getPlayer().getItemFromBag(getInput()[1].replaceAll("\\s+", "")));
+                log.info("Item incorrect or not present");
             }
         }
+
     }
+
 }

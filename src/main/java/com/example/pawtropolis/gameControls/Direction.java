@@ -34,4 +34,7 @@ public enum Direction {
             case WEST -> EAST;
         };
     }
+    public static boolean isCommandValid(String text) {
+        return Arrays.stream(Direction.values()).anyMatch(a -> text.equalsIgnoreCase(a.name()));
+    }
 }

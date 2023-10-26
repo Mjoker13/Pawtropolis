@@ -4,20 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dee5a1fd-b017-46d2-a361-09cea28faee3" name="Changes" comment="(refactor) management of spring annotations in classes v. 1.9.3">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/4/e44a8606ce010ad9b89aafdfcee2ab49afbf6d10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/b/6b808cdce567bda0d4eddb2a06134807335d2f69" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/4/e44a8606ce010ad9b89aafdfcee2ab49afbf6d10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+    <list default="true" id="dee5a1fd-b017-46d2-a361-09cea28faee3" name="Changes" comment="(refactor) print management from java to spring v. 1.9.4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/GameCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/GameCreator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/MapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/gameControls/CommandType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/gameControls/CommandType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/BagCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Bag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/PlayerBag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/ZooController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/ZooController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/gameControls/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/gameControls/Direction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Drop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Drop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Get.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Get.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Go.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Go.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/services/com.example.pawtropolis.model.Command.Command" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/services/com.example.pawtropolis.model.Command.Command" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/PlayerBag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/PlayerBag.java" afterDir="false" />
     </list>
     <list id="4b9ee034-e73f-41d5-97a5-89487157e6ba" name="AnotherChanges" comment="AnotherChanges" />
     <option name="SHOW_DIALOG" value="false" />
@@ -210,7 +210,8 @@
       <workItem from="1698070961263" duration="1945000" />
       <workItem from="1698073325167" duration="2280000" />
       <workItem from="1698131615723" duration="3821000" />
-      <workItem from="1698217761321" duration="1077000" />
+      <workItem from="1698217761321" duration="25965000" />
+      <workItem from="1698328944517" duration="1913000" />
     </task>
     <task id="LOCAL-00001" summary="try commit">
       <option name="closed" value="true" />
@@ -516,7 +517,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698071547965</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="(refactor) print management from java to spring v. 1.9.4">
+      <option name="closed" value="true" />
+      <created>1698218988378</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1698218988378</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -578,7 +587,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="(refactor) methods add and drop item v1.0.3" />
     <MESSAGE value="(fix) method to move player" />
     <MESSAGE value="(refactor) management methods for add and drop item and main v1.1.0" />
     <MESSAGE value="(refactor) Cleaning main code and all classes v1.1.1" />
@@ -603,7 +611,8 @@
     <MESSAGE value="(fix) implementation service loader" />
     <MESSAGE value="(refactor) code cleanup v1.9.1" />
     <MESSAGE value="(refactor) management of spring annotations in classes v. 1.9.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="(refactor) management of spring annotations in classes v. 1.9.2" />
+    <MESSAGE value="(refactor) print management from java to spring v. 1.9.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="(refactor) print management from java to spring v. 1.9.4" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -629,6 +638,7 @@
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.example.Domain.ZooController" memberName="zooCreator" />
+        <PinnedItemInfo parentTag="com.example.pawtropolis.controller.PlayerController" memberName="player" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

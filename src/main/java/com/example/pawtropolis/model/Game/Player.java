@@ -24,7 +24,7 @@ public class Player {
     }
 
     public void showsBagInformation() {
-        log.info("In bag: " + playerBag.getItems().stream().filter(Objects::nonNull).map(item -> item.getName() + " (x" + item.getQuantity() + ")").toList());
+        log.info("In bag: " + playerBag.getItems().stream().filter(Objects::nonNull).map(Item::getName).toList());
         log.info("Slot available:" + playerBag.getSlotAvailable());
     }
     public void addItemToBag(@NotNull Item item) {
@@ -42,7 +42,7 @@ public class Player {
     }
     public Item getItemFromBag(String itemName) {
         return playerBag.getItems().stream()
-                .filter(i -> i.getName().replaceAll("\\s+", "").equalsIgnoreCase(itemName))
+                .filter(i -> i.getName().equalsIgnoreCase(itemName))
                 .findFirst().orElse(null);
     }
     public int getSlotAvailable() {

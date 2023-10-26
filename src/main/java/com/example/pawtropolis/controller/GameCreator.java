@@ -15,8 +15,6 @@ import org.springframework.stereotype.Service;
 import java.util.Random;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 public class GameCreator {
@@ -72,8 +70,7 @@ public class GameCreator {
     }
 
     public List<Room> getAllRooms() {
-        Stream<Room> streamArrayRooms = createRooms().stream();
-        return streamArrayRooms.map(Room.class::cast).collect(Collectors.toList());
+        return createRooms().stream().map(Room.class::cast).toList();
     }
 
     public List<Item> createItems() {

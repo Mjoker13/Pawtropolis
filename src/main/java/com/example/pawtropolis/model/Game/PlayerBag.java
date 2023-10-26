@@ -12,7 +12,7 @@ import java.util.List;
 @Component
 public class PlayerBag {
     private List<Item> items = new ArrayList<>();
-    private int slotAvailable;
+    private int slotAvailable=20;
     private int maxCapacity=20;
 }
 

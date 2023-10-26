@@ -3,7 +3,6 @@ package com.example.pawtropolis.controller;
 import com.example.pawtropolis.model.Game.Item;
 import com.example.pawtropolis.model.Game.Room;
 import com.example.pawtropolis.gameControls.Direction;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
@@ -30,25 +29,29 @@ public class MapController {
     public void changeRoom(@NotNull String directionString) {
         Direction direction = Direction.convertingStringToDirection(directionString.trim());
         if (direction == null) {
-            log.info("\n" +"Direction not valid. Introduce right direction. ");
+            log.error("Direction not valid. Introduce right direction. ");
         } else {
             Optional<Direction> validDirection = Arrays.stream(Direction.values())
                     .filter(a -> direction.name().equalsIgnoreCase(a.name()))
                     .findFirst();
             if (validDirection.isPresent() && getAdjacentRooms(direction) != null) {
-                log.info("\n" +"You moved from the room " + currentRoom.getName() + " to room " + getAdjacentRooms(direction).getName());
+                log.info("You moved from the room " + currentRoom.getName() + " to room " + getAdjacentRooms(direction).getName() +"\n");
                 currentRoom = getAdjacentRooms(direction);
             } else {
-                log.info("\n" +"Direction not valid. Introduce right direction. ");
-                showAdjacentRooms();
+                log.error("Direction not valid. Introduce right direction. ");
             }
         }
     }
 
     public void showRoomInformation() {
         log.info("You are in: " + currentRoom.getName());
-        log.info("Items present in room: " + currentRoom.getItems().stream().filter(Objects::nonNull).map(item -> item.getName() + " (x" + item.getQuantity() + ")").toList());
+        log.info("Items present in room: " + currentRoom.getItems().stream().filter(Objects::nonNull).map(Item::getName).toList());
         log.info("NPC: " + currentRoom.getAnimals().stream().filter(Objects::nonNull).map(animal -> animal.getName() + " (" + animal.getClass().getSimpleName() + ")").toList());
+        log.info("Adiacent rooms: ");
+        for(Direction adiacentRoom: currentRoom.getAdjacentRooms().keySet()){
+           log.info("at " +adiacentRoom.getDirectionType() +" - "+ currentRoom.getAdjacentRooms().get(adiacentRoom).getName() );
+       }
+
     }
 
     public void addItemToRoom(Item item) {
@@ -67,13 +70,13 @@ public class MapController {
         Arrays.stream(Direction.values()).
                 forEach(d -> {
                     if (getAdjacentRooms(d) != null)
-                        log.info("\n" +"You can move at direction " + d.name().toLowerCase() + " to " + getAdjacentRooms(d).getName() + " ");
+                        log.info("You can move at direction " + d.name().toLowerCase() + " to " + getAdjacentRooms(d).getName() + " ");
                 });
     }
 
     public Item getItemFromRoom(String itemName) {
         return currentRoom.getItems().stream()
-                .filter(item -> item.getName().replaceAll("\\s+", "").equalsIgnoreCase(itemName))
+                .filter(item -> item.getName().equalsIgnoreCase(itemName))
                 .findFirst().orElse(null);
     }
 

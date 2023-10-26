@@ -3,9 +3,6 @@ package com.example.pawtropolis.controller;
 import com.example.pawtropolis.model.Animal.Animal;
 import com.example.pawtropolis.model.Animal.AnimalsWithTail;
 import com.example.pawtropolis.model.Animal.AnimalsWithWings;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
