@@ -5,4 +5,9 @@ public class Look extends Command{
    public void runCommand() {
       getMapController().showRoomInformation();
     }
+
+    @Override
+    public String classTriggerName() {
+        return "look";
+    }
 }

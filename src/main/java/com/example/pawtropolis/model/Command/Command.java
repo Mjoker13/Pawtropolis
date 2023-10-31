@@ -11,7 +11,10 @@ public abstract class Command {
 
     private MapController mapController;
     private PlayerController playerController;
-    private String[] input;
+    private String input;
+    private String triggerName;
 
     public abstract void runCommand();
+
+    public String classTriggerName() {return triggerName;};
 }

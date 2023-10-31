@@ -9,17 +9,20 @@ public class Get extends Command {
     @Override
     public void runCommand() {
 
-        if(getInput()[0].isEmpty()){
+        if(getInput().isEmpty()){
             log.info("Item not present");
         }else{
-            if(getMapController().getItemFromRoom(getInput()[0])!=null){
-                getPlayerController().getPlayer().addItemToBag(getMapController().getItemFromRoom(getInput()[0]));
-                getMapController().dropItemFromRoom(getMapController().getItemFromRoom(getInput()[0]));
+            if(getMapController().getItemFromRoom(getInput())!=null){
+                getPlayerController().getPlayer().addItemToBag(getMapController().getItemFromRoom(getInput()));
+                getMapController().dropItemFromRoom(getMapController().getItemFromRoom(getInput()));
             }else{
                 log.info("Item incorrect or not present");
             }
         }
-
+    }
+    @Override
+    public String classTriggerName() {
+        return "Get";
     }
 }
 

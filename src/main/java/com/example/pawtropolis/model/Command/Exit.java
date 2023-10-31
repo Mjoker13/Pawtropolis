@@ -10,4 +10,8 @@ public class Exit extends Command{
     public void runCommand() {
         log.info("Thank you for your time, GoodBye " + getPlayerController().getPlayer().getName());
     }
+    @Override
+    public String classTriggerName() {
+        return "Exit";
+    }
 }

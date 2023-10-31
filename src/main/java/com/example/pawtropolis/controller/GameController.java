@@ -2,6 +2,7 @@ package com.example.pawtropolis.controller;
 
 import com.example.pawtropolis.model.Command.Command;
 import com.example.pawtropolis.gameControls.CommandType;
+import com.example.pawtropolis.model.Command.Look;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -45,13 +46,14 @@ public class GameController implements CommandLineRunner {
             input = scanner.nextLine();
             inputTokens = input.trim().split("\\s+");
             ServiceLoader<? extends Command> loader = ServiceLoader.load(Command.class);
+
             if (CommandType.isCommandValid(inputTokens[0])) {
                 for (Command currentCommand : loader) {
                     if (currentCommand.getClass().getSimpleName().equalsIgnoreCase(inputTokens[0])) {
                         currentCommand.setMapController(mapController);
                         currentCommand.setPlayerController(playerController);
-                        inputTokens= new String[]{input.replace(inputTokens[0], "").trim()};
-                        currentCommand.setInput(inputTokens);
+                        String parameter= input.replace(inputTokens[0], "").trim();
+                        currentCommand.setInput(parameter);
                         currentCommand.runCommand();
                         exitGame = currentCommand.getClass().getSimpleName().equalsIgnoreCase("exit");
                     }

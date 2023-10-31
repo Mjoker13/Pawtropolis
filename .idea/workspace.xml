@@ -4,20 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dee5a1fd-b017-46d2-a361-09cea28faee3" name="Changes" comment="(refactor) print management from java to spring v. 1.9.4">
+    <list default="true" id="dee5a1fd-b017-46d2-a361-09cea28faee3" name="Changes" comment="(fix)">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/GameCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/GameCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/MapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/ZooController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/ZooController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/gameControls/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/gameControls/Direction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Bag.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Command.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Drop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Drop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Exit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Get.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Get.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Go.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Go.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/PlayerBag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/PlayerBag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Help.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Look.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Look.java" afterDir="false" />
     </list>
     <list id="4b9ee034-e73f-41d5-97a5-89487157e6ba" name="AnotherChanges" comment="AnotherChanges" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +52,13 @@
     &quot;assignee&quot;: &quot;Mjoker13&quot;
   }
 }</component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="m\.alemanni" />
+      </list>
+    </option>
+  </component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -93,13 +100,13 @@
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/m.alemanni/IdeaProjects/ZooProject2/target/Zoo-1.0-SNAPSHOT.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/m.alemanni/IdeaProjects/ZooProject2&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
@@ -119,7 +126,7 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Start">
+  <component name="RunManager">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -134,18 +141,45 @@
       </method>
     </configuration>
     <configuration name="start" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+      <option name="ALTERNATIVE_JRE_PATH" value="18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.example.pawtropolis.Main" />
       <module name="Zoo" />
+      <option name="PROGRAM_PARAMETERS" value="$MAVEN_REPOSITORY$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Start" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="Zoo" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.pawtropolis.Main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="compile" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map>
+                <entry key="native" value="true" />
+              </map>
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -207,11 +241,18 @@
       <workItem from="1697531561856" duration="3610000" />
       <workItem from="1697792938505" duration="1288000" />
       <workItem from="1698045359726" duration="15922000" />
+      <workItem from="1698070961263" duration="346000" />
+      <workItem from="1698131843123" duration="5721000" />
+      <workItem from="1698216648919" duration="640000" />
       <workItem from="1698070961263" duration="1945000" />
       <workItem from="1698073325167" duration="2280000" />
       <workItem from="1698131615723" duration="3821000" />
-      <workItem from="1698217761321" duration="25965000" />
-      <workItem from="1698328944517" duration="1913000" />
+      <workItem from="1698217761321" duration="1077000" />
+      <workItem from="1698252330264" duration="3349000" />
+      <workItem from="1698309472343" duration="9212000" />
+      <workItem from="1698676224167" duration="2566000" />
+      <workItem from="1698684337464" duration="133000" />
+      <workItem from="1698739345199" duration="722000" />
     </task>
     <task id="LOCAL-00001" summary="try commit">
       <option name="closed" value="true" />
@@ -517,15 +558,7 @@
       <option name="project" value="LOCAL" />
       <updated>1698071547965</updated>
     </task>
-    <task id="LOCAL-00039" summary="(refactor) print management from java to spring v. 1.9.4">
-      <option name="closed" value="true" />
-      <created>1698218988378</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1698218988378</updated>
-    </task>
-    <option name="localTasksCounter" value="40" />
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,6 +620,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="(refactor) methods add and drop item v1.0.3" />
     <MESSAGE value="(fix) method to move player" />
     <MESSAGE value="(refactor) management methods for add and drop item and main v1.1.0" />
     <MESSAGE value="(refactor) Cleaning main code and all classes v1.1.1" />
@@ -610,9 +644,10 @@
     <MESSAGE value="(fix) creation services ,implementation service loader and management command v1.9.0" />
     <MESSAGE value="(fix) implementation service loader" />
     <MESSAGE value="(refactor) code cleanup v1.9.1" />
+    <MESSAGE value="(fix)" />
+    <MESSAGE value="(refactor)  moved the bag methods in player and checked the annotations. v1.9.3" />
     <MESSAGE value="(refactor) management of spring annotations in classes v. 1.9.2" />
-    <MESSAGE value="(refactor) print management from java to spring v. 1.9.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="(refactor) print management from java to spring v. 1.9.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="(refactor) management of spring annotations in classes v. 1.9.2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -638,7 +673,6 @@
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.example.Domain.ZooController" memberName="zooCreator" />
-        <PinnedItemInfo parentTag="com.example.pawtropolis.controller.PlayerController" memberName="player" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

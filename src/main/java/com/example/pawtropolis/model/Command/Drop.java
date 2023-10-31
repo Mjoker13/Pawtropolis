@@ -7,17 +7,19 @@ public class Drop extends Command {
     @Override
     public void runCommand() {
 
-        if (getInput()[0].isEmpty()) {
+        if (getInput().isEmpty()) {
             log.info("Item not present");
         } else {
-            if (getPlayerController().getPlayer().getItemFromBag(getInput()[0]) != null) {
-                getMapController().addItemToRoom(getPlayerController().getPlayer().getItemFromBag(getInput()[0]));
-                getPlayerController().getPlayer().dropItemFromBag(getPlayerController().getPlayer().getItemFromBag(getInput()[0]));
+            if (getPlayerController().getPlayer().getItemFromBag(getInput()) != null) {
+                getMapController().addItemToRoom(getPlayerController().getPlayer().getItemFromBag(getInput()));
+                getPlayerController().getPlayer().dropItemFromBag(getPlayerController().getPlayer().getItemFromBag(getInput()));
             } else {
                 log.info("Item incorrect or not present");
             }
         }
-
     }
-
+    @Override
+    public String classTriggerName() {
+        return "Drop";
+    }
 }
