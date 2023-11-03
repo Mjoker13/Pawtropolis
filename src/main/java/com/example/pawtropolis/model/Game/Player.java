@@ -1,21 +1,32 @@
 package com.example.pawtropolis.model.Game;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
 @Getter
 @Setter
 @Log4j2
-@Component
+@Entity
+@Table(name = "player")
 public class Player {
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private int id;
+    @NotNull
     private String name;
+    @Min(1)
+    @Max(100)
     private int lifePoints;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="player_bag_id",referencedColumnName = "id")
     private PlayerBag playerBag;
 
     @Autowired
@@ -28,33 +39,18 @@ public class Player {
         log.info("Slot available:" + playerBag.getSlotAvailable());
     }
     public void addItemToBag(@NotNull Item item) {
-        playerBag.setSlotAvailable(getSlotAvailable());
         if (playerBag.getSlotAvailable() >= item.getSlotRequired()) {
             playerBag.getItems().add(item);
-            increaseSlotAvailable(item);
         } else {
             log.info("\n" +"Maximum capacity exceeded");
         }
     }
     public void dropItemFromBag(Item item) {
         playerBag.getItems().remove(item);
-        decreaseSlotAvailable(item);
     }
     public Item getItemFromBag(String itemName) {
         return playerBag.getItems().stream()
                 .filter(i -> i.getName().equalsIgnoreCase(itemName))
                 .findFirst().orElse(null);
-    }
-    public int getSlotAvailable() {
-        if (playerBag.getItems().isEmpty()) {
-            return playerBag.getMaxCapacity();
-        }
-        return playerBag.getSlotAvailable();
-    }
-    public void decreaseSlotAvailable(@NotNull Item item) {
-        playerBag.setSlotAvailable(playerBag.getSlotAvailable() + item.getSlotRequired());
-    }
-    public void increaseSlotAvailable(@NotNull Item item) {
-        playerBag.setSlotAvailable(playerBag.getSlotAvailable() - item.getSlotRequired());
     }
 }

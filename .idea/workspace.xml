@@ -4,20 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dee5a1fd-b017-46d2-a361-09cea28faee3" name="Changes" comment="(fix)">
+    <list default="true" id="dee5a1fd-b017-46d2-a361-09cea28faee3" name="Changes" comment="(refactor)  add attribute triggerName in Command to search by class name and management input entered by the user v1.9.6">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Bag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Drop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Drop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Exit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Get.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Get.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Go.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Go.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Help.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Look.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Command/Look.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Animal/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Animal/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/PlayerBag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/PlayerBag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pawtropolis/model/Game/Room.java" afterDir="false" />
     </list>
     <list id="4b9ee034-e73f-41d5-97a5-89487157e6ba" name="AnotherChanges" comment="AnotherChanges" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +95,7 @@
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/m.alemanni/IdeaProjects/ZooProject2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/m.alemanni/IdeaProjects/PawtropolisTeam/ZooProject2&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -558,7 +553,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698071547965</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="(refactor)  add attribute triggerName in Command to search by class name and management input entered by the user v1.9.6">
+      <option name="closed" value="true" />
+      <created>1698743792180</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1698743792180</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -620,8 +623,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="(refactor) methods add and drop item v1.0.3" />
-    <MESSAGE value="(fix) method to move player" />
     <MESSAGE value="(refactor) management methods for add and drop item and main v1.1.0" />
     <MESSAGE value="(refactor) Cleaning main code and all classes v1.1.1" />
     <MESSAGE value="(fix) add attribute quantity to item and refactor methods add and drop item v 1.2.0" />
@@ -647,7 +648,8 @@
     <MESSAGE value="(fix)" />
     <MESSAGE value="(refactor)  moved the bag methods in player and checked the annotations. v1.9.3" />
     <MESSAGE value="(refactor) management of spring annotations in classes v. 1.9.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="(refactor) management of spring annotations in classes v. 1.9.2" />
+    <MESSAGE value="(refactor)  add attribute triggerName in Command to search by class name and management input entered by the user v1.9.6" />
+    <option name="LAST_COMMIT_MESSAGE" value="(refactor)  add attribute triggerName in Command to search by class name and management input entered by the user v1.9.6" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
