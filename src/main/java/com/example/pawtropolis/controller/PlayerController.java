@@ -1,7 +1,7 @@
 package com.example.pawtropolis.controller;
 
 
-import com.example.pawtropolis.model.Game.*;
+import com.example.pawtropolis.DTO.game.*;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

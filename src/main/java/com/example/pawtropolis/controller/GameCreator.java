@@ -1,11 +1,11 @@
 package com.example.pawtropolis.controller;
 
-import com.example.pawtropolis.model.Animal.Animal;
-import com.example.pawtropolis.model.Animal.Eagle;
-import com.example.pawtropolis.model.Animal.Lion;
-import com.example.pawtropolis.model.Animal.Tiger;
-import com.example.pawtropolis.model.Game.Item;
-import com.example.pawtropolis.model.Game.Room;
+import com.example.pawtropolis.DTO.animal.Animal;
+import com.example.pawtropolis.DTO.animal.Eagle;
+import com.example.pawtropolis.DTO.animal.Lion;
+import com.example.pawtropolis.DTO.animal.Tiger;
+import com.example.pawtropolis.DTO.game.Item;
+import com.example.pawtropolis.DTO.game.Room;
 import com.example.pawtropolis.gameControls.Direction;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.example.pawtropolis.model.Command;
+package com.example.pawtropolis.DTO.command;
 
 public class Look extends Command{
     @Override

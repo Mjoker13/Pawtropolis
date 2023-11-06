@@ -1,4 +1,4 @@
-package com.example.pawtropolis.model.Command;
+package com.example.pawtropolis.DTO.command;
 
 
 import lombok.extern.log4j.Log4j2;

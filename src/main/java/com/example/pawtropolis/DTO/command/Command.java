@@ -1,4 +1,4 @@
-package com.example.pawtropolis.model.Command;
+package com.example.pawtropolis.DTO.command;
 
 import com.example.pawtropolis.controller.MapController;
 import com.example.pawtropolis.controller.PlayerController;

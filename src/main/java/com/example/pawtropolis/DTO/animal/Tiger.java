@@ -1,21 +1,23 @@
-package com.example.pawtropolis.model.Animal;
+package com.example.pawtropolis.DTO.animal;
 
 import java.time.LocalDate;
 
-public class Eagle extends AnimalsWithWings {
-    public Eagle(String name, String favoriteFood, int age, LocalDate entryDate, float weight, float height, float wingspan) {
-        super(name, favoriteFood, age, entryDate, weight, height, wingspan);
+public class Tiger extends AnimalsWithTail {
+
+    public Tiger(String name, String favoriteFood, int age, LocalDate entryDate, float weight, float height, float tailLength) {
+        super(name, favoriteFood, age, entryDate, weight, height, tailLength);
     }
+
     @Override
     public String toString() {
-        return "\n-Eagle{" +
+        return "\n-Tiger{" +
                 "name='" + super.getName() + '\'' +
                 ", favoriteFood='" + super.getFavoriteFood() + '\'' +
                 ", age=" + super.getAge() +
                 ", entryDate=" + super.getEntryDate() +
                 ", weight=" + super.getWeight() +
                 ", height=" + super.getHeight() +
-                ", wingspan=" + super.getWingspan() +
+                ", tailLength=" + super.getTailLength() +
                 '}';
     }
 }

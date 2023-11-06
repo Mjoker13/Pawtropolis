@@ -1,21 +1,22 @@
-package com.example.pawtropolis.model.Animal;
+package com.example.pawtropolis.entity;
 
-import com.example.pawtropolis.model.Game.Room;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Past;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDate;
 
 
-@AllArgsConstructor
-@NoArgsConstructor
+@Setter
 @Getter
 @Entity
-public abstract class Animal {
+@Table(name = "animal")
+public class AnimalEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -32,14 +33,5 @@ public abstract class Animal {
     private float height;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "room_id", referencedColumnName = "id")
-    private Room room;
-
-    public Animal(@NotNull String name, @NotNull String favoriteFood, int age, @NotNull LocalDate entryDate, float weight, float height) {
-        this.name = name;
-        this.favoriteFood = favoriteFood;
-        this.age = age;
-        this.entryDate = entryDate;
-        this.weight = weight;
-        this.height = height;
-    }
+    private RoomEntity room;
 }

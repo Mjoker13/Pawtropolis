@@ -1,8 +1,8 @@
 package com.example.pawtropolis.controller;
 
-import com.example.pawtropolis.model.Animal.Animal;
-import com.example.pawtropolis.model.Animal.AnimalsWithTail;
-import com.example.pawtropolis.model.Animal.AnimalsWithWings;
+import com.example.pawtropolis.DTO.animal.Animal;
+import com.example.pawtropolis.DTO.animal.AnimalsWithTail;
+import com.example.pawtropolis.DTO.animal.AnimalsWithWings;
 import org.springframework.stereotype.Service;
 
 import java.util.*;

@@ -1,7 +1,7 @@
 package com.example.pawtropolis.controller;
 
-import com.example.pawtropolis.model.Game.Item;
-import com.example.pawtropolis.model.Game.Room;
+import com.example.pawtropolis.DTO.game.Item;
+import com.example.pawtropolis.DTO.game.Room;
 import com.example.pawtropolis.gameControls.Direction;
 import lombok.Getter;
 import lombok.Setter;

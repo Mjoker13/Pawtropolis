@@ -1,4 +1,4 @@
-package com.example.pawtropolis.model.Animal;
+package com.example.pawtropolis.DTO.animal;
 
 import lombok.*;
 

@@ -1,4 +1,4 @@
-package com.example.pawtropolis.model.Game;
+package com.example.pawtropolis.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
@@ -6,33 +6,20 @@ import jakarta.validation.constraints.Min;
 import lombok.Getter;
 import lombok.Setter;
 
-
-import java.util.ArrayList;
 import java.util.List;
-
 @Getter
 @Setter
 @Entity
-public class PlayerBag {
+@Table(name ="player_bag")
+public class PlayerBagEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @OneToMany(mappedBy = "player_bag", cascade = CascadeType.ALL)
-    private List<Item> items = new ArrayList<>();
+    private List<ItemEntity> items;
     @Max(20)
     @Min(0)
     private int maxCapacity = 20;
     @OneToOne(mappedBy = "player_bag")
-    private Player player;
-
-    public int getSlotAvailable() {
-        int capacity = 0;
-        if (!items.isEmpty()) {
-            for (Item i : items) {
-                capacity += i.getSlotRequired();
-            }
-        }
-        return maxCapacity - capacity;
-    }
+    private PlayerEntity player;
 }
-
